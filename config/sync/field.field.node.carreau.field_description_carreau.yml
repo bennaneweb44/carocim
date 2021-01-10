@@ -1,0 +1,21 @@
+uuid: 14231974-852b-4c59-9564-77518e1e9dff
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_description_carreau
+    - node.type.carreau
+  module:
+    - text
+id: node.carreau.field_description_carreau
+field_name: field_description_carreau
+entity_type: node
+bundle: carreau
+label: Description
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

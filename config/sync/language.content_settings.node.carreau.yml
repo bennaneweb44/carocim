@@ -1,0 +1,11 @@
+uuid: 77a7f65a-d2b0-4e6b-b6c2-ffb385ff233b
+langcode: fr
+status: true
+dependencies:
+  config:
+    - node.type.carreau
+id: node.carreau
+target_entity_type_id: node
+target_bundle: carreau
+default_langcode: site_default
+language_alterable: false

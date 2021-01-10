@@ -1,0 +1,4 @@
+services:
+  carocim_simulateur.carocimSimulateurService:
+    class: Drupal\carocim_simulateur\Service\carocimSimulateurService
+    arguments: []

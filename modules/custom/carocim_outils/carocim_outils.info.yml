@@ -1,0 +1,5 @@
+name: Carocim Outils
+type: module
+description: Module spécifique pour les classes des outils internes au site Carocim.
+package: Custom
+core: 8.x

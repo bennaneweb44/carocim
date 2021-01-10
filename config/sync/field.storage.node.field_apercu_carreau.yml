@@ -1,0 +1,20 @@
+uuid: 2c741e59-2b7d-42b3-aabc-4059268b6288
+langcode: fr
+status: true
+dependencies:
+  module:
+    - media
+    - node
+id: node.field_apercu_carreau
+field_name: field_apercu_carreau
+entity_type: node
+type: entity_reference
+settings:
+  target_type: media
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

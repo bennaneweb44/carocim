@@ -1,0 +1,29 @@
+uuid: 30dae60f-8c57-4d3c-b47e-1552be44fbbc
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_apercu_carreau
+    - media.type.image
+    - node.type.carreau
+id: node.carreau.field_apercu_carreau
+field_name: field_apercu_carreau
+entity_type: node
+bundle: carreau
+label: 'Aperçu carreau'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: created
+      direction: DESC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

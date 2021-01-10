@@ -1,0 +1,14 @@
+uuid: ad15e456-9ed2-4066-8588-9297459f55f2
+langcode: fr
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: vymHlgJy26BuI5GGj9-IXjwR3dRC5C0tij4BpWJnoqw
+id: feedback
+label: 'Retours utilisateurs sur le site web'
+recipients:
+  - carocim@bennaneweb.fr
+reply: ''
+weight: 0
+message: 'Votre message a été envoyé.'
+redirect: ''

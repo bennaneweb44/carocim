@@ -1,0 +1,14 @@
+<div{{ attributes }} style="margin-bottom: 6em">
+
+    {{ title_prefix }}
+    {% if label %}
+        <strong>{{ label }} :</strong>
+    {% endif %}
+    {{ title_suffix }}
+
+    {% block content %}
+        <br >
+        {{ content }}
+    {% endblock %}
+
+</div>

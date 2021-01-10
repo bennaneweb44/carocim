@@ -1,0 +1,14 @@
+name: Onomasticon
+description: Custom filter to add glossary information to words.
+type: module
+package: custom
+core: 8.x
+core_version_requirement: ^8 || ^9
+
+libraries:
+  - onomasticon/default
+
+# Information added by Drupal.org packaging script on 2020-04-07
+version: '8.x-1.5'
+project: 'onomasticon'
+datestamp: 1586281632

@@ -1,0 +1,8 @@
+uuid: 2d68df69-2def-4cf0-9faa-1905f243f96f
+langcode: fr
+status: true
+dependencies: {  }
+name: Épaisseur
+vid: epaisseur
+description: 'Exemple : 1.6 cm'
+weight: 0

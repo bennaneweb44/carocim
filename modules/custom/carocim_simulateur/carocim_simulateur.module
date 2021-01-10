@@ -1,0 +1,17 @@
+<?php
+
+/**
+ * Implements hook_theme
+ */
+function carocim_simulateur_theme($existing, $type, $theme, $path) {
+    return [
+        'carocim_simulateur_theme_hook' => [
+            'render element' => 'children',
+            'template' => 'carocim-simulateur-theme-hook',
+            'path' => $path . '/templates',
+            'variables' => [
+                'carreaux' => []
+            ]
+        ]
+    ];
+}

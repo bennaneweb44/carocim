@@ -1,0 +1,29 @@
+uuid: fadb8601-176e-4cfc-9a0d-550581f2c807
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_epaisseur_carreau
+    - node.type.carreau
+    - taxonomy.vocabulary.epaisseur
+id: node.carreau.field_epaisseur_carreau
+field_name: field_epaisseur_carreau
+entity_type: node
+bundle: carreau
+label: Épaisseur
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      epaisseur: epaisseur
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

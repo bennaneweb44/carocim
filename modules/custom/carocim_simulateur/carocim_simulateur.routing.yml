@@ -1,0 +1,8 @@
+carocim_simulateur.index:
+  path: '/simulateur-carreaux-de-ciment'
+  defaults:
+    _controller: '\Drupal\carocim_simulateur\Controller\CarocimSimulateurController::index'
+    _title: 'Route Index'
+  requirements:
+    #_permission: 'access content'
+    _custom_access: '\Drupal\carocim_simulateur\Controller\CarocimSimulateurController::access'

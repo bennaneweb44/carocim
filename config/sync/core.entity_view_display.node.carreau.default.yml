@@ -1,0 +1,64 @@
+uuid: 29941a31-94f0-4218-bbab-41bbb5c4f493
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.field.node.carreau.field_apercu_carreau
+    - field.field.node.carreau.field_description_carreau
+    - field.field.node.carreau.field_epaisseur_carreau
+    - field.field.node.carreau.field_format_carreau
+    - field.field.node.carreau.field_miniature_carreau
+    - node.type.carreau
+  module:
+    - image
+    - text
+    - user
+id: node.carreau.default
+targetEntityType: node
+bundle: carreau
+mode: default
+content:
+  field_apercu_carreau:
+    type: entity_reference_entity_view
+    weight: 1
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    region: content
+  field_description_carreau:
+    weight: 4
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_epaisseur_carreau:
+    weight: 3
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_format_carreau:
+    weight: 2
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_miniature_carreau:
+    weight: 0
+    label: above
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+hidden:
+  langcode: true
+  links: true

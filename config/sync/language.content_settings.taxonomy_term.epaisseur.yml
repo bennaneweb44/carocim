@@ -1,0 +1,11 @@
+uuid: 50b635eb-e619-412f-a699-f84fb18ccc69
+langcode: fr
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.epaisseur
+id: taxonomy_term.epaisseur
+target_entity_type_id: taxonomy_term
+target_bundle: epaisseur
+default_langcode: site_default
+language_alterable: false

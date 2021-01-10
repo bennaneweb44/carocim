@@ -1,0 +1,20 @@
+uuid: e959792e-e32d-4cd1-bde5-75818646a2da
+langcode: fr
+status: true
+dependencies:
+  module:
+    - node
+    - taxonomy
+id: node.field_epaisseur_carreau
+field_name: field_epaisseur_carreau
+entity_type: node
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

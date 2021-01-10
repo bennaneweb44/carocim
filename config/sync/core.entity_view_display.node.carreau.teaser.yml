@@ -1,0 +1,31 @@
+uuid: 715704c4-a9fa-45eb-88d8-c57b5c69028d
+langcode: fr
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.carreau.field_apercu_carreau
+    - field.field.node.carreau.field_description_carreau
+    - field.field.node.carreau.field_epaisseur_carreau
+    - field.field.node.carreau.field_format_carreau
+    - field.field.node.carreau.field_miniature_carreau
+    - node.type.carreau
+  module:
+    - user
+id: node.carreau.teaser
+targetEntityType: node
+bundle: carreau
+mode: teaser
+content:
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_apercu_carreau: true
+  field_description_carreau: true
+  field_epaisseur_carreau: true
+  field_format_carreau: true
+  field_miniature_carreau: true
+  langcode: true

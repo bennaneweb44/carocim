@@ -1,0 +1,29 @@
+axios:
+  remote: https://github.com/axios/axios
+  version: "v2.5.16"
+  license:
+    name: MIT
+    url: https://github.com/axios/axios/blob/master/README.md
+    gpl-compatible: true
+  js:
+    //unpkg.com/axios/dist/axios.min.js: { type: external, minified: true }
+
+vue-js:
+  remote: https://github.com/vuejs/vue
+  version: "v2.5.16"
+  license:
+    name: MIT
+    url: https://github.com/vuejs/vue/blob/dev/README.md
+    gpl-compatible: true
+  js:
+    //cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.min.js: { type: external, minified: true }
+
+carocim-simulateur:
+  js:
+    js/carocim-simulateur.js: {}
+  dependencies:
+    - carocim-simulateur/axios
+    - carocim-simulateur/vue-js
+    - core/jquery
+    - core/drupal # general Drupal JS lib
+    - core/jquery.once

@@ -1,0 +1,18 @@
+uuid: bf6afc6d-ed60-4907-a2d2-2870a1c70101
+langcode: fr
+status: true
+dependencies:
+  config:
+    - node.type.carreau
+id: node.carreau.title
+field_name: title
+entity_type: node
+bundle: carreau
+label: Nom
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

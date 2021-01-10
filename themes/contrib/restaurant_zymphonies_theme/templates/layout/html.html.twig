@@ -1,0 +1,319 @@
+{#
+/**
+ * @file
+ * Theme override for the basic structure of a single Drupal page.
+ *
+ * Variables:
+ * - logged_in: A flag indicating if user is logged in.
+ * - root_path: The root path of the current page (e.g., node, admin, user).
+ * - node_type: The content type for the current node, if the page is a node.
+ * - head_title: List of text elements that make up the head_title variable.
+ *   May contain or more of the following:
+ *   - title: The title of the page.
+ *   - name: The name of the site.
+ *   - slogan: The slogan of the site.
+ * - page_top: Initial rendered markup. This should be printed before 'page'.
+ * - page: The rendered page markup.
+ * - page_bottom: Closing rendered markup. This variable should be printed after
+ *   'page'.
+ * - db_offline: A flag indicating if the database is offline.
+ * - placeholder_token: The token for generating head, css, js and js-bottom
+ *   placeholders.
+ *
+ * @see template_preprocess_html()
+ */
+#}
+{%
+  set body_classes = [
+    logged_in ? 'user-logged-in',
+    not root_path ? 'path-frontpage' : 'path-' ~ root_path|clean_class,
+    node_type ? 'not-front page-node-type-' ~ node_type|clean_class,
+    db_offline ? 'db-offline',
+  ]
+%}
+<!DOCTYPE html>
+<html{{ html_attributes }}>
+  <head>
+    <head-placeholder token="{{ placeholder_token|raw }}">
+    <title>{{ head_title|safe_join(' | ') }}</title>
+    <css-placeholder token="{{ placeholder_token|raw }}">
+    <js-placeholder token="{{ placeholder_token|raw }}">
+  </head>
+  <body{{ attributes.addClass(body_classes) }}>
+    <a href="#main-content" class="visually-hidden focusable skip-link">
+      {{ 'Skip to main content'|t }}
+    </a>
+    {{ page_top }}
+    {{ page }}
+    {{ page_bottom }}
+    <js-bottom-placeholder token="{{ placeholder_token|raw }}">
+  </body>
+
+  <style>
+
+    /********************************* GLOBAL **************************************/
+    * {
+      font-size: 14px !important;
+    }
+
+    header, body {
+      width: 101%;
+    }
+
+    .social-media {
+      margin-top: -5px;
+    }
+
+    .site-branding__slogan {
+      margin-top: 1px;
+      margin-left: 5px;
+      font-size: 10px !important;
+      color: rgb(253, 139, 130);
+    }
+
+    input[type=text] {
+      padding-left: 8px;
+    }
+
+    /********************************* Slider *************************************/
+    .flex-direction-nav > li > a {
+      margin: -20px 20px -25px 10px;
+    }
+
+    /***************************** Slider : image *********************************/
+    .flexslider .slides img {
+      height: 56em !important;
+    }
+
+    /******************************** Copyright ************************************/
+    .copyright {
+      position: fixed;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      color: whitesmoke;
+      text-align: center;
+    }
+
+    /********************************** Search *************************************/
+    input[value="Search"],
+    input[value="Search"]:hover {
+      color: transparent;
+    }
+
+    /***************************** Titre actualité *********************************/
+    h1 > span {
+      font-size: 1.5em !important;
+    }
+
+    #page-title {
+      margin-top: 1em;
+      margin-bottom: 0.5em;
+    }
+
+    /******************************** Article H2 ***********************************/
+    article > h2 {
+      text-align: center;
+    }
+
+    /**************************** Buttons of administration ************************/
+    ul.tabs.primary {
+      text-align: center;
+    }
+
+    /********************************* Submitted ***********************************/
+    .comment-submitted {
+      display: block;
+      text-align: left;
+      border: none;
+      margin-left: -8px;
+    }
+
+    /***************************** Iamge A lire aussi  *****************************/
+    .image-style-large, .image-style-large:hover {
+      border: 1px solid #000;
+    }
+
+    .div-a-lire-aussi {
+      margin-top: 1em;
+    }
+
+    .views-row {
+      margin-bottom: 10px;
+    }
+
+    /****************************** Autres actualites ******************************/
+    .div-autres-actualites {
+      margin-top: 1em;
+      margin-bottom: 8.5em;
+    }
+
+    /******************************* Image contenu *********************************/
+    .image-style-image-actualite-contenu {
+      border: 1px solid #000;
+    }
+
+    .node__content {
+      margin-bottom: 2em;
+    }
+
+    img.col-xs-12 {
+
+    }
+
+    /******************************** Commentaires *********************************/
+    .author-comments {
+      background-color: #ddd;
+      margin-bottom: -25px
+    }
+
+    .comment-wrap.author-comments {
+      width: 100% !important;
+    }
+
+    div.form-actions.js-form-wrapper.form-wrapper {
+      text-align: center;
+    }
+
+    input.button.button--primary.js-form-submit.form-submit {
+      width: 20em;
+    }
+
+    .comment-wrap .author-comments {
+      width: 100%;
+    }
+
+    .js-filter-wrapper.filter-wrapper.js-form-wrapper.form-wrapper,
+    .cke_bottom.cke_reset_all {
+      display: none;
+    }
+
+    .block.block-system.block-system-main-block {
+      margin-bottom: 80px;
+    }
+
+    /*******************************************************************************/
+
+    /*
+      ## Device = Desktops
+      ## Screen = 1281px to higher resolution desktops
+    */
+    @media (min-width: 1281px) {
+      .flex-viewport {
+        max-height: 56em;
+      }
+    }
+
+    /*
+      ##Device = Laptops, Desktops
+      ##Screen = B/w 1025px to 1280px
+    */
+
+    @media (min-width: 1024px) and (max-width: 1280px) {
+
+      * {
+        font-size: 12px !important;
+      }
+
+      /***************************** Slider : image *********************************/
+      .flexslider .slides img {
+        height: 62em !important;
+      }
+    }
+
+    /*
+      Device = Tablets, Ipads (portrait)
+      Screen = B/w 768px to 1024px
+    */
+
+    @media (min-width: 768px) and (max-width: 1023px) {
+
+      .region.region-content {
+        padding-bottom: 1em;
+      }
+
+      /***************************** Slider : image *********************************/
+      .flexslider .slides img {
+        height: 48em !important;
+      }
+    }
+
+    /*
+      Device = Tablets, Ipads (landscape)
+      Screen = B/w 768px to 1024px
+    */
+
+    @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+
+    }
+
+    /*
+      Device = Low Resolution Tablets, Mobiles (Landscape)
+      Screen = B/w 481px to 767px
+    */
+
+    @media (min-width: 481px) and (max-width: 767px) {
+
+      /***************************** Slider : image *********************************/
+      .flexslider .slides img {
+        height: 22em !important;
+      }
+    }
+
+    /*
+      Device = Most of the Smartphones Mobiles (Portrait)
+      Screen = B/w 320px to 479px
+    */
+
+    @media (min-width: 320px) and (max-width: 767px) {
+
+      /******************* Slider ***********************/
+      .flexslider .slider-caption {
+        display: block;
+        text-align: center;
+        width: 76%;
+        top: 25%;
+        left: 36.5%;
+      }
+      .flex-direction-nav {
+        display: block !important;
+      }
+      .flex-direction-nav > li > a {
+        margin: -20px 0 -25px -10px;
+      }
+      .slider-description {
+        display: none !important;
+      }
+
+      /***************************** Slider : image *********************************/
+      .flexslider .slides img {
+        height: 22em !important;
+      }
+
+      /******************* Image ***********************/
+      .image-style-large {
+        max-height: 240px;
+        border: 1px solid #000;
+      }
+
+      /******************* Region ***********************/
+      .region.region-content {
+        padding-bottom: 3em;
+      }
+    }
+
+  </style>
+
+  <script>
+
+    // Mobile => Supprimer le chapeau, et changer le texte du bouton
+    if(window.matchMedia("(max-width: 767px)").matches) {
+      (function($) {
+
+        $('div.slider-caption a.more-link').empty();
+        $('div.slider-caption a.more-link').html('Lire l\'actualité');
+      })(jQuery);
+    }
+  </script>
+
+</html>

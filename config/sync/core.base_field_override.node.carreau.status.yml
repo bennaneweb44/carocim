@@ -1,0 +1,22 @@
+uuid: 6a7df164-352a-4e3d-b5f1-616f888247b8
+langcode: fr
+status: true
+dependencies:
+  config:
+    - node.type.carreau
+id: node.carreau.status
+field_name: status
+entity_type: node
+bundle: carreau
+label: Published
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: Activé
+  off_label: Désactivé
+field_type: boolean

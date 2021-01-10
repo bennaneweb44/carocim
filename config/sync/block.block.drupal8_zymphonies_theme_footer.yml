@@ -1,0 +1,27 @@
+uuid: 804d90da-5012-4a39-a9c5-84c062ba5368
+langcode: fr
+status: true
+dependencies:
+  config:
+    - system.menu.footer
+  module:
+    - system
+  theme:
+    - drupal8_zymphonies_theme
+_core:
+  default_config_hash: EqwG5dMtA9YvbNF3MaYQwRdEuJIb1sTAjZzN0PbZOAs
+id: drupal8_zymphonies_theme_footer
+theme: drupal8_zymphonies_theme
+region: footer_menu
+weight: 0
+provider: null
+plugin: 'system_menu_block:footer'
+settings:
+  id: 'system_menu_block:footer'
+  label: 'Footer menu'
+  provider: system
+  label_display: '0'
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility: {  }

@@ -1,0 +1,8 @@
+uuid: 24ae2a83-0c0e-497a-8e93-a96ef343f059
+langcode: fr
+status: true
+dependencies: {  }
+name: Format
+vid: format
+description: 'Exemple : 15 x 15 cm'
+weight: 0

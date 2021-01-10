@@ -1,0 +1,19 @@
+<p>
+    <h2 class="text-center" id="titreNosCoupsDeCoeur"><i class="far fa-object-ungroup"></i> Simulateur de carreaux de ciment</h2>
+</p>
+
+{% if carreaux is defined %}
+
+    <p>
+        Voici les carreaux envoyés à partir du service :
+    </p>
+
+    {# <ul>
+        {% for carreau in carreaux %}
+            <li>{{ carreau }}</li>
+        {% endfor %}
+    </ul> #}
+
+    <div id="app"></div>
+
+{% endif %}

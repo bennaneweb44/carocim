@@ -1,0 +1,29 @@
+uuid: 9c6a9634-0b36-4699-ae38-ec93ec1e5331
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_format_carreau
+    - node.type.carreau
+    - taxonomy.vocabulary.format
+id: node.carreau.field_format_carreau
+field_name: field_format_carreau
+entity_type: node
+bundle: carreau
+label: Format
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      format: format
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

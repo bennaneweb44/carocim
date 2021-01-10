@@ -1,0 +1,5 @@
+name: Carocim Vues
+type: module
+description: Module spécifique pour gérer (contenu + présentation) les vues selon leurs identifiants.
+package: Custom
+core: 8.x
