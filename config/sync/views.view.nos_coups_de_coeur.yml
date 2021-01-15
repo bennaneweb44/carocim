@@ -114,7 +114,7 @@ display:
           click_sort_column: value
           type: string
           settings:
-            link_to_entity: true
+            link_to_entity: false
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -178,7 +178,7 @@ display:
           type: image
           settings:
             image_style: large
-            image_link: content
+            image_link: ''
           group_column: ''
           group_columns: {  }
           group_rows: true
@@ -292,11 +292,12 @@ display:
   block_1:
     display_plugin: block
     id: block_1
-    display_title: Block
+    display_title: NosCoupsDeCoeur
     position: 1
     display_options:
       display_extenders: {  }
       block_description: 'Nos coups de cœur'
+      display_description: ''
     cache_metadata:
       max-age: -1
       contexts:
