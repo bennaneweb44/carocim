@@ -292,9 +292,10 @@ input[type="submit"]{
   width: inherit;
 }
 
-.search-block-form.contextual-region.block.block-search {
+.search-block-form.block.block-search {
   margin-bottom: -6px;
 }
+
 /*******************************************************************/
 
 .btn:hover, 
