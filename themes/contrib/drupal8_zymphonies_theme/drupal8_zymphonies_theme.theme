@@ -159,14 +159,16 @@ function drupal8_zymphonies_theme_get_slider_content() {
       $path = base_path() . drupal_get_path('theme', 'drupal8_zymphonies_theme') . theme_get_setting('slide_image_path_' . $i, 'drupal8_zymphonies_theme');
     }
     $slider_content[$i] = '<li>
-      <img src="' . $path . '" alt="Slider Banner" />
-      <div class="slider-caption">
-        <h2 class="slider-title">' . theme_get_setting('slide_title_' . $i, 'drupal8_zymphonies_theme').'</h2>
-        <div class="clearfix"><p class="slider-description">' . theme_get_setting('slide_description_' . $i, 'drupal8_zymphonies_theme').'</p></div>
-        <a href=' . theme_get_setting('slide_url_' . $i, 'drupal8_zymphonies_theme') . ' class="more-link">Lire la suite</a>
-      </div>
+      <img src="' . $path . '" alt="Slider Banner" />      
     </li>';
   }
+  /**************************************************** Lire la suite du Slider *********************************************************
+    <div class="slider-caption">
+      <h2 class="slider-title">' . theme_get_setting('slide_title_' . $i, 'drupal8_zymphonies_theme').'</h2>
+      <div class="clearfix"><p class="slider-description">' . theme_get_setting('slide_description_' . $i, 'drupal8_zymphonies_theme').'</p></div>
+      <a href=' . theme_get_setting('slide_url_' . $i, 'drupal8_zymphonies_theme') . ' class="more-link">Lire la suite</a>
+    </div> 
+  */
   return $slider_content;
 }
 
@@ -318,3 +320,12 @@ function drupal8_zymphonies_theme_form_system_theme_settings_alter(&$form, \Drup
 /********************************** Custom preprocess for CAROCIM  ******************************************/
 /************************************************************************************************************/
 
+function drupal8_zymphonies_theme_form_alter(&$form, &$form_state, $form_id) {
+  if ($form_id == 'search_block_form') { 
+    $form['search_block_form']['#title'] = t('Search');
+    $form['search_block_form']['#title_display'] = 'invisible';
+    $form['search_block_form']['#size'] = 50;
+    $form['search_block_form']['#attributes']['placeholder'] = 'Nom du carreaux, catégories, ...etc';
+    $form['actions']['submit']['#value'] = 'Rechercher';
+  }
+}

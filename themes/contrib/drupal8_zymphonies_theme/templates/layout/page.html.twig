@@ -85,6 +85,15 @@
       <!--End Navigation -->
 
       </div>
+
+      <!-- Start Footer First Region -->
+      <div class = {{ footer_class }} style="padding: 0; padding-top: 15px; padding-bottom: -5px; z-index: 0">
+        {% if page.footer_first %}
+          {{ page.footer_first }}
+        {% endif %}
+      </div>
+      <!-- End Footer First Region -->
+
     </div>
   </nav>
 
@@ -328,14 +337,6 @@
     <div class="container">
 
       <div class="row">
-
-        <!-- Start Footer First Region -->
-        <div class = {{ footer_class }}>
-          {% if page.footer_first %}
-            {{ page.footer_first }}
-          {% endif %}
-        </div>
-        <!-- End Footer First Region -->
 
         <!-- Start Footer Second Region -->
         <div class = {{ footer_class }}>

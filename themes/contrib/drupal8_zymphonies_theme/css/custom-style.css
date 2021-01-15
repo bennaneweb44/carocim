@@ -273,13 +273,29 @@ input, button, select, textarea{
 
 .btn, 
 input[type="submit"]{
-  background: #19c2c8;
+  background: #2b82ac;
   color: #fff;
   border: 0;
   padding: 13px;
   line-height: 100%;
-  height: 42px;
+  height: 32px;
+  padding-top: 10px;
 }
+
+/************************** Button Rechercher ***********************/
+#edit-keys {
+  color: #000;
+  height: 32px;  
+}
+
+#search-block-form .form-item, #search-block-form .form-actions { 
+  width: inherit;
+}
+
+.search-block-form.contextual-region.block.block-search {
+  margin-bottom: -6px;
+}
+/*******************************************************************/
 
 .btn:hover, 
 input[type="submit"]:hover{
