@@ -322,10 +322,10 @@ function drupal8_zymphonies_theme_form_system_theme_settings_alter(&$form, \Drup
 
 function drupal8_zymphonies_theme_form_alter(&$form, &$form_state, $form_id) {
   if ($form_id == 'search_block_form') { 
-    $form['search_block_form']['#title'] = t('Search');
-    $form['search_block_form']['#title_display'] = 'invisible';
-    $form['search_block_form']['#size'] = 50;
-    $form['search_block_form']['#attributes']['placeholder'] = 'Nom du carreaux, catégories, ...etc';
     $form['actions']['submit']['#value'] = 'Rechercher';
   }
+}
+
+function drupal8_zymphonies_theme_form_search_block_form_alter(&$form, FormStateInterface $form_state) {
+  $form['keys']['#attributes']['placeholder'] = 'Nom du carreau, catégories, ...etc';
 }

@@ -282,11 +282,22 @@ input[type="submit"]{
   padding-top: 10px;
 }
 
-/************************** Button Rechercher ***********************/
+/************************ Button Rechercher ***********************/
+#search-block-form input {  
+  width: 100%;
+  height: 32px;
+}
+
+#search-block-form input[type=search] {  
+  color: #000 !important;
+}
+
 #edit-keys {
   color: #000;
   height: 32px;  
 }
+
+/*******************************************************************/
 
 #search-block-form .form-item, #search-block-form .form-actions { 
   width: inherit;
@@ -295,7 +306,6 @@ input[type="submit"]{
 .search-block-form.block.block-search {
   margin-bottom: -6px;
 }
-
 /*******************************************************************/
 
 .btn:hover, 
