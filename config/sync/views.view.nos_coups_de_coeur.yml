@@ -4,7 +4,7 @@ status: true
 dependencies:
   config:
     - field.storage.node.field_miniature_carreau
-    - image.style.large
+    - image.style.medium
     - node.type.carreau
   module:
     - image
@@ -114,7 +114,7 @@ display:
           click_sort_column: value
           type: string
           settings:
-            link_to_entity: false
+            link_to_entity: true
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -177,7 +177,7 @@ display:
           click_sort_column: target_id
           type: image
           settings:
-            image_style: large
+            image_style: medium
             image_link: ''
           group_column: ''
           group_columns: {  }
