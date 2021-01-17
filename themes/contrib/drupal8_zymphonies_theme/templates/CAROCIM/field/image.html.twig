@@ -23,6 +23,8 @@
       <img{{ attributes.addClass(classes) }} />
     </div>
   </div>
+{% elseif 'image-style-medium' in classes %}
+  <img {{attributes}} style="border: 2px solid black" class="aRemplacer" />
 {% else %}
   <img{{ attributes.addClass(classes) }} class="col-xs-12" />
 {% endif %}
