@@ -14,6 +14,7 @@ use Drupal\system\Form\ThemeSettingsForm;
 use Drupal\file\Entity\File;
 use Drupal\Core\Url;
 use Drupal\file\Plugin\Core\Entity\FileInterface;
+use Drupal\node\Entity\Node;
 
 /**
  * Implements hook_preprocess_page() for block templates.
@@ -328,4 +329,44 @@ function drupal8_zymphonies_theme_form_alter(&$form, &$form_state, $form_id) {
 
 function drupal8_zymphonies_theme_form_search_block_form_alter(&$form, FormStateInterface $form_state) {
   $form['keys']['#attributes']['placeholder'] = 'Nom du carreau, catégories, ...etc';
+}
+
+/**
+ * Implements hook_preprocess_views_view_unformatted().
+ */
+function drupal8_zymphonies_theme_preprocess_views_view_unformatted(&$variables) {
+  if (isset($variables['view'])) {
+    $view = $variables['view'];
+    
+    if ($view->id() == "nos_coups_de_coeur" && $view->current_display == "block_1") {
+
+      $nids = \Drupal::entityQuery('node')
+      ->condition('type', 'carreau')
+      ->condition('status', '1')
+      ->execute();
+
+      $nodes = \Drupal::entityTypeManager()
+      ->getStorage('node')
+      ->loadMultiple($nids);
+      
+      $variables['carreaux'] = [];
+      foreach($nodes as $node) {
+        if ($node instanceof Drupal\node\Entity\Node) {
+          $id_image = $node->get('field_miniature_carreau')->getValue()[0]['target_id'];
+          
+          // Nom carreau
+          $nomCarreau = $node->get('title')->getValue()[0]['value'];
+
+          // Image carreau
+          $file = File::load($id_image);
+          $std = new \stdClass();
+          $std->nomCarreau = $nomCarreau;
+          $std->imageCarreau = $file->url();
+
+          $variables['carreaux'][] = $std;
+        }
+      } 
+      
+    }
+  }
 }

@@ -1,0 +1,123 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display a view of unformatted rows.
+ *
+ * Available variables:
+ * - title: The title of this group of rows. May be empty.
+ * - rows: A list of the view's row items.
+ *   - attributes: The row's HTML attributes.
+ *   - content: The row's content.
+ * - view: The view object.
+ * - default_row_class: A flag indicating whether default classes should be
+ *   used on rows.
+ *
+ * @see template_preprocess_views_view_unformatted()
+ *
+ * @ingroup themeable
+ */
+#}
+{% if title %}
+  <h3>{{ title }}</h3>
+{% endif %}
+
+{% for row in carreaux %}    
+    <div class="affiche" >                                             
+        <a class="col-md-3 col-sm-6 col-12">
+            {{ row.nomCarreau }} <br />
+            <img src="{{ row.imageCarreau }}" style="border: 2px solid #000 " />            
+        </a>
+
+        <div class="cache col-md-12 text-center" style="background-color: transparent">
+            <span class="close" style="color: yellow">&times;</span>
+            <br style="margin-bottom: 15px;" />        
+            <img src="{{ row.imageCarreau }}" style="height: 100%; width: 100%; border: 2px solid #000" />
+        </div>     
+    </div>
+{% endfor %}
+
+<style>
+        .close {        
+            color: #000 !important;
+            font-size: 30px !important;           
+        }
+        .affiche {
+            display: block;
+            text-align: center;
+            z-index: 5;        
+        }
+        .cache {
+            display: none;
+            position: fixed;
+            z-index: 4;
+            height: 550px;
+            width: 550px;            
+            bottom: 30%;
+            left: 35%;
+        }
+
+        .affiche>a:hover+div.cache {    
+            display: block;   
+            z-index: 6;                             
+        }
+
+        @media (max-width: 640px) {
+            .affiche {
+                margin-left: 20px;
+            }
+            .cache {
+                height: 400px;
+                width: 400px;            
+                bottom: 30%;
+                left: 8px;
+            }
+        }
+
+        @media (min-width: 641px) and (max-width: 768px) {
+            .cache {
+                height: 550px;
+                width: 550px;            
+                bottom: 30%;
+                left: 15%;
+            }
+        }
+
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .cache {
+                height: 550px;
+                width: 550px;            
+                bottom: 30%;
+                left: 25%;
+            }
+        }
+
+        @media (min-width: 1025px) and (max-width: 1439px) {
+            .cache {
+                height: 550px;
+                width: 550px;            
+                bottom: 10%;
+                left: 35%;
+            }
+        }
+
+        @media (min-width: 1440px) {
+            .cache {
+                height: 550px;
+                width: 550px;            
+                bottom: 30%;
+                left: 35%;
+            }
+        }
+        
+    </style>
+
+<script>
+    var closebtns = document.getElementsByClassName("close");
+    var i;
+
+    for (i = 0; i < closebtns.length; i++) {
+        closebtns[i].addEventListener("click", function() {
+            this.parentElement.style.display = 'none';
+        });
+    }
+</script>
