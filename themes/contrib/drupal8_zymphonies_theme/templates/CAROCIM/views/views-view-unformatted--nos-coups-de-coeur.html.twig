@@ -22,94 +22,144 @@
 {% endif %}
 
 {% for row in carreaux %}    
-    <div class="affiche" >                                             
-        <a class="col-md-3 col-sm-6 col-12">
-            {{ row.nomCarreau }} <br />
-            <img src="{{ row.imageCarreau }}" style="border: 2px solid #000 " />            
-        </a>
-
-        <div class="cache col-md-12 text-center" style="background-color: transparent">
-            <span class="close" style="color: yellow">&times;</span>
-            <br style="margin-bottom: 15px;" />        
-            <img src="{{ row.imageCarreau }}" style="height: 100%; width: 100%; border: 2px solid #000" />
-        </div>     
+    
+    <div class="col-md-3 col-sm-6 col-12 loupe" >
+        <div class="text-center" style="height: 45px">
+            <a href="{{ 'node/' ~ row.id  }}" style="position: relative; top: 15px">
+                {{ row.nomCarreau }}
+            </a>
+        </div>                
+        <div class="affiche" onmouseover="showLoop({{ row.id }});" onmouseleave="hideLoop({{ row.id }});" >                
+            <img src="{{ row.imageCarreau }}" style="border: 2px solid #000" />  
+            <div class="imageLoupe" id="loupe_{{ row.id }}" onclick="showZoomedImage({{ row.id }});">
+                <span class="fa fa-search"></span>
+            </div>
+            <div class="cache col-md-12 text-center" style="background-color: transparent" id="zoom_{{ row.id }}">
+                <span class="close">&times;</span>                 
+                <img src="{{ row.imageCarreau }}" style="height: 100%; width: 100%; border: 2px solid #000" />
+            </div>     
+        </div>
     </div>
+        
 {% endfor %}
 
 <style>
-        .close {        
-            color: #000 !important;
-            font-size: 30px !important;           
+    .fa.fa-search {
+        display: block;
+        position: relative;
+        top: 3px;
+        color: #eee;
+        font-size: 16px;
+    }
+    .imageLoupe {
+        display: none;
+        cursor: pointer;
+
+        z-index: 5;
+        position: absolute;
+        left: 50%;
+        top: 57.6%;
+        transform: translate( -50%, -50% );
+        padding: 3px 15px 3px 25px;
+        color: #fff;
+        background-color: rgba(0, 0, 0, 0.3);
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;        
+        content: "\f002"; /* loupe */
+        
+        height: 30px;
+        width: 30px;
+        
+        padding-left: 6px;
+        font-size: 16px !important;
+        border-radius: 5px 5px 5px 5px;
+    }
+
+    .close {        
+        color: #fff !important;
+        font-size: 30px !important;           
+        height: 30px;
+        width: 30px;
+        background-color: #000; 
+        margin-bottom: -30px
+    }
+    .affiche {
+        display: block;
+        text-align: center;
+        z-index: 5;        
+    }
+    .cache {
+        display: none;
+        position: fixed;
+        z-index: 6;
+        height: 550px;
+        width: 550px;            
+        bottom: 30%;
+        left: 35%;
+    }
+
+    .affiche > a:hover + .loupe:last-child {    
+        display: inline-block;   
+        z-index: 6;                             
+    }
+
+
+    @media (max-width: 640px) {
+        .imageLoupe {
+            top: 56.8%;
+            left: 52%;
         }
         .affiche {
-            display: block;
-            text-align: center;
-            z-index: 5;        
+            margin-left: 20px;
         }
         .cache {
-            display: none;
-            position: fixed;
-            z-index: 4;
+            height: 400px;
+            width: 400px;            
+            bottom: 30%;
+            left: 8px;
+        }
+    }
+
+    @media (min-width: 641px) and (max-width: 768px) {
+        .imageLoupe {
+            top: 56.8%;
+        }
+        .cache {
+            height: 550px;
+            width: 550px;            
+            bottom: 30%;
+            left: 15%;
+        }
+    }
+
+    @media (min-width: 769px) and (max-width: 1024px) {
+        .cache {
+            height: 550px;
+            width: 550px;            
+            bottom: 10%;
+            left: 27%;
+        }
+    }
+
+    @media (min-width: 1025px) and (max-width: 1439px) {
+        .cache {
+            height: 550px;
+            width: 550px;            
+            bottom: 8%;
+            left: 26%;
+        }
+    }
+
+    @media (min-width: 1440px) {
+        .cache {
             height: 550px;
             width: 550px;            
             bottom: 30%;
             left: 35%;
         }
-
-        .affiche>a:hover+div.cache {    
-            display: block;   
-            z-index: 6;                             
-        }
-
-        @media (max-width: 640px) {
-            .affiche {
-                margin-left: 20px;
-            }
-            .cache {
-                height: 400px;
-                width: 400px;            
-                bottom: 30%;
-                left: 8px;
-            }
-        }
-
-        @media (min-width: 641px) and (max-width: 768px) {
-            .cache {
-                height: 550px;
-                width: 550px;            
-                bottom: 30%;
-                left: 15%;
-            }
-        }
-
-        @media (min-width: 769px) and (max-width: 1024px) {
-            .cache {
-                height: 550px;
-                width: 550px;            
-                bottom: 30%;
-                left: 25%;
-            }
-        }
-
-        @media (min-width: 1025px) and (max-width: 1439px) {
-            .cache {
-                height: 550px;
-                width: 550px;            
-                bottom: 10%;
-                left: 35%;
-            }
-        }
-
-        @media (min-width: 1440px) {
-            .cache {
-                height: 550px;
-                width: 550px;            
-                bottom: 30%;
-                left: 35%;
-            }
-        }
-        
-    </style>
+    }
+    
+</style>
 
 <script>
     var closebtns = document.getElementsByClassName("close");
@@ -120,4 +170,23 @@
             this.parentElement.style.display = 'none';
         });
     }
+
+    function showLoop(id) 
+    {
+        let element = document.getElementById('loupe_'+id);    
+        element.style.display = 'inline-block';
+    }
+
+    function hideLoop(id) 
+    {
+        let element = document.getElementById('loupe_'+id);    
+        element.style.display = 'none';
+    }
+
+    function showZoomedImage(id)
+    {
+        let element = document.getElementById('zoom_'+id);    
+        element.style.display = 'block';
+    }
+
 </script>

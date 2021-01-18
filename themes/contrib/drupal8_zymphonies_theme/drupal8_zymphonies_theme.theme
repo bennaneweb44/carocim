@@ -349,10 +349,10 @@ function drupal8_zymphonies_theme_preprocess_views_view_unformatted(&$variables)
       ->getStorage('node')
       ->loadMultiple($nids);
       
-      $variables['carreaux'] = [];
+      $variables['carreaux'] = [];      
       foreach($nodes as $node) {
         if ($node instanceof Drupal\node\Entity\Node) {
-          $id_image = $node->get('field_miniature_carreau')->getValue()[0]['target_id'];
+          $id_image = $node->get('field_miniature_carreau')->getValue()[0]['target_id'];                    
           
           // Nom carreau
           $nomCarreau = $node->get('title')->getValue()[0]['value'];
@@ -360,10 +360,11 @@ function drupal8_zymphonies_theme_preprocess_views_view_unformatted(&$variables)
           // Image carreau
           $file = File::load($id_image);
           $std = new \stdClass();
+          $std->id = $node->id();
           $std->nomCarreau = $nomCarreau;
-          $std->imageCarreau = $file->url();
+          $std->imageCarreau = $file->url();          
 
-          $variables['carreaux'][] = $std;
+          $variables['carreaux'][] = $std;          
         }
       } 
       
