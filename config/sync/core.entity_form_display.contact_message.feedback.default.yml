@@ -1,0 +1,71 @@
+uuid: 8b573906-b4c0-4b04-ae10-7084cbe65c45
+langcode: fr
+status: true
+dependencies:
+  config:
+    - contact.form.feedback
+    - field.field.contact_message.feedback.field_entreprise
+    - field.field.contact_message.feedback.field_objet
+    - field.field.contact_message.feedback.field_telephone
+id: contact_message.feedback.default
+targetEntityType: contact_message
+bundle: feedback
+mode: default
+content:
+  copy:
+    weight: 7
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_entreprise:
+    weight: 1
+    settings:
+      size: 120
+      placeholder: Optionnel
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_objet:
+    weight: 4
+    settings:
+      size: 255
+      placeholder: Optionnel
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_telephone:
+    weight: 3
+    settings:
+      size: 20
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  langcode:
+    type: language_select
+    weight: 6
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  mail:
+    weight: 2
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  message:
+    type: string_textarea
+    weight: 5
+    settings:
+      rows: 12
+      placeholder: ''
+    region: content
+    third_party_settings: {  }
+  name:
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  preview: true
+  subject: true

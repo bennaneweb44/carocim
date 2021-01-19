@@ -1,0 +1,21 @@
+uuid: 15c202d5-921c-4d95-8090-8ee8abb029ac
+langcode: fr
+status: true
+dependencies:
+  module:
+    - contact
+id: contact_message.field_entreprise
+field_name: field_entreprise
+entity_type: contact_message
+type: string
+settings:
+  max_length: 120
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

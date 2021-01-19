@@ -1,0 +1,19 @@
+uuid: fdf51217-c6bd-4f78-b10c-972b00e2805b
+langcode: fr
+status: true
+dependencies:
+  config:
+    - contact.form.feedback
+    - field.storage.contact_message.field_entreprise
+id: contact_message.feedback.field_entreprise
+field_name: field_entreprise
+entity_type: contact_message
+bundle: feedback
+label: Entreprise
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,19 @@
+uuid: c5dde1c1-f3cf-4b4a-802f-d10421e2ce95
+langcode: fr
+status: true
+dependencies:
+  config:
+    - contact.form.feedback
+    - field.storage.contact_message.field_objet
+id: contact_message.feedback.field_objet
+field_name: field_objet
+entity_type: contact_message
+bundle: feedback
+label: Objet
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
