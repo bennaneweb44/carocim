@@ -304,7 +304,7 @@ input[type="submit"]{
 }
 
 .search-block-form.block.block-search {
-  margin-bottom: -6px;
+  margin-bottom: 0;
 }
 /*******************************************************************/
 

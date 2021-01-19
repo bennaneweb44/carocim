@@ -160,20 +160,6 @@
 {% endif %}
 <!--End Top Widget -->
 
-
-<!-- Page Title -->
-{%  if page.page_title and not is_front %}
-  <div id="page-title">
-    <div id="page-title-inner">
-      <!-- start: Container -->
-      <div class="container">
-        {{ page.page_title }}
-      </div>
-    </div>
-  </div>
-{% endif %}
-<!-- End Page Title -->
-
 <!-- Nos coups de cœur -->
 {% if is_front %}
   <h2 class="text-center" id="titreNosCoupsDeCoeur"><i class="fa fa-heart"></i> Nos coups de cœur</h2>
@@ -204,6 +190,31 @@
     <div class="row">
       <div class="col-md-12">{{ page.breadcrumb }}</div>
     </div>
+
+    <!-- Page Title -->
+    {% if page.page_title and not is_front %}
+      <div id="page-title">
+        <div id="page-title-inner">
+          <!-- start: Container -->
+          <div class="container">
+            {{ page.page_title }}
+          </div>
+        </div>
+      </div>
+    {% else %}
+      {% set current = path('<current>') %}
+      {% if '/contact' in current %}
+        <div id="page-title">
+          <div id="page-title-inner">
+            <!-- start: Container -->
+            <div class="container">
+              <h2 class="text-center" id="titreNosCoupsDeCoeur"><i class="fa fa-envelope"></i> Nous contacter</h2>
+            </div>
+          </div>
+        </div>
+      {% endif %}
+    {% endif %}
+    <!-- End Page Title -->
 
     <div class="row layout">
       <!--- Start Left SideBar -->
