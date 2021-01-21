@@ -98,12 +98,6 @@
         left: 35%;
     }
 
-    .affiche > a:hover + .loupe:last-child {    
-        display: inline-block;   
-        z-index: 6;                             
-    }
-
-
     @media (max-width: 640px) {
         .imageLoupe {
             top: 56.8%;
@@ -139,6 +133,10 @@
             bottom: 10%;
             left: 27%;
         }
+        .affiche > a:hover + .loupe:last-child {    
+            display: inline-block;   
+            z-index: 6;                             
+        }
     }
 
     @media (min-width: 1025px) and (max-width: 1439px) {
@@ -147,6 +145,10 @@
             width: 550px;            
             bottom: 8%;
             left: 26%;
+        }
+        .affiche > a:hover + .loupe:last-child {    
+            display: inline-block;   
+            z-index: 6;                             
         }
     }
 
@@ -157,11 +159,16 @@
             bottom: 30%;
             left: 35%;
         }
+        .affiche > a:hover + .loupe:last-child {    
+            display: inline-block;   
+            z-index: 6;                             
+        }
     }
     
 </style>
 
 <script>
+
     var closebtns = document.getElementsByClassName("close");
     var i;
 
@@ -171,22 +178,44 @@
         });
     }
 
-    function showLoop(id) 
-    {
-        let element = document.getElementById('loupe_'+id);    
-        element.style.display = 'inline-block';
-    }
+    // N'afficher pas la loupe pour les "mobile" et "tablette"
+    if ( !navigator.userAgent.match(/Android/i)
+        && !navigator.userAgent.match(/webOS/i)
+        && !navigator.userAgent.match(/iPhone/i)
+        && !navigator.userAgent.match(/iPad/i)
+        && !navigator.userAgent.match(/iPod/i)
+        && !navigator.userAgent.match(/BlackBerry/i)
+        && !navigator.userAgent.match(/Windows Phone/i) ) {
 
-    function hideLoop(id) 
-    {
-        let element = document.getElementById('loupe_'+id);    
-        element.style.display = 'none';
-    }
+        function showLoop(id) 
+        {
+            let element = document.getElementById('loupe_'+id);    
+            element.style.display = 'inline-block';
+        }
 
-    function showZoomedImage(id)
-    {
-        let element = document.getElementById('zoom_'+id);    
-        element.style.display = 'block';
+        function hideLoop(id) 
+        {
+            let element = document.getElementById('loupe_'+id);    
+            element.style.display = 'none';
+        }
+
+        function showZoomedImage(id)
+        {
+            let element = document.getElementById('zoom_'+id);    
+            element.style.display = 'block';
+        }
+    } else {
+        function showLoop(id) 
+        {
+        }
+
+        function hideLoop(id) 
+        {
+        }
+
+        function showZoomedImage(id)
+        {
+        }
     }
 
 </script>
