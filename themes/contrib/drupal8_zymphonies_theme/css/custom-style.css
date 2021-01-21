@@ -297,6 +297,15 @@ input[type="submit"]{
   height: 32px;  
 }
 
+/*********************** Formualaire de contact ********************/
+.contact-message-feedback-form.contact-message-form.contact-form > .form-actions.js-form-wrapper.form-wrapper {
+  text-align: center !important;
+}
+
+.contact-message-feedback-form.contact-message-form.contact-form > div > input[name="copy"] {
+  float: left;
+  margin-right: 5px;
+}
 /*******************************************************************/
 
 #search-block-form .form-item, #search-block-form .form-actions { 

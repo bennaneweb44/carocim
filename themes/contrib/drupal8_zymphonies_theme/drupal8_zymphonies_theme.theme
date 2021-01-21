@@ -322,8 +322,15 @@ function drupal8_zymphonies_theme_form_system_theme_settings_alter(&$form, \Drup
 /************************************************************************************************************/
 
 function drupal8_zymphonies_theme_form_alter(&$form, &$form_state, $form_id) {
+  
+  // formulaire de recherche
   if ($form_id == 'search_block_form') { 
     $form['actions']['submit']['#value'] = 'Rechercher';
+  }
+
+  // formulaire de contact
+  if (strpos($form_id, 'contact_message_') !== FALSE) {
+    $form['actions']['preview']['#access'] = FALSE;
   }
 }
 
