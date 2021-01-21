@@ -8,7 +8,7 @@ core_version_requirement: ^8 || ^9
 libraries:
   - onomasticon/default
 
-# Information added by Drupal.org packaging script on 2020-04-07
-version: '8.x-1.5'
+# Information added by Drupal.org packaging script on 2021-01-10
+version: '8.x-1.6'
 project: 'onomasticon'
-datestamp: 1586281632
+datestamp: 1610237309

@@ -24,7 +24,9 @@ use Masterminds\HTML5;
  *     "onomasticon_implement" = "extra_element",
  *     "onomasticon_orientation" = "below",
  *     "onomasticon_cursor" = "default",
- *     "onomasticon_repetition" = true
+ *     "onomasticon_repetition" = true,
+ *     "onomasticon_ignorecase" = false,
+ *     "onomasticon_termlink" = false,
  *   },
  * )
  */
@@ -115,8 +117,11 @@ class FilterOnomasticon extends FilterBase {
       }
     }
 
-    // Export DOMDocument as HTML5
-    $text = $body->ownerDocument->saveHTML($body);
+    // Export all "body" childes as HTML 5.
+    $text = '';
+    foreach ($body->childNodes as $childNode) {
+      $text .= $body->ownerDocument->saveHTML($childNode);
+    }
     // Prepare return object.
     $result = new FilterProcessResult($text);
 
@@ -316,7 +321,7 @@ class FilterOnomasticon extends FilterBase {
         }
 
         // Get the aliased term path
-        $aliasManager = \Drupal::service('path.alias_manager');
+        $aliasManager = \Drupal::service('path_alias.manager');
         $termpath = $aliasManager->getAliasByPath('/taxonomy/term/' . $term->id());
 
         $onomasticon = [
@@ -335,7 +340,7 @@ class FilterOnomasticon extends FilterBase {
         $replacements[$placeholder] = trim(\Drupal::service('renderer')
           ->render($onomasticon));
 
-        $text = preg_replace("/(?<![a-zA-Z0-9_äöüÄÖÜ])" . $needle . "(?![a-zA-Z0-9_äöüÄÖÜ])/", $placeholder, $text, $preg_limit);
+        $text = preg_replace("/(?<![a-zA-Z0-9_äöüÄÖÜ])" . preg_quote($needle, '/') . "(?![a-zA-Z0-9_äöüÄÖÜ])/", $placeholder, $text, $preg_limit);
       }
 
       foreach ($replacements as $placeholder => $replacement) {
