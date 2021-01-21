@@ -179,6 +179,7 @@
     }
 
     // N'afficher pas la loupe pour les "mobile" et "tablette"
+    let affiche = false;
     if ( !navigator.userAgent.match(/Android/i)
         && !navigator.userAgent.match(/webOS/i)
         && !navigator.userAgent.match(/iPhone/i)
@@ -186,36 +187,31 @@
         && !navigator.userAgent.match(/iPod/i)
         && !navigator.userAgent.match(/BlackBerry/i)
         && !navigator.userAgent.match(/Windows Phone/i) ) {
+            affiche = true;
+    }
 
-        function showLoop(id) 
-        {
+    function showLoop(id) 
+    {
+        if (affiche) {
             let element = document.getElementById('loupe_'+id);    
             element.style.display = 'inline-block';
-        }
+        }            
+    }
 
-        function hideLoop(id) 
-        {
+    function hideLoop(id) 
+    {
+        if (affiche) {
             let element = document.getElementById('loupe_'+id);    
             element.style.display = 'none';
-        }
+        }            
+    }
 
-        function showZoomedImage(id)
-        {
+    function showZoomedImage(id)
+    {
+        if (affiche) {
             let element = document.getElementById('zoom_'+id);    
             element.style.display = 'block';
-        }
-    } else {
-        function showLoop(id) 
-        {
-        }
-
-        function hideLoop(id) 
-        {
-        }
-
-        function showZoomedImage(id)
-        {
-        }
+        }            
     }
 
 </script>
