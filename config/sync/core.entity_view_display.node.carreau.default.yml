@@ -52,7 +52,7 @@ content:
     region: content
   field_miniature_carreau:
     weight: 0
-    label: above
+    label: hidden
     settings:
       image_style: ''
       image_link: ''
