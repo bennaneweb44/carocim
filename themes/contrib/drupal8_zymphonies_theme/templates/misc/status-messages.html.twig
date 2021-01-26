@@ -46,7 +46,15 @@
           {% endfor %}
         </ul>
       {% else %}
-        {{ messages|first }}
+
+        {############################### Redéfinition des messages #############################################}
+        {% if messages|first == "Veuillez saisir des mots-clés." %}
+          Veuillez saisir votre recherche.
+        {% else %}
+          {{ messages|first }}  
+        {% endif %}        
+        {############################ Redéfinition des messages : END  #########################################}
+
       {% endif %}
     {% if type == 'error' %}
       </div>
