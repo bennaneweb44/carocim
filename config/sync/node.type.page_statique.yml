@@ -1,0 +1,18 @@
+uuid: 19f0ee83-533e-435d-97f0-72830708fddf
+langcode: fr
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+name: 'Page statique'
+type: page_statique
+description: 'Chapeau (optionnel ) + Contenu (WYSIWYG)'
+help: 'Chapeau (optionnel ) + Contenu (WYSIWYG)'
+new_revision: true
+preview_mode: 1
+display_submitted: false

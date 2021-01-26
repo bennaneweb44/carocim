@@ -1,0 +1,21 @@
+uuid: 6635effa-2515-46d7-b8bb-adb86d023824
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_resume
+    - paragraphs.paragraphs_type.principal
+  module:
+    - text
+id: paragraph.principal.field_resume
+field_name: field_resume
+entity_type: paragraph
+bundle: principal
+label: Résumé
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

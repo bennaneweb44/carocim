@@ -1,0 +1,31 @@
+uuid: 228149c8-c52d-4b9a-b274-a4a98f3ec850
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_image_chapeau_contenu
+    - node.type.page_statique
+    - paragraphs.paragraphs_type.principal
+  module:
+    - entity_reference_revisions
+id: node.page_statique.field_image_chapeau_contenu
+field_name: field_image_chapeau_contenu
+entity_type: node
+bundle: page_statique
+label: 'Image + chapeau + contenu'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      principal: principal
+    target_bundles_drag_drop:
+      principal:
+        enabled: true
+        weight: 2
+field_type: entity_reference_revisions

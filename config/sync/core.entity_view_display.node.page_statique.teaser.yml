@@ -1,0 +1,23 @@
+uuid: b88afa2b-8c92-42b0-96aa-82f6f02cc65d
+langcode: fr
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.page_statique.field_image_chapeau_contenu
+    - node.type.page_statique
+  module:
+    - user
+id: node.page_statique.teaser
+targetEntityType: node
+bundle: page_statique
+mode: teaser
+content:
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_image_chapeau_contenu: true
+  langcode: true
