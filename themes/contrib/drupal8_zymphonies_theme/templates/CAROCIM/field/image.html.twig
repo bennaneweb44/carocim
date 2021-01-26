@@ -26,7 +26,8 @@
 {% elseif 'image-style-medium' in classes %}
   <img {{attributes}} style="border: 2px solid black" class="aRemplacer" />
 {% else %}
-  <img{{ attributes.addClass(classes) }} class="col-xs-12" />
+  {# Page de contenu statique : /presentation, /histoire ... #}
+  <img{{ attributes.addClass(classes) }} class="img-responsive imgPageStatique" />
 {% endif %}
 
 <style>
@@ -62,4 +63,21 @@
     -o-transform: scale(1.25); /* Opera */
     transform: scale(1.25);
   }
+
+  .imgPageStatique {
+    border: 3px solid #000;
+    height: 500px;
+    width: 550px;
+    margin: auto;
+    margin-bottom: 2em;
+    border-radius: 0.4em;
+  }
+
+  /**** Image pas trp haute sur mobile ****/
+  @media (max-width: 640px) {
+    .imgPageStatique {
+      height: 350px;
+    }
+  }
+
 </style>

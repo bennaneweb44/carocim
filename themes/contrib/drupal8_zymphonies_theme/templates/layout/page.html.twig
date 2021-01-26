@@ -212,6 +212,11 @@
             </div>
           </div>
         </div>
+      {% else %}
+        {# Pages statiques : /presentation, /histoire .... #}
+        <div class="row" style="height: 6em">              
+          <h1 class="text-center" id="titreNosCoupsDeCoeur">{{ node.label }}</h1>
+        </div>
       {% endif %}
     {% endif %}
     <!-- End Page Title -->
