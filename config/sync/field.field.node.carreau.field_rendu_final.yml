@@ -1,17 +1,17 @@
-uuid: 3d3e794b-d977-467c-99f9-fbaa04d33d46
+uuid: 8a8b40ea-cd41-4b9d-a8bd-4b620a2c8090
 langcode: fr
 status: true
 dependencies:
   config:
-    - field.storage.node.field_miniature_carreau
+    - field.storage.node.field_rendu_final
     - node.type.carreau
   module:
     - image
-id: node.carreau.field_miniature_carreau
-field_name: field_miniature_carreau
+id: node.carreau.field_rendu_final
+field_name: field_rendu_final
 entity_type: node
 bundle: carreau
-label: 'Miniature carreau'
+label: 'Rendu final'
 description: ''
 required: true
 translatable: false
