@@ -34,12 +34,12 @@
         <div class="affiche" onmouseover="showLoop({{ row.id }});" onmouseleave="hideLoop({{ row.id }});">              
 
             <!-- Image Mobile-->
-            <img class="hidden-xs hidden-sm " src="{{ row.imageCarreau }}" style="border: 2px solid #000" />
+            <img class="hidden-md-up" src="{{ row.imageCarreau }}" style="border: 2px solid #000" />
             <!-- Image Desktop -->
-            <img class="hidden-md hidden-lg" src="{{ row.imageCarreau }}" style="border: 2px solid #000" data-toggle="modal" data-target="#modal_desktop_{{ row.id }}"/>
+            <img class="hidden-sm-down" src="{{ row.imageCarreau }}" style="border: 2px solid #000" data-toggle="modal" data-target="#modal_desktop_{{ row.id }}"/>
 
             <!-- Boutton Rendu -->
-            <div class="imageLoupe hidden-xs hidden-sm " id="loupe_{{ row.id }}" data-toggle="modal" data-target="#modal_desktop_{{ row.id }}">
+            <div class="imageLoupe hidden-sm-down" id="loupe_{{ row.id }}" data-toggle="modal" data-target="#modal_desktop_{{ row.id }}">
                 Rendu
             </div>
 
@@ -107,41 +107,132 @@
         text-align: center;
         z-index: 5;        
     }
+
+    /* 
+    ##Device = Desktops
+    ##Screen = 1281px to higher resolution desktops
+    */
+
+    @media (min-width: 1281px) {
+
+        .hidden-sm-down {
+            display: none;
+        }
+        .hidden-md-up {
+            display: block;
+        }   
+
+        .affiche > a:hover + .loupe:last-child {    
+            display: inline-block;   
+            z-index: 6;                             
+        }
+    }
+
+    /* 
+    ##Device = Laptops, Desktops
+    ##Screen = B/w 1025px to 1280px
+    */
+
+    @media (min-width: 1025px) and (max-width: 1280px) {
     
-    @media (max-width: 640px) {
+        .hidden-sm-down {
+            display: none;   
+        }
+        .hidden-md-up {
+            display: block ;
+        }  
+
+        .affiche > a:hover + .loupe:last-child {    
+            display: inline-block;   
+            z-index: 6;                             
+        }
+    }
+
+    /***************************************************************/
+
+    /* 
+    ##Device = Tablets, Ipads (portrait)
+    ##Screen = B/w 768px to 1024px
+    */
+
+    @media (min-width: 768px) and (max-width: 1024px) {
+    
+        .hidden-sm-down {
+            display: block;   
+        }
+        .hidden-md-up {
+            display: none;
+        }  
+        .imageLoupe {
+            display: none;
+        }
+    }
+
+    /* 
+    ##Device = Tablets, Ipads (landscape)
+    ##Screen = B/w 768px to 1024px
+    */
+
+    @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+    
+        .hidden-sm-down {
+            display: block;   
+        }
+        .hidden-md-up {
+            display: none;
+        }
+        .imageLoupe {
+            display: none;
+        }
+    }
+
+    /* 
+    ##Device = Low Resolution Tablets, Mobiles (Landscape)
+    ##Screen = B/w 481px to 767px
+    */
+
+    @media (min-width: 481px) and (max-width: 767px) {
+    
+        .hidden-sm-down {
+            display: block;   
+        }
+        .hidden-md-up {
+            display: none;
+        }
+        .imageLoupe {
+            top: 56.8%;
+        }
+        .imageLoupe {
+            display: none;
+        }
+    }
+
+    /* 
+    ##Device = Most of the Smartphones Mobiles (Portrait)
+    ##Screen = B/w 320px to 479px
+    */
+
+    @media (min-width: 320px) and (max-width: 480px) {
+        
+        .hidden-sm-down {
+            display: block;   
+        }
+        .hidden-md-up {
+            display: none;
+        }
+
         .imageLoupe {
             top: 56.8%;
             left: 52%;
         }
         .affiche {
-            margin-left: 5px;
+            margin-left: 25px;
         }
-    }
-
-    @media (min-width: 641px) and (max-width: 768px) {
         .imageLoupe {
             top: 56.8%;
         }
-    }
-
-    @media (min-width: 769px) and (max-width: 1024px) {
-        /*.affiche > a:hover + .loupe:last-child {    
-            display: inline-block;   
-            z-index: 6;                             
-        }*/
-    }
-
-    @media (min-width: 1025px) and (max-width: 1439px) {
-        .affiche > a:hover + .loupe:last-child {    
-            display: inline-block;   
-            z-index: 6;                             
-        }
-    }
-
-    @media (min-width: 1440px) {
-        .affiche > a:hover + .loupe:last-child {    
-            display: inline-block;   
-            z-index: 6;                             
+        .imageLoupe {
+            display: none;
         }
     }
     
@@ -149,21 +240,19 @@
 
 <script>
 
-    // N'afficher pas la loupe pour les "mobile" et "tablette"
-    let desktop = false;
-    if ( !navigator.userAgent.match(/Android/i)
-        && !navigator.userAgent.match(/webOS/i)
-        && !navigator.userAgent.match(/iPhone/i)
-        && !navigator.userAgent.match(/iPad/i)
-        && !navigator.userAgent.match(/iPod/i)
-        && !navigator.userAgent.match(/BlackBerry/i)
-        && !navigator.userAgent.match(/Windows Phone/i) ) {
-            desktop = true;
+    // N'afficher pas la loupe pour les "mobile" et "tablette"    
+    let screen = 'desktop';
+    if (navigator.userAgent.match(/(android|iphone|ipad|blackberry|symbian|symbianos|symbos|netfront|model-orange|javaplatform|iemobile|windows phone|samsung|htc|opera mobile|opera mobi|opera mini|presto|huawei|blazer|bolt|doris|fennec|gobrowser|iris|maemo browser|mib|cldc|minimo|semc-browser|skyfire|teashark|teleca|uzard|uzardweb|meego|nokia|bb10|playbook)/gi)) {
+        if ( ((screen.width  >= 480) && (screen.height >= 800)) || ((screen.width  >= 800) && (screen.height >= 480)) || navigator.userAgent.match(/ipad/gi) ) {
+            screen = 'tablet';
+        } else {
+            screen = 'mobile';
+        }
     }
 
     function showLoop(id) 
     {
-        if (desktop) {
+        if (screen == 'desktop') {
             let element = document.getElementById('loupe_'+id);    
             element.style.display = 'inline-block';
         }            
@@ -171,7 +260,7 @@
 
     function hideLoop(id) 
     {
-        if (desktop) {
+        if (screen == 'desktop') {
             let element = document.getElementById('loupe_'+id);    
             element.style.display = 'none';
         }            
