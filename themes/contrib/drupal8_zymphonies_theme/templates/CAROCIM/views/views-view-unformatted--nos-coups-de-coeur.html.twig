@@ -39,7 +39,7 @@
             <img class="hidden-sm-down" src="{{ row.imageCarreau }}" style="border: 2px solid #000" data-toggle="modal" data-target="#modal_desktop_{{ row.id }}"/>
 
             <!-- Boutton Rendu -->
-            <div class="imageLoupe hidden-sm-down" id="loupe_{{ row.id }}" data-toggle="modal" data-target="#modal_desktop_{{ row.id }}">
+            <div class="imageLoupe hidden-sm-down text-center" id="loupe_{{ row.id }}" data-toggle="modal" data-target="#modal_desktop_{{ row.id }}">
                 Rendu
             </div>
 
@@ -48,29 +48,27 @@
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
             
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="labelModal">{{ row.nomCarreau }}</h5>
+                        <div class="modal-body">
+                            <h2 class="pull-left">Rendu final</h2>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
+                            <img src="{{ row.imageCarreau }}" style="height: 100%; width: 100%; border: 2px solid #000" />                            
                         </div>
-                
-                        <div class="modal-body">
-                            <img src="{{ row.imageCarreau }}" style="height: 100%; width: 100%; border: 2px solid #000" />
-                        </div>
-                
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
                         </div>
                     </div>
                 </div>
             </div>
+
         </div>
     </div>
         
 {% endfor %}
 
-<style>
+<style>    
+
     .fa.fa-search {
         display: block;
         position: relative;
@@ -89,13 +87,13 @@
         transform: translate( -50%, -50% );
         padding: 3px 15px 3px 25px;
         color: #fff;
-        background-color: rgba(0, 0, 0, 0.3);
+        background-color: rgba(0, 0, 0, 0.4);
         font-family: "Font Awesome 5 Free";
         font-weight: 900;        
         content: "\f002"; /* loupe */
         
         height: 30px;
-        width: 80px;
+        width: 60px;
         
         padding-left: 6px;
         font-size: 16px !important;
@@ -104,8 +102,20 @@
     
     .affiche {
         display: block;
-        text-align: center;
         z-index: 5;        
+    }
+
+    .close {
+        font-size: 3em;
+        color: #000;
+    }
+
+    .modal-footer {
+        margin-top: -25px;
+        margin-bottom: -7px;
+    }
+    .modal-body {
+        padding-top: 0;
     }
 
     /* 
@@ -194,16 +204,19 @@
     @media (min-width: 481px) and (max-width: 767px) {
     
         .hidden-sm-down {
-            display: block;   
+            display: inline-block;   
         }
         .hidden-md-up {
             display: none;
         }
+
         .imageLoupe {
             top: 56.8%;
-        }
-        .imageLoupe {
+            left: 52%;
             display: none;
+        }
+        .affiche {
+            margin: auto !important;
         }
     }
 
@@ -215,7 +228,7 @@
     @media (min-width: 320px) and (max-width: 480px) {
         
         .hidden-sm-down {
-            display: block;   
+            display: inline-block;   
         }
         .hidden-md-up {
             display: none;
@@ -224,15 +237,10 @@
         .imageLoupe {
             top: 56.8%;
             left: 52%;
+            display: none;
         }
         .affiche {
-            margin-left: 25px;
-        }
-        .imageLoupe {
-            top: 56.8%;
-        }
-        .imageLoupe {
-            display: none;
+            margin: 0 13%;
         }
     }
     
