@@ -17,6 +17,7 @@
  * @ingroup themeable
  */
 #}
+
 {% if title %}
   <h3>{{ title }}</h3>
 {% endif %}
@@ -29,15 +30,41 @@
                 {{ row.nomCarreau }}
             </a>
         </div>                
-        <div class="affiche" onmouseover="showLoop({{ row.id }});" onmouseleave="hideLoop({{ row.id }});" >                
-            <img src="{{ row.imageCarreau }}" style="border: 2px solid #000" />  
-            <div class="imageLoupe" id="loupe_{{ row.id }}" onclick="showZoomedImage({{ row.id }});">
-                <span class="fa fa-search"></span>
+        
+        <div class="affiche" onmouseover="showLoop({{ row.id }});" onmouseleave="hideLoop({{ row.id }});">              
+
+            <!-- Image Mobile-->
+            <img class="hidden-xs hidden-sm " src="{{ row.imageCarreau }}" style="border: 2px solid #000" />
+            <!-- Image Desktop -->
+            <img class="hidden-md hidden-lg" src="{{ row.imageCarreau }}" style="border: 2px solid #000" data-toggle="modal" data-target="#modal_desktop_{{ row.id }}"/>
+
+            <!-- Boutton Rendu -->
+            <div class="imageLoupe hidden-xs hidden-sm " id="loupe_{{ row.id }}" data-toggle="modal" data-target="#modal_desktop_{{ row.id }}">
+                Rendu
             </div>
-            <div class="cache col-md-12 text-center" style="background-color: transparent" id="zoom_{{ row.id }}">
-                <span class="close">&times;</span>                 
-                <img src="{{ row.imageCarreau }}" style="height: 100%; width: 100%; border: 2px solid #000" />
-            </div>     
+
+            <!-- Modal -->
+            <div class="modal fade" id="modal_desktop_{{ row.id }}" tabindex="-1" role="dialog" aria-labelledby="labelModal" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+            
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="labelModal">{{ row.nomCarreau }}</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                
+                        <div class="modal-body">
+                            <img src="{{ row.imageCarreau }}" style="height: 100%; width: 100%; border: 2px solid #000" />
+                        </div>
+                
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
         
@@ -68,49 +95,26 @@
         content: "\f002"; /* loupe */
         
         height: 30px;
-        width: 30px;
+        width: 80px;
         
         padding-left: 6px;
         font-size: 16px !important;
         border-radius: 5px 5px 5px 5px;
     }
-
-    .close {        
-        color: #fff !important;
-        font-size: 30px !important;           
-        height: 30px;
-        width: 30px;
-        background-color: #000; 
-        margin-bottom: -30px
-    }
+    
     .affiche {
         display: block;
         text-align: center;
         z-index: 5;        
     }
-    .cache {
-        display: none;
-        position: fixed;
-        z-index: 6;
-        height: 550px;
-        width: 550px;            
-        bottom: 30%;
-        left: 35%;
-    }
-
+    
     @media (max-width: 640px) {
         .imageLoupe {
             top: 56.8%;
             left: 52%;
         }
         .affiche {
-            margin-left: 20px;
-        }
-        .cache {
-            height: 400px;
-            width: 400px;            
-            bottom: 30%;
-            left: 8px;
+            margin-left: 5px;
         }
     }
 
@@ -118,34 +122,16 @@
         .imageLoupe {
             top: 56.8%;
         }
-        .cache {
-            height: 550px;
-            width: 550px;            
-            bottom: 30%;
-            left: 15%;
-        }
     }
 
     @media (min-width: 769px) and (max-width: 1024px) {
-        .cache {
-            height: 550px;
-            width: 550px;            
-            bottom: 10%;
-            left: 27%;
-        }
-        .affiche > a:hover + .loupe:last-child {    
+        /*.affiche > a:hover + .loupe:last-child {    
             display: inline-block;   
             z-index: 6;                             
-        }
+        }*/
     }
 
     @media (min-width: 1025px) and (max-width: 1439px) {
-        .cache {
-            height: 550px;
-            width: 550px;            
-            bottom: 8%;
-            left: 26%;
-        }
         .affiche > a:hover + .loupe:last-child {    
             display: inline-block;   
             z-index: 6;                             
@@ -153,12 +139,6 @@
     }
 
     @media (min-width: 1440px) {
-        .cache {
-            height: 550px;
-            width: 550px;            
-            bottom: 30%;
-            left: 35%;
-        }
         .affiche > a:hover + .loupe:last-child {    
             display: inline-block;   
             z-index: 6;                             
@@ -169,17 +149,8 @@
 
 <script>
 
-    var closebtns = document.getElementsByClassName("close");
-    var i;
-
-    for (i = 0; i < closebtns.length; i++) {
-        closebtns[i].addEventListener("click", function() {
-            this.parentElement.style.display = 'none';
-        });
-    }
-
     // N'afficher pas la loupe pour les "mobile" et "tablette"
-    let affiche = false;
+    let desktop = false;
     if ( !navigator.userAgent.match(/Android/i)
         && !navigator.userAgent.match(/webOS/i)
         && !navigator.userAgent.match(/iPhone/i)
@@ -187,12 +158,12 @@
         && !navigator.userAgent.match(/iPod/i)
         && !navigator.userAgent.match(/BlackBerry/i)
         && !navigator.userAgent.match(/Windows Phone/i) ) {
-            affiche = true;
+            desktop = true;
     }
 
     function showLoop(id) 
     {
-        if (affiche) {
+        if (desktop) {
             let element = document.getElementById('loupe_'+id);    
             element.style.display = 'inline-block';
         }            
@@ -200,18 +171,10 @@
 
     function hideLoop(id) 
     {
-        if (affiche) {
+        if (desktop) {
             let element = document.getElementById('loupe_'+id);    
             element.style.display = 'none';
         }            
     }
-
-    function showZoomedImage(id)
-    {
-        if (affiche) {
-            let element = document.getElementById('zoom_'+id);    
-            element.style.display = 'block';
-        }            
-    }
-
+ 
 </script>
