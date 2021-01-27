@@ -359,17 +359,35 @@ function drupal8_zymphonies_theme_preprocess_views_view_unformatted(&$variables)
       $variables['carreaux'] = [];      
       foreach($nodes as $node) {
         if ($node instanceof Drupal\node\Entity\Node) {
-          $id_image = $node->get('field_miniature_carreau')->getValue()[0]['target_id'];                    
-          
+          $std = new \stdClass();
+
+          // Id
+          $std->id = $node->id();
+
           // Nom carreau
           $nomCarreau = $node->get('title')->getValue()[0]['value'];
-
-          // Image carreau
-          $file = File::load($id_image);
-          $std = new \stdClass();
-          $std->id = $node->id();
           $std->nomCarreau = $nomCarreau;
-          $std->imageCarreau = $file->url();          
+
+          // Miniature
+          $std->imageCarreau = '';
+          if (is_array($node->get('field_miniature_carreau')->getValue()) && count($node->get('field_miniature_carreau')->getValue())) {
+            $id_image = $node->get('field_miniature_carreau')->getValue()[0]['target_id'];                    
+            $miniature = File::load($id_image);
+            $std->imageCarreau = $miniature->url();
+          }
+
+          // Rendu final
+          $std->renduFinalCarreau = '';
+          if (is_array($node->get('field_rendu_final')->getValue()) && count($node->get('field_rendu_final')->getValue())) {                        
+            $id_rendu_final = $node->get('field_rendu_final')->getValue()[0]['target_id'];                    
+            $rendu_final = File::load($id_rendu_final);
+            $std->renduFinalCarreau = $rendu_final->url();
+          }
+
+          // Miniature existante mais pas de rendu
+          if ($std->imageCarreau != '' && $std->renduFinalCarreau == '') {
+            $std->renduFinalCarreau = $std->imageCarreau;
+          }
 
           $variables['carreaux'][] = $std;          
         }
