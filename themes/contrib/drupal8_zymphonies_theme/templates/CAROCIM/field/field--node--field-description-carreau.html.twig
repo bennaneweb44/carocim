@@ -72,10 +72,54 @@
         <div class="field__items">
         {% endif %}
         {% for item in items %}
-        <div{{ item.attributes.addClass('field__item') }}>{{ item.content }}</div>
+        <div{{ item.attributes.addClass(['field__item', 'text-left']) }}>{{ item.content }}</div>
         {% endfor %}
         {% if multiple %}
         </div>
         {% endif %}
     </div>
 {% endif %}
+
+<style>
+  .text-left {
+    text-align: left;
+    width: 70%;
+    margin-left: 15%;    
+    margin-right: 15%;
+  }
+  @media (min-width: 320px) and (max-width: 480px) {
+    .text-left {
+      text-align: left;
+      width: 100%;
+      margin-left: 0;    
+      margin-right: 0;
+    }            
+  }
+
+  @media (min-width: 481px) and (max-width: 767px) {
+    .text-left {
+      text-align: left;
+      width: 100%;
+      margin-left: 0;    
+      margin-right: 0;
+    }    
+  }
+
+  @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+    .text-left {
+      text-align: left;
+      width: 100%;
+      margin-left: 0;    
+      margin-right: 0;
+    }
+  }
+
+  @media (min-width: 768px) and (max-width: 1024px) {
+    .text-left {
+      text-align: left;
+      width: 100%;
+      margin-left: 0;    
+      margin-right: 0;
+    }
+  }
+</style>
