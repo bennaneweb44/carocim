@@ -212,11 +212,11 @@
             </div>
           </div>
         </div>
-      {% else %}
+      {% elseif '/presentation' not in current and '/histoire' not in current %}
         {# Pages statiques : /presentation, /histoire .... #}
-        <!--<div class="row" style="height: 6em">              
+        <div class="row" style="height: 6em">              
           <h1 class="text-center" id="titreNosCoupsDeCoeur">{{ node.label }}</h1>
-        </div>-->
+        </div>
       {% endif %}
     {% endif %}
     <!-- End Page Title -->
