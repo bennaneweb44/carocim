@@ -56,7 +56,7 @@
                             <img src="{{ row.imageCarreau }}" style="height: 100%; width: 100%; border: 2px solid #000" />                            
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal" onmouseleave="hideLoop({{ row.id }});">Fermer</button>
+                            <button type="button" class="btn" data-dismiss="modal" onmouseleave="hideLoop({{ row.id }});">Fermer</button>
                         </div>
                     </div>
                 </div>
@@ -122,6 +122,15 @@
 
     .modal-open {
         overflow: auto;
+    }
+
+    .btn {
+        background-color: #333;
+        color: #fff;
+    }
+    .btn:hover {
+        color: #fff;
+        background-color: #666; 
     }
 
     /* 
