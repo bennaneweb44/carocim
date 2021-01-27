@@ -18,11 +18,7 @@
 
 {# Zoom valable que pour les vues de type 'a-lire-aussi' #}
 {% if 'image-style-large' in classes %}
-  <div id="forumGroup">
-    <div class="zoomedImage" class="col-xs-12 col-sm-6 col-md-4 col-xl-4">
-      <img{{ attributes.addClass(classes) }} />
-    </div>
-  </div>
+  <img {{attributes}} style="border: 2px solid black" class="img-responsive imgPageCarreau" />
 {% elseif 'image-style-medium' in classes %}
   <img {{attributes}} style="border: 2px solid black" class="aRemplacer" />
 {% else %}
@@ -64,13 +60,17 @@
     transform: scale(1.25);
   }
 
-  .imgPageStatique {
+  .imgPageStatique, .imgPageCarreau {
     border: 3px solid #000;
     height: 500px;
     width: 70%;
     margin: auto;
     margin-bottom: 2em;
     border-radius: 0.4em;
+  }
+
+  .imgPageCarreau {
+    width: 460px;
   }
 
   /**** Image pas trp haute sur mobile ****/
