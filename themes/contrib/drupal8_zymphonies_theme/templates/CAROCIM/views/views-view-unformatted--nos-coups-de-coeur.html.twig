@@ -22,55 +22,53 @@
   <h3>{{ title }}</h3>
 {% endif %}
 
-<div class="row bg-danger">
-{% for row in carreaux %}    
-    
-    <div class="col-md-3 col-sm-6 col-12 loupe" >
-        <div class="text-center" style="height: 45px">
-            <a href="{{ 'node/' ~ row.id  }}" style="position: relative; top: 15px">
-                {{ row.nomCarreau }}
-            </a>
-        </div>                
-        
-        <div class="affiche" onmouseover="showLoop({{ row.id }});" onmouseleave="hideLoop({{ row.id }});">              
-
-            <!-- Image Mobile-->
-            <img class="hidden-md-up" src="{{ row.imageCarreau }}" style="border: 2px solid #000" />
-            <!-- Image Desktop -->
-            <img class="hidden-sm-down" src="{{ row.imageCarreau }}" style="border: 2px solid #000" data-toggle="modal" data-target="#modal_desktop_{{ row.id }}"/>
-
-            <!-- Boutton Rendu -->
-            <div class="imageLoupe hidden-sm-down text-center" id="loupe_{{ row.id }}" data-toggle="modal" data-target="#modal_desktop_{{ row.id }}">
-                Rendu
-            </div>
-
-            <!-- Modal -->
-            <div class="modal " id="modal_desktop_{{ row.id }}" tabindex="-1" role="dialog" aria-labelledby="labelModal" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
+<div class="row" style="margin-bottom: -2em">
+    {% for row in carreaux %}            
+        <div class="col-md-3 col-sm-6 col-12 loupe" >
+            <div class="text-center" style="height: 45px">
+                <a href="{{ 'node/' ~ row.id  }}" style="position: relative; top: 15px">
+                    {{ row.nomCarreau }}
+                </a>
+            </div>                
             
-                        <div class="modal-body">
-                            <h2 class="pull-left"><i class="fa fa-th"></i> Rendu final</h2>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                            <img src="{{ row.renduFinalCarreau }}" style="height: 100%; width: 100%; border: 2px solid #000" />                            
-                        </div>
-                        <div class="modal-footer">
-                            <a class="btn btn-primary" href="{{ 'node/' ~ row.id  }}">
-                                <i class="fa fa-list"></i> Détails
-                            </a>                            
-                            <button type="button" class="btn" data-dismiss="modal" onmouseleave="hideLoop({{ row.id }});"><i class="fa fa-times"></i> Fermer</button>
+            <div class="affiche" onmouseover="showLoop({{ row.id }});" onmouseleave="hideLoop({{ row.id }});">              
+
+                <!-- Image Mobile-->
+                <img class="hidden-md-up" src="{{ row.imageCarreau }}" style="border: 2px solid #000" />
+                <!-- Image Desktop -->
+                <img class="hidden-sm-down" src="{{ row.imageCarreau }}" style="border: 2px solid #000" data-toggle="modal" data-target="#modal_desktop_{{ row.id }}"/>
+
+                <!-- Boutton Rendu -->
+                <div class="imageLoupe hidden-sm-down text-center" id="loupe_{{ row.id }}" data-toggle="modal" data-target="#modal_desktop_{{ row.id }}">
+                    Rendu
+                </div>
+
+                <!-- Modal -->
+                <div class="modal " id="modal_desktop_{{ row.id }}" tabindex="-1" role="dialog" aria-labelledby="labelModal" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                
+                            <div class="modal-body">
+                                <h2 class="pull-left"><i class="fa fa-th"></i> Rendu final</h2>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                <img src="{{ row.renduFinalCarreau }}" style="height: 100%; width: 100%; border: 2px solid #000" />                            
+                            </div>
+                            <div class="modal-footer">
+                                <a class="btn btn-primary" href="{{ 'node/' ~ row.id  }}">
+                                    <i class="fa fa-list"></i> Détails
+                                </a>                            
+                                <button type="button" class="btn" data-dismiss="modal" onmouseleave="hideLoop({{ row.id }});"><i class="fa fa-times"></i> Fermer</button>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            
+                
 
-        </div>
-    </div>
-        
-{% endfor %}
+            </div>
+        </div>        
+    {% endfor %}
 </div>
 
 <style>    
