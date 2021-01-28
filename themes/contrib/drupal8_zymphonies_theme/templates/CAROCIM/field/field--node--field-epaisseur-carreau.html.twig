@@ -66,7 +66,7 @@
     {% endif %}
 {% else %}
     {% set classes = classes|merge(['text-left']) %}
-    <div{{ attributes.addClass(classes) }}>
+    <div{{ attributes.addClass(classes) }} style="margin-top: 1.5em">
         <div{{ title_attributes.addClass(title_classes) }}><b>{{ label }}</b></div>
         {% if multiple %}
         <div class="field__items">
