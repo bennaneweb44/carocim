@@ -163,13 +163,9 @@
 <!-- Nos coups de cœur -->
 {% if is_front %}
   <h2 class="text-center" id="titreNosCoupsDeCoeur"><i class="fa fa-heart"></i> Nos coups de cœur</h2>
-  
   <br>
-
   {{ render_view('nos_coups_de_coeur', 'block_1') }}
-
   <br>
-
 {% endif %}
 <!-- End : Nos coups de cœur -->
 
@@ -214,7 +210,7 @@
         </div>
       {% elseif '/presentation' not in current and '/histoire' not in current %}
         {# Pages statiques : /presentation, /histoire .... #}
-        <div class="row" style="height: 6em">              
+        <div class="row" style="height: 6em; margin-top: 3em">              
           <h1 class="text-center" id="titreNosCoupsDeCoeur">{{ node.label }}</h1>
         </div>
       {% endif %}
