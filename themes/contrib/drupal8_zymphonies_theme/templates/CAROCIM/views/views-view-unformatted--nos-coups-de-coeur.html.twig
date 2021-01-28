@@ -22,7 +22,7 @@
   <h3>{{ title }}</h3>
 {% endif %}
 
-<div class="row" style="margin-bottom: -2em">
+<div style="margin-bottom: -2em">
     {% for row in carreaux %}            
         <div class="col-md-3 col-sm-6 col-12 loupe" >
             <div class="text-center" style="height: 45px">
@@ -72,6 +72,10 @@
 </div>
 
 <style>    
+
+    .loupe {
+        margin-bottom: 3em;
+    }
 
     .fa.fa-search {
         display: block;
