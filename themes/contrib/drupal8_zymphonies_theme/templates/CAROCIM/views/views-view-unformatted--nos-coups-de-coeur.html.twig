@@ -24,13 +24,7 @@
 
 <div style="margin-bottom: -2em">
     {% for row in carreaux %}            
-        <div class="col-md-3 col-sm-6 col-12 loupe" >
-            <div class="text-center" style="height: 45px">
-                <a href="{{ 'node/' ~ row.id  }}" style="position: relative; top: 15px">
-                    {{ row.nomCarreau }}
-                </a>
-            </div>                
-            
+        <div class="col-md-3 col-sm-6 col-12 loupe" >            
             <div class="affiche" onmouseover="showLoop({{ row.id }});" onmouseleave="hideLoop({{ row.id }});">              
 
                 <!-- Image Mobile-->
@@ -67,6 +61,11 @@
                 
 
             </div>
+            <div class="text-center" style="height: 45px">
+                <a href="{{ 'node/' ~ row.id  }}" style="position: relative; top: 15px; font-size: 18px; font-style: italic">
+                    {{ row.nomCarreau }}
+                </a>
+            </div>
         </div>        
     {% endfor %}
 </div>
@@ -74,7 +73,9 @@
 <style>    
 
     .loupe {
-        margin-bottom: 3em;
+        margin-top: 1.8em;
+        padding-bottom: 1em;        
+        margin-bottom: 1em;
     }
 
     .fa.fa-search {
