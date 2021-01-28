@@ -65,7 +65,7 @@
         {% endfor %}
     {% endif %}
 {% else %}
-    {% set classes = classes|merge(['text-left']) %}
+    {% set classes = classes|merge(['text-right']) %}
     <div{{ attributes.addClass(classes) }}>
         <div{{ title_attributes.addClass(title_classes) }}><b>{{ label }}</b></div>
         {% if multiple %}
@@ -79,3 +79,9 @@
         {% endif %}
     </div>
 {% endif %}
+
+<style>
+  .text-right {
+    margin-right: 10em;
+  }
+</style>
