@@ -65,7 +65,7 @@
         {% endfor %}
     {% endif %}
 {% else %}
-    {% set classes = classes|merge(['text-center']) %}
+    {% set classes = ['row col-md-12 text-left'] %}
     <div{{ attributes.addClass(classes) }}>
         <div{{ title_attributes.addClass(title_classes) }}><b>{{ label }}</b></div>
         {% if multiple %}
@@ -83,9 +83,9 @@
 <style>
   .text-left {
     text-align: left;
-    width: 70%;
-    margin-left: 15%;    
-    margin-right: 15%;
+    width: 90%;
+    margin-left: 5%;    
+    margin-right: 5%;
   }
   @media (min-width: 320px) and (max-width: 480px) {
     .text-left {
