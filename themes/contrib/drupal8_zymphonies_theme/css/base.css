@@ -314,7 +314,7 @@ div.views-field.views-field-title {
 }
 #titreNosCoupsDeCoeur {
   font-size: 2em;
-  font-family: Cursive; /*Pacifico, Arial;*/
+  font-family: "Century Gothic", "Open Sans"; /*Pacifico, Arial;*/
 }
 #titreNosCoupsDeCoeur > i {
   font-size: 1em;
