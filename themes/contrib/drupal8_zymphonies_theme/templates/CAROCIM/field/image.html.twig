@@ -18,8 +18,8 @@
 
 {# Zoom valable que pour les vues de type 'a-lire-aussi' #}
 {% if 'image-style-large' in classes %}
-  <div class="col-md-4">
-    <img {{attributes}} style="border: 2px solid black; " class="img-responsive imgPageCarreau" />
+  <div class="col-md-4 col-sm-6 borderRight">
+    <img {{attributes}} style="border: 2px solid black;" class="img-responsive imgPageCarreau" />
   </div>  
 {% elseif 'image-style-medium' in classes %}
   <img {{attributes}} style="border: 2px solid black" class="aRemplacer" />
@@ -72,9 +72,13 @@
   }
 
   .imgPageCarreau {
-    width: 300px;
-    height: 300px;
-    margin-left: 7em;  
+    width: 100%;
+    height: 100%; 
+  }
+
+  .borderRight {
+    padding: 2em 2em 0 2em; 
+    border-right: 1px solid #ccc;
   }
 
   /**** Image pas trp haute sur mobile ****/
@@ -83,8 +87,13 @@
       width: 100%;
       height: 350px;
     }
-    .imgPageCarreau {
-      height: 350px;
+  }
+
+  /****** Supprimer bordure droite sur tablette et mobile ******/
+
+  @media (min-width: 320px) and (max-width: 768px) {
+    .borderRight {
+      border-right: none;
     }
   }
 

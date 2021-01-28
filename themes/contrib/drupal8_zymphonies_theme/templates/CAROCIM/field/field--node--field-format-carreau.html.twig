@@ -52,6 +52,8 @@
   ]
 %}
 
+<div class="col-md-4 col-sm-12" style="padding: 2em;">
+
 {% if label_hidden %}
     {% if multiple %}
         <div{{ attributes.addClass(classes, 'field__items') }}>
@@ -65,7 +67,7 @@
         {% endfor %}
     {% endif %}
 {% else %}
-    {% set classes = classes|merge(['text-center']) %}
+    {% set classes = classes|merge(['text-left']) %}
     <div{{ attributes.addClass(classes) }}>
         <div{{ title_attributes.addClass(title_classes) }}><b>{{ label }}</b></div>
         {% if multiple %}

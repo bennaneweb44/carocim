@@ -234,10 +234,8 @@
 
       <!--- Start content -->
       {% if page.content %}
-        <div class="content_layout">
-          <div class={{contentlayout}}>
-            {{ page.content }}
-          </div>
+        <div class="row col-md-12" style="margin-top: -2em">
+          {{ page.content }}
         </div>
       {% endif %}
       <!---End content -->
