@@ -28,9 +28,9 @@
             <div class="affiche" onmouseover="showLoop({{ row.id }});" onmouseleave="hideLoop({{ row.id }});">              
 
                 <!-- Image Mobile-->
-                <img class="hidden-md-up" src="{{ row.imageCarreau }}" style="border: 2px solid #000" />
+                <img class="hidden-md-up" src="{{ row.imageCarreau }}" style="border: 2px solid #000; cursor: pointer" data-toggle="modal" data-target="#modal_desktop_{{ row.id }}" />
                 <!-- Image Desktop -->
-                <img class="hidden-sm-down" src="{{ row.imageCarreau }}" style="border: 2px solid #000" data-toggle="modal" data-target="#modal_desktop_{{ row.id }}"/>
+                <img class="hidden-sm-down" src="{{ row.imageCarreau }}" style="border: 2px solid #000; cursor: pointer" data-toggle="modal" data-target="#modal_desktop_{{ row.id }}"/>
 
                 <!-- Boutton Rendu -->
                 <div class="imageLoupe hidden-sm-down text-center" id="loupe_{{ row.id }}" data-toggle="modal" data-target="#modal_desktop_{{ row.id }}">
@@ -57,10 +57,10 @@
                             </div>
                         </div>
                     </div>
-                </div>
-                
+                </div>                
 
             </div>
+
             <div class="text-center" style="height: 45px">
                 <a href="{{ 'node/' ~ row.id  }}" title="Fiche produit" style="position: relative; top: 15px; font-size: 18px; font-style: italic">
                     {{ row.nomCarreau }}

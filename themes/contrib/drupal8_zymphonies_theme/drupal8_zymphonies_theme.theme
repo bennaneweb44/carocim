@@ -157,7 +157,6 @@ function drupal8_zymphonies_theme_get_slider_content() {
         <h2 class="slider-title">' . theme_get_setting('slide_title_' . $i, 'drupal8_zymphonies_theme').'</h2>
         <div class="clearfix">
           <p class="slider-description">' . theme_get_setting('slide_description_' . $i, 'drupal8_zymphonies_theme').'</p>
-          <p>Une bonne contribution ici...</p>
         </div>        
       </div>
     </li>';
