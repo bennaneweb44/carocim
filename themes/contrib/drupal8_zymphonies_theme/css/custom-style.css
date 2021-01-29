@@ -603,6 +603,11 @@ ul.links.inline li{
   margin-bottom: 5px;
 }
 
+/****************** Slide ***************/
+.flexslider .slides img {
+  height: 30em;
+}
+
 .flexslider{
   z-index: 1;
   margin-top: 10px;
@@ -640,3 +645,5 @@ ul.links.inline li{
 .flex-control-paging li a.flex-active{
   background: #fff;
 }
+
+
