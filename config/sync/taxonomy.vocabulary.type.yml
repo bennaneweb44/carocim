@@ -1,0 +1,8 @@
+uuid: 38cf2f3d-8d9f-4965-b094-3aad889fcf6b
+langcode: fr
+status: true
+dependencies: {  }
+name: Type
+vid: type
+description: 'Type de collection (Unis, Frises...)'
+weight: 0

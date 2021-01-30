@@ -6,11 +6,11 @@ dependencies:
     - core.entity_view_mode.node.teaser
     - field.field.node.carreau.field_apercu_carreau
     - field.field.node.carreau.field_description_carreau
-    - field.field.node.carreau.field_epaisseur_carreau
     - field.field.node.carreau.field_format_carreau
     - field.field.node.carreau.field_miniature_carreau
     - field.field.node.carreau.field_reference
     - field.field.node.carreau.field_rendu_final
+    - field.field.node.carreau.field_type
     - node.type.carreau
   module:
     - user
@@ -27,9 +27,9 @@ content:
 hidden:
   field_apercu_carreau: true
   field_description_carreau: true
-  field_epaisseur_carreau: true
   field_format_carreau: true
   field_miniature_carreau: true
   field_reference: true
   field_rendu_final: true
+  field_type: true
   langcode: true

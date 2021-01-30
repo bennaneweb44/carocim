@@ -1,16 +1,16 @@
-uuid: fadb8601-176e-4cfc-9a0d-550581f2c807
+uuid: 0a0a0ffb-d93c-482a-aa23-06758b36b552
 langcode: fr
 status: true
 dependencies:
   config:
-    - field.storage.node.field_epaisseur_carreau
+    - field.storage.node.field_type
     - node.type.carreau
-    - taxonomy.vocabulary.epaisseur
-id: node.carreau.field_epaisseur_carreau
-field_name: field_epaisseur_carreau
+    - taxonomy.vocabulary.type
+id: node.carreau.field_type
+field_name: field_type
 entity_type: node
 bundle: carreau
-label: Épaisseur
+label: Type
 description: ''
 required: true
 translatable: false
@@ -20,7 +20,7 @@ settings:
   handler: 'default:taxonomy_term'
   handler_settings:
     target_bundles:
-      epaisseur: epaisseur
+      type: type
     sort:
       field: name
       direction: asc

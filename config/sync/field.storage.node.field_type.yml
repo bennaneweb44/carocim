@@ -1,12 +1,12 @@
-uuid: e959792e-e32d-4cd1-bde5-75818646a2da
+uuid: a0ddd7fa-b578-4bc1-8315-d0c02bdd8ad1
 langcode: fr
 status: true
 dependencies:
   module:
     - node
     - taxonomy
-id: node.field_epaisseur_carreau
-field_name: field_epaisseur_carreau
+id: node.field_type
+field_name: field_type
 entity_type: node
 type: entity_reference
 settings:

@@ -5,11 +5,11 @@ dependencies:
   config:
     - field.field.node.carreau.field_apercu_carreau
     - field.field.node.carreau.field_description_carreau
-    - field.field.node.carreau.field_epaisseur_carreau
     - field.field.node.carreau.field_format_carreau
     - field.field.node.carreau.field_miniature_carreau
     - field.field.node.carreau.field_reference
     - field.field.node.carreau.field_rendu_final
+    - field.field.node.carreau.field_type
     - image.style.thumbnail
     - node.type.carreau
   module:
@@ -43,25 +43,11 @@ content:
     third_party_settings: {  }
     type: text_textarea
     region: content
-  field_epaisseur_carreau:
-    weight: 6
-    settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: entity_reference_autocomplete
-    region: content
   field_format_carreau:
     weight: 5
-    settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
+    settings: {  }
     third_party_settings: {  }
-    type: entity_reference_autocomplete
+    type: options_select
     region: content
   field_miniature_carreau:
     weight: 2
@@ -86,6 +72,12 @@ content:
       preview_image_style: thumbnail
     third_party_settings: {  }
     type: image_image
+    region: content
+  field_type:
+    weight: 26
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
     region: content
   path:
     type: path
@@ -127,9 +119,9 @@ content:
     weight: 8
     settings:
       match_operator: CONTAINS
+      match_limit: 10
       size: 60
       placeholder: ''
-      match_limit: 10
     region: content
     third_party_settings: {  }
 hidden:
