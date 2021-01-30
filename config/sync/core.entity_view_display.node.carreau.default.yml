@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.node.carreau.field_apercu_carreau
     - field.field.node.carreau.field_description_carreau
+    - field.field.node.carreau.field_epaisseur_carreau
     - field.field.node.carreau.field_format_carreau
     - field.field.node.carreau.field_miniature_carreau
     - field.field.node.carreau.field_reference
@@ -14,6 +15,7 @@ dependencies:
     - node.type.carreau
   module:
     - image
+    - options
     - text
     - user
 id: node.carreau.default
@@ -36,6 +38,13 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: text_default
+    region: content
+  field_epaisseur_carreau:
+    weight: 8
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
     region: content
   field_format_carreau:
     weight: 4

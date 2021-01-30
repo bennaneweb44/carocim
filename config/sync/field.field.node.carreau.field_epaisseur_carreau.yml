@@ -1,0 +1,21 @@
+uuid: 021217cb-b29f-473f-b3ab-021564064ae7
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_epaisseur_carreau
+    - node.type.carreau
+  module:
+    - options
+id: node.carreau.field_epaisseur_carreau
+field_name: field_epaisseur_carreau
+entity_type: node
+bundle: carreau
+label: Epaisseur
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_float

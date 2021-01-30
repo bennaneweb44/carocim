@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.node.carreau.field_apercu_carreau
     - field.field.node.carreau.field_description_carreau
+    - field.field.node.carreau.field_epaisseur_carreau
     - field.field.node.carreau.field_format_carreau
     - field.field.node.carreau.field_miniature_carreau
     - field.field.node.carreau.field_reference
@@ -42,6 +43,12 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: text_textarea
+    region: content
+  field_epaisseur_carreau:
+    weight: 27
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
     region: content
   field_format_carreau:
     weight: 5
