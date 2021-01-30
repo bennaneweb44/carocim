@@ -1,0 +1,19 @@
+uuid: 55e0a899-673e-465a-bef2-9fa7674ef919
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_titre
+    - paragraphs.paragraphs_type.principal
+id: paragraph.principal.field_titre
+field_name: field_titre
+entity_type: paragraph
+bundle: principal
+label: Titre
+description: '70 caractères max'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

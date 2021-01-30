@@ -14,5 +14,5 @@ type: page_statique
 description: 'Chapeau (optionnel ) + Contenu (WYSIWYG)'
 help: 'Chapeau (optionnel ) + Contenu (WYSIWYG)'
 new_revision: true
-preview_mode: 1
+preview_mode: 0
 display_submitted: false

@@ -6,6 +6,7 @@ dependencies:
     - field.field.paragraph.principal.field_image
     - field.field.paragraph.principal.field_resume
     - field.field.paragraph.principal.field_texte
+    - field.field.paragraph.principal.field_titre
     - paragraphs.paragraphs_type.principal
   module:
     - image
@@ -37,5 +38,13 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: text_default
+    region: content
+  field_titre:
+    weight: 3
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
     region: content
 hidden: {  }

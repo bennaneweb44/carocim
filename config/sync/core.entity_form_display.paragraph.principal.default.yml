@@ -6,6 +6,7 @@ dependencies:
     - field.field.paragraph.principal.field_image
     - field.field.paragraph.principal.field_resume
     - field.field.paragraph.principal.field_texte
+    - field.field.paragraph.principal.field_titre
     - image.style.medium
     - paragraphs.paragraphs_type.principal
   module:
@@ -17,7 +18,7 @@ bundle: principal
 mode: default
 content:
   field_image:
-    weight: 0
+    weight: 1
     settings:
       preview_image_style: medium
       progress_indicator: throbber
@@ -25,7 +26,7 @@ content:
     type: image_image
     region: content
   field_resume:
-    weight: 1
+    weight: 2
     settings:
       rows: 5
       placeholder: ''
@@ -33,12 +34,20 @@ content:
     type: text_textarea
     region: content
   field_texte:
-    weight: 2
+    weight: 3
     settings:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
     type: text_textarea
+    region: content
+  field_titre:
+    weight: 0
+    settings:
+      size: 70
+      placeholder: '70 caractères max'
+    third_party_settings: {  }
+    type: string_textfield
     region: content
 hidden:
   created: true
