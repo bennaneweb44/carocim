@@ -25,7 +25,7 @@
   <img {{attributes}} style="border: 2px solid black" class="aRemplacer" />
 {% else %}
   {# Page de contenu statique : /presentation, /histoire ... #}
-  <img{{ attributes.addClass(classes) }} class="img-responsive imgPageStatique" />
+  {#<img{{ attributes.addClass(classes) }} class="img-responsive imgPageStatique" /> #}
 {% endif %}
 
 <style>
@@ -62,7 +62,7 @@
     transform: scale(1.25);
   }
 
-  .imgPageStatique, .imgPageCarreau {
+  .imgPageCarreau {
     border: 3px solid #000;
     height: 500px;
     width: 70%;
@@ -78,14 +78,6 @@
 
   .borderRight {
     padding: 2em 2em 0 2em; 
-  }
-
-  /**** Image pas trp haute sur mobile ****/
-  @media (max-width: 640px) {
-    .imgPageStatique {
-      width: 100%;
-      height: 350px;
-    }
   }
 
 </style>

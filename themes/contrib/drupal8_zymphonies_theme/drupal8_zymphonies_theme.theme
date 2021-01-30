@@ -397,3 +397,29 @@ function drupal8_zymphonies_theme_preprocess_views_view_unformatted(&$variables)
     }
   }
 }
+
+/**
+ * Implements template_preprocess_paragraph().
+ *
+ * @param array $variables
+ *   An associative array containing:
+ *   - elements: An array of elements to display in view mode.
+ *   - paragraph: The paragraph object.
+ *   - view_mode: View mode; e.g., 'full', 'teaser'...
+ */
+
+function drupal8_zymphonies_theme_preprocess_paragraph(&$variables) {
+
+  /** @var \Drupal\paragraphs\Entity\Paragraph $paragraph */
+  if ($variables['paragraph'] instanceof Drupal\paragraphs\Entity\Paragraph) {
+    $paragraph = Drupal\paragraphs\Entity\Paragraph::load($variables['paragraph']->id());
+    $variables['resume'] = $paragraph->get('field_resume')->value;
+    $variables['texte'] = $paragraph->get('field_texte')->value;
+    $variables['titre'] = $paragraph->get('field_titre')->value;
+
+    // image
+    $idImage = $paragraph->get('field_image')->target_id;
+    $miniature = File::load($idImage);
+    $variables['image'] = $miniature->url();
+  }
+}
