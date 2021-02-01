@@ -1,0 +1,29 @@
+uuid: 8f46d54e-fb60-4524-87cb-734595933423
+langcode: fr
+status: true
+dependencies:
+  config:
+    - facets.facet.format_terme_de_taxonomie_name
+  module:
+    - facets
+    - system
+  theme:
+    - drupal8_zymphonies_theme
+id: formattermedetaxonomiename
+theme: drupal8_zymphonies_theme
+region: highlighted
+weight: -4
+provider: null
+plugin: 'facet_block:format_terme_de_taxonomie_name'
+settings:
+  id: 'facet_block:format_terme_de_taxonomie_name'
+  label: 'Format » Terme de taxonomie » Name'
+  provider: facets
+  label_display: '0'
+  block_id: formattermedetaxonomiename
+visibility:
+  request_path:
+    id: request_path
+    pages: /nos-produits/collections/les-unis
+    negate: false
+    context_mapping: {  }

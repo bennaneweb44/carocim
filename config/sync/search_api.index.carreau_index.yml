@@ -1,0 +1,109 @@
+uuid: b41eb6e9-2220-48be-89e5-82875de08319
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_type
+    - field.storage.node.field_format_carreau
+    - search_api.server.database_server
+  module:
+    - taxonomy
+    - node
+    - search_api
+id: carreau_index
+name: 'Carreau index'
+description: 'Index principal pour les facettes des carreaux et les résultats de recherche'
+read_only: false
+field_settings:
+  field_type:
+    label: Type
+    datasource_id: 'entity:node'
+    property_path: field_type
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_type
+  name:
+    label: 'Format » Terme de taxonomie » Name'
+    datasource_id: 'entity:node'
+    property_path: 'field_format_carreau:entity:name'
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_format_carreau
+      module:
+        - taxonomy
+  name_1:
+    label: Name
+    datasource_id: 'entity:taxonomy_term'
+    property_path: name
+    type: string
+    dependencies:
+      module:
+        - taxonomy
+  status:
+    label: null
+    datasource_id: 'entity:node'
+    property_path: status
+    type: boolean
+    dependencies:
+      module:
+        - node
+  title:
+    label: Titre
+    datasource_id: 'entity:node'
+    property_path: title
+    type: string
+    dependencies:
+      module:
+        - node
+  type:
+    label: 'Type de contenu'
+    datasource_id: 'entity:node'
+    property_path: type
+    type: string
+    dependencies:
+      module:
+        - node
+  uid:
+    label: null
+    datasource_id: 'entity:node'
+    property_path: uid
+    type: integer
+    dependencies:
+      module:
+        - node
+datasource_settings:
+  'entity:node':
+    bundles:
+      default: false
+      selected:
+        - carreau
+        - page_statique
+    languages:
+      default: false
+      selected:
+        - fr
+  'entity:taxonomy_term':
+    bundles:
+      default: false
+      selected:
+        - epaisseur
+        - format
+        - type
+    languages:
+      default: false
+      selected:
+        - fr
+processor_settings:
+  add_url: {  }
+  aggregated_field: {  }
+  language_with_fallback: {  }
+  rendered_item: {  }
+tracker_settings:
+  default:
+    indexing_order: fifo
+options:
+  index_directly: true
+  cron_limit: 50
+server: database_server

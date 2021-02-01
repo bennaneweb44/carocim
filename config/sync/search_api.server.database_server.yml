@@ -1,0 +1,14 @@
+uuid: 50b39d94-a620-4525-b1bf-c002da12a995
+langcode: fr
+status: true
+dependencies:
+  module:
+    - search_api_db
+id: database_server
+name: 'Database server'
+description: 'Serveur basé sur un moteur d''indexation en base de données'
+backend: search_api_db
+backend_config:
+  database: 'default:default'
+  min_chars: 2
+  matching: partial
