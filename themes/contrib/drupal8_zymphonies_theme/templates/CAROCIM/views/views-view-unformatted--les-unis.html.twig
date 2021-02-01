@@ -18,61 +18,33 @@
  */
 #}
 
-{% if title %}
-  <h3>{{ title }}</h3>
-{% endif %}
+<div class="row">
+    <div class="col-md-12 text-center">
+        <h1>Les unis</h1>
+    </div>
+</div>
 
-<div style="margin-bottom: -2em">
-    {% for row in carreaux %}            
-        <div class="col-md-3 col-sm-6 col-12 loupe" >            
-            <div class="affiche" onmouseover="showLoop({{ row.id }});" onmouseleave="hideLoop({{ row.id }});">              
-
-                <!-- Image Mobile-->
-                <img class="hidden-md-up" src="{{ row.imageCarreau }}" style="border: 2px solid #000; cursor: pointer" data-toggle="modal" data-target="#modal_desktop_{{ row.id }}" />
-                <!-- Image Desktop -->
-                <img class="hidden-sm-down" src="{{ row.imageCarreau }}" style="border: 2px solid #000; cursor: pointer" data-toggle="modal" data-target="#modal_desktop_{{ row.id }}"/>
-
-                <!-- Boutton Rendu -->
-                <div class="imageLoupe hidden-sm-down text-center" id="loupe_{{ row.id }}" data-toggle="modal" data-target="#modal_desktop_{{ row.id }}">
-                    Rendu
-                </div>
-
-                <!-- Modal -->
-                <div class="modal " id="modal_desktop_{{ row.id }}" tabindex="-1" role="dialog" aria-labelledby="labelModal" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                
-                            <div class="modal-body">
-                                <h2 class="pull-left"><i class="fa fa-th"></i> Rendu final</h2>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                                <img src="{{ row.renduFinalCarreau }}" style="height: 100%; width: 100%; border: 2px solid #000" />                            
-                            </div>
-                            <div class="modal-footer">
-                                <a class="btn btn-primary" href="{{ 'node/' ~ row.id  }}">
-                                    <i class="fa fa-list"></i> Fiche produit
-                                </a>                            
-                                <button type="button" class="btn" data-dismiss="modal" onmouseleave="hideLoop({{ row.id }});"><i class="fa fa-times"></i> Fermer</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>                
-
-            </div>
-
-            <div class="text-center" style="height: 45px">
-                <a href="{{ 'node/' ~ row.id  }}" title="Fiche produit" style="position: relative; top: 15px; font-size: 18px; font-style: italic">
-                    {{ row.nomCarreau }}
-                </a>
-            </div>
-        </div>        
+<div style="margin-bottom: -2em">  
+    {% for row in rows %}  
+        {{ row.content }}  
     {% endfor %}
 </div>
 
 <style>    
 
-    .loupe {
+    img.hidden-md-up, img.hidden-sm-down {
+        border: 2px solid #000;
+        cursor: pointer;
+    }
+
+    .modal-body > img {
+        height: 100%; 
+        width: 100%; 
+        border: 2px solid #000;
+    }
+    
+
+    .loupe {        
         margin-top: 1.8em;
         padding-bottom: 1em;        
         margin-bottom: 1em;
@@ -111,6 +83,9 @@
     
     .affiche {
         display: block;
+        padding-left: auto;
+        padding-right: auto;
+        padding: 15px;
         z-index: 5;        
     }
 
@@ -157,7 +132,7 @@
         }
     }
 
-    /* Device = Laptops, Desktops */
+    /* Laptops, Desktops */
     @media (min-width: 1025px) and (max-width: 1280px) {
     
         .hidden-sm-down {
@@ -187,6 +162,13 @@
         .imageLoupe {
             display: none;
         }
+        .affiche {
+            padding: 35px !important;
+        }
+        img.hidden-md-up, img.hidden-sm-down {
+            height: 100%;
+            width: 100%;
+        }
     }
 
     /* Tablets, Ipads (landscape) */
@@ -200,7 +182,14 @@
         }
         .imageLoupe {
             display: none;
-        }                
+        }         
+        .affiche {
+            padding: 35px !important;
+        }
+        img.hidden-md-up, img.hidden-sm-down {
+            height: 100%;
+            width: 100%;
+        }    
     }
 
     /* Low Resolution Tablets, Mobiles (Landscape) */
@@ -218,16 +207,20 @@
             left: 52%;
             display: none;
         }
-        .affiche {
-            margin: auto !important;
-            padding-left: 17px;
-        }
         .loupe {
             width: 48.5%;
             float: left;
         }
         .slider-caption {
             display: block;
+        }
+
+        .affiche {
+            padding: 35px !important;
+        }
+        img.hidden-md-up, img.hidden-sm-down {
+            height: 100%;
+            width: 100%;
         }
     }
 
@@ -237,7 +230,7 @@
         .hidden-sm-down {
             display: inline-block;   
         }
-        
+
         .hidden-md-up {
             display: none;
         }
@@ -249,7 +242,12 @@
         }
 
         .affiche {
-            margin: 0 13%;
+            padding: 35px !important;
+        }
+
+        img.hidden-md-up, img.hidden-sm-down {
+            height: 100%;
+            width: 100%;
         }
 
         .modal {
@@ -259,7 +257,22 @@
     
 </style>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
+
+    $(".affiche").on('mouseover', function(event){
+        event.preventDefault();
+
+        let id = $(this).attr('id').replace('affiche', '');        
+        $('#loupe_'+id).css('display', 'inline-block');
+    });
+
+    $(".affiche").on('mouseleave', function(event){
+        event.preventDefault();
+
+        let id = $(this).attr('id').replace('affiche', '');        
+        $('#loupe_'+id).css('display', 'none');
+    });
 
     // N'afficher pas la loupe pour les "mobile" et "tablette"    
     let screen = 'desktop';
@@ -275,7 +288,7 @@
     {
         if (screen == 'desktop') {
             let element = document.getElementById('loupe_'+id);    
-            element.style.display = 'inline-block';
+            element.style.display = '';
         }            
     }
 
