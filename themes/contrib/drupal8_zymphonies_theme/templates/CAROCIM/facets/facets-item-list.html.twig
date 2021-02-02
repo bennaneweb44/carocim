@@ -34,7 +34,7 @@
     {%- endif -%}
 
     {%- if items -%}
-      <div class="hidden-sm-down bg-warning">
+      <div class="hidden-sm-down">
         <{{ list_type }}{{ attributes }}>        
             {%- for item in items -%}
               <li{{ item.attributes }}>{{ item.value }}</li>
