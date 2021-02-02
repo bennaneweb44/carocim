@@ -43,8 +43,9 @@
       </div>
       
       <div class="hidden-md-up text-center divFilter">
-        <span style="color: #000; font-weight: bold; margin-top: 1em; margin-bottom: 1em">Filtrer par format</span>
-        <ul>        
+        <span style="color: #000; font-weight: bold; margin-top: 1em; margin-bottom: 1em">Choisir par format</span>
+        <ul>  
+          <li class="btn elemFilter"><a href="{{ url('<front>') }}nos-produits/collections/les-unis">Tous les formats</a></li>
           {% for item in items %}
             <li class="btn elemFilter">{{ item.value }}</li>
           {% endfor %}
