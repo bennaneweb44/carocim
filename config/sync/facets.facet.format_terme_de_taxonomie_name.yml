@@ -12,7 +12,7 @@ name: decor
 url_alias: decor
 weight: 0
 min_count: 0
-show_only_one_result: true
+show_only_one_result: false
 field_identifier: name
 facet_source_id: 'search_api:views_page__les_unis__page_1'
 widget:
@@ -26,7 +26,7 @@ expand_hierarchy: true
 enable_parent_when_child_gets_disabled: true
 hard_limit: 0
 exclude: false
-only_visible_when_facet_source_is_visible: false
+only_visible_when_facet_source_is_visible: true
 processor_configs:
   active_widget_order:
     processor_id: active_widget_order
@@ -46,6 +46,11 @@ processor_configs:
       sort: 40
     settings:
       sort: ASC
+  list_item:
+    processor_id: list_item
+    weights:
+      build: 5
+    settings: {  }
   url_processor_handler:
     processor_id: url_processor_handler
     weights:
@@ -53,5 +58,7 @@ processor_configs:
       build: 15
     settings: {  }
 empty_behavior:
-  behavior: none
+  behavior: text
+  text_format: plain_text
+  text: 'C vide ...!!'
 show_title: false
