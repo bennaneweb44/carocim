@@ -1,4 +1,4 @@
-uuid: bc434726-141b-489a-a984-efecde97f1a9
+uuid: 52eee780-93a9-4006-907a-0c4ac754d86e
 langcode: fr
 status: true
 dependencies:
@@ -10,12 +10,12 @@ dependencies:
     - search_api.index.carreau_index
     - taxonomy.vocabulary.type
   content:
-    - 'taxonomy_term:type:1a3081ad-2ba4-4eae-be44-57f8e733cbb7'
+    - 'taxonomy_term:type:4feb3d5d-3418-4f7d-a9b1-04b8b20addfe'
   module:
     - image
     - search_api
-id: les_unis
-label: 'Les unis'
+id: motifs_florales
+label: 'Motifs florales'
 module: views
 description: 'Vue d''indexation sur le type de carreau "Les unis"'
 tag: ''
@@ -478,7 +478,7 @@ display:
           admin_label: ''
           operator: and
           value:
-            8: 8
+            10: 10
           group: 1
           exposed: false
           expose:
@@ -516,7 +516,7 @@ display:
           error_message: true
           plugin_id: search_api_term
       sorts: {  }
-      title: 'Les unis'
+      title: 'Motifs florales'
       header: {  }
       footer: {  }
       empty:
@@ -556,7 +556,7 @@ display:
     position: 1
     display_options:
       display_extenders: {  }
-      path: nos-produits/collections/les-unis
+      path: nos-produits/collections/motifs-florales
       cache:
         type: none
       defaults:

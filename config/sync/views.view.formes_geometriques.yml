@@ -1,4 +1,4 @@
-uuid: bc434726-141b-489a-a984-efecde97f1a9
+uuid: f9b03332-7d5f-4975-9149-c06716c6ce4c
 langcode: fr
 status: true
 dependencies:
@@ -10,14 +10,14 @@ dependencies:
     - search_api.index.carreau_index
     - taxonomy.vocabulary.type
   content:
-    - 'taxonomy_term:type:1a3081ad-2ba4-4eae-be44-57f8e733cbb7'
+    - 'taxonomy_term:type:df1e9492-261e-4597-b836-62324c71ea2c'
   module:
     - image
     - search_api
-id: les_unis
-label: 'Les unis'
+id: formes_geometriques
+label: 'Formes géométriques'
 module: views
-description: 'Vue d''indexation sur le type de carreau "Les unis"'
+description: 'Vue d''indexation sur le type de carreau "Formes géométriques"'
 tag: ''
 base_table: search_api_index_carreau_index
 base_field: search_api_id
@@ -478,7 +478,7 @@ display:
           admin_label: ''
           operator: and
           value:
-            8: 8
+            9: 9
           group: 1
           exposed: false
           expose:
@@ -516,7 +516,7 @@ display:
           error_message: true
           plugin_id: search_api_term
       sorts: {  }
-      title: 'Les unis'
+      title: 'Formes géométriques'
       header: {  }
       footer: {  }
       empty:
@@ -556,7 +556,7 @@ display:
     position: 1
     display_options:
       display_extenders: {  }
-      path: nos-produits/collections/les-unis
+      path: nos-produits/collections/formes-geometriques
       cache:
         type: none
       defaults:

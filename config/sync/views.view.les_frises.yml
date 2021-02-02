@@ -1,4 +1,4 @@
-uuid: bc434726-141b-489a-a984-efecde97f1a9
+uuid: 3b64dc65-86ec-4d44-bf0e-95792c1148b9
 langcode: fr
 status: true
 dependencies:
@@ -10,14 +10,14 @@ dependencies:
     - search_api.index.carreau_index
     - taxonomy.vocabulary.type
   content:
-    - 'taxonomy_term:type:1a3081ad-2ba4-4eae-be44-57f8e733cbb7'
+    - 'taxonomy_term:type:a42f43f8-df84-40ad-92b4-b4fae671144c'
   module:
     - image
     - search_api
-id: les_unis
-label: 'Les unis'
+id: les_frises
+label: 'Les frises'
 module: views
-description: 'Vue d''indexation sur le type de carreau "Les unis"'
+description: 'Vue d''indexation sur le type de carreau "Formes géométriques"'
 tag: ''
 base_table: search_api_index_carreau_index
 base_field: search_api_id
@@ -478,7 +478,7 @@ display:
           admin_label: ''
           operator: and
           value:
-            8: 8
+            12: 12
           group: 1
           exposed: false
           expose:
@@ -516,7 +516,7 @@ display:
           error_message: true
           plugin_id: search_api_term
       sorts: {  }
-      title: 'Les unis'
+      title: 'Les frises'
       header: {  }
       footer: {  }
       empty:
@@ -556,7 +556,7 @@ display:
     position: 1
     display_options:
       display_extenders: {  }
-      path: nos-produits/collections/les-unis
+      path: nos-produits/collections/les-frises
       cache:
         type: none
       defaults:
