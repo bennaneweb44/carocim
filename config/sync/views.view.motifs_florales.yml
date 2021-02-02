@@ -17,7 +17,7 @@ dependencies:
 id: motifs_florales
 label: 'Motifs florales'
 module: views
-description: 'Vue d''indexation sur le type de carreau "Les unis"'
+description: 'Vue d''indexation sur le type de carreau "Motifs florales"'
 tag: ''
 base_table: search_api_index_carreau_index
 base_field: search_api_id
