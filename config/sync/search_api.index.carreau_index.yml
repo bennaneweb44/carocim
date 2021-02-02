@@ -3,8 +3,8 @@ langcode: fr
 status: true
 dependencies:
   config:
-    - field.storage.node.field_type
     - field.storage.node.field_format_carreau
+    - field.storage.node.field_type
     - search_api.server.database_server
   module:
     - taxonomy
@@ -42,7 +42,7 @@ field_settings:
       module:
         - taxonomy
   status:
-    label: null
+    label: status
     datasource_id: 'entity:node'
     property_path: status
     type: boolean
@@ -66,7 +66,7 @@ field_settings:
       module:
         - node
   uid:
-    label: null
+    label: uid
     datasource_id: 'entity:node'
     property_path: uid
     type: integer

@@ -51,6 +51,12 @@ processor_configs:
     weights:
       build: 5
     settings: {  }
+  raw_value_widget_order:
+    processor_id: raw_value_widget_order
+    weights:
+      sort: 50
+    settings:
+      sort: ASC
   url_processor_handler:
     processor_id: url_processor_handler
     weights:
@@ -58,7 +64,5 @@ processor_configs:
       build: 15
     settings: {  }
 empty_behavior:
-  behavior: text
-  text_format: plain_text
-  text: 'C vide ...!!'
+  behavior: none
 show_title: false
