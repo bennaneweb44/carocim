@@ -24,7 +24,7 @@
  * @ingroup themeable
  */
 #}
-<div class="facets-widget- {{- facet.widget.type -}}" style="text-align: center">
+<div class="facets-widget- {{- facet.widget.type -}}" style="text-align: center; margin-top: 2.5em">
   {% if facet.widget.type %}
     {%- set attributes = attributes.addClass('item-list__' ~ facet.widget.type) %}
   {% endif %}
@@ -34,17 +34,56 @@
     {%- endif -%}
 
     {%- if items -%}
-      <{{ list_type }}{{ attributes }}>
-        {%- for item in items -%}
-          <li{{ item.attributes }}>{{ item.value }}</li>
-        {%- endfor -%}
-      </{{ list_type }}>
+      <div class="hidden-sm-down bg-warning">
+        <{{ list_type }}{{ attributes }}>        
+            {%- for item in items -%}
+              <li{{ item.attributes }}>{{ item.value }}</li>
+            {%- endfor -%}        
+        </{{ list_type }}>
+      </div>
+      
+      <div class="hidden-md-up text-center divFilter">
+        <span style="color: #000; font-weight: bold; margin-top: 1em; margin-bottom: 1em">Filtrer par format</span>
+        <ul>        
+          {% for item in items %}
+            <li class="btn elemFilter">{{ item.value }}</li>
+          {% endfor %}
+        </ul>
+      </div>
     {%- else -%}
       {{- empty -}}
     {%- endif -%}
+
+
   {%- endif %}
 
 {% if facet.widget.type == "dropdown" %}
   <label  id="facet_{{ facet.id }}_label">{{ 'Facet'|t }} {{ facet.label }}</label>
 {%- endif %}
 </div>
+
+<style>
+  .elemFilter {
+    background-color: #ddd !important; 
+    border: 1px solid darkgray; 
+    display: block; 
+    margin: 0.5em 0; 
+    margin-left: -3em;
+  }
+  .elemFilter:hover {
+    background-color: #ccc !important; 
+    color: #000 !important;
+  }
+  .divFilter {
+    background-color: #eee; 
+    border-radius: 4px; 
+    border: 1px solid darkgray; 
+    padding: 0 1em;
+  }
+</style>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+  $('.facet-item__status.js-facet-deactivate').empty();
+  $('.facet-item__status.js-facet-deactivate').append('<i class="fa fa-trash-alt" style="color: darkred; margin-right: 5px"></i>');
+</script>
