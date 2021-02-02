@@ -26,6 +26,23 @@
 
 <style>    
 
+    .zoomedImage {
+        max-width: 100%;
+        -webkit-transition: all 1.5s ease; /* Safari and Chrome */
+        -moz-transition: all 1.5s ease; /* Firefox */
+        -ms-transition: all 1.5s ease; /* IE 9 */
+        -o-transition: all 1.5s ease; /* Opera */
+        transition: all 1.5s ease;
+    }
+
+    .zoomedImage:hover {
+        -webkit-transform: scale(1.10); /* Safari and Chrome */
+        -moz-transform: scale(1.10); /* Firefox */
+        -ms-transform: scale(1.10); /* IE 9 */
+        -o-transform: scale(1.10); /* Opera */
+        transform: scale(1.10);
+    }
+
     img.hidden-md-up, img.hidden-sm-down {
         border: 2px solid #000;
         cursor: pointer;
@@ -51,7 +68,7 @@
         color: #eee;
         font-size: 16px;
     }
-    .imageLoupe {
+    /*.imageLoupe {
         display: none;
         cursor: pointer;
 
@@ -65,7 +82,7 @@
         background-color: rgba(0, 0, 0, 0.4);
         font-family: "Font Awesome 5 Free";
         font-weight: 900;        
-        content: "\f002"; /* loupe */
+        content: "\f002";
         
         height: 30px;
         width: 60px;
@@ -73,7 +90,7 @@
         padding-left: 6px;
         font-size: 16px !important;
         border-radius: 5px 5px 5px 5px;
-    }
+    }*/
     
     .affiche {
         display: block;
@@ -153,9 +170,9 @@
         .hidden-md-up {
             display: none;
         }  
-        .imageLoupe {
+        /*.imageLoupe {
             display: none;
-        }
+        }*/
         .affiche {
             padding: 35px !important;
         }
@@ -174,9 +191,9 @@
         .hidden-md-up {
             display: none;
         }
-        .imageLoupe {
+        /*.imageLoupe {
             display: none;
-        }         
+        }*/         
         .affiche {
             padding: 12px !important;
         }
@@ -196,11 +213,11 @@
             display: none;
         }
 
-        .imageLoupe {
+        /*.imageLoupe {
             top: 56.8%;
             left: 52%;
             display: none;
-        }
+        }*/
         .loupe {
             width: 48.5%;
             float: left;
@@ -229,11 +246,11 @@
             display: none;
         }
 
-        .imageLoupe {
+        /*.imageLoupe {
             top: 56.8%;
             left: 52%;
             display: none;
-        }
+        }*/
 
         .affiche {
             padding: 35px !important;

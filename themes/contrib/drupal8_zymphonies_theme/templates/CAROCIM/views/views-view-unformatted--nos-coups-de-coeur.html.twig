@@ -33,9 +33,9 @@
                 <img class="hidden-sm-down" src="{{ row.imageCarreau }}" style="border: 2px solid #000; cursor: pointer" data-toggle="modal" data-target="#modal_desktop_{{ row.id }}"/>
 
                 <!-- Boutton Rendu -->
-                <div class="imageLoupe hidden-sm-down text-center" id="loupe_{{ row.id }}" data-toggle="modal" data-target="#modal_desktop_{{ row.id }}">
+                <!--<div class="imageLoupe hidden-sm-down text-center" id="loupe_{{ row.id }}" data-toggle="modal" data-target="#modal_desktop_{{ row.id }}">
                     Rendu
-                </div>
+                </div>-->
 
                 <!-- Modal -->
                 <div class="modal " id="modal_desktop_{{ row.id }}" tabindex="-1" role="dialog" aria-labelledby="labelModal" aria-hidden="true">
@@ -85,7 +85,7 @@
         color: #eee;
         font-size: 16px;
     }
-    .imageLoupe {
+    /*.imageLoupe {
         display: none;
         cursor: pointer;
 
@@ -99,7 +99,7 @@
         background-color: rgba(0, 0, 0, 0.4);
         font-family: "Font Awesome 5 Free";
         font-weight: 900;        
-        content: "\f002"; /* loupe */
+        content: "\f002";
         
         height: 30px;
         width: 60px;
@@ -107,7 +107,7 @@
         padding-left: 6px;
         font-size: 16px !important;
         border-radius: 5px 5px 5px 5px;
-    }
+    }*/
     
     .affiche {
         display: block;
@@ -184,9 +184,9 @@
         .hidden-md-up {
             display: none;
         }  
-        .imageLoupe {
+        /*.imageLoupe {
             display: none;
-        }
+        }*/
     }
 
     /* Tablets, Ipads (landscape) */
@@ -198,9 +198,9 @@
         .hidden-md-up {
             display: none;
         }
-        .imageLoupe {
+        /*.imageLoupe {
             display: none;
-        }                
+        }*/                
     }
 
     /* Low Resolution Tablets, Mobiles (Landscape) */
@@ -213,11 +213,11 @@
             display: none;
         }
 
-        .imageLoupe {
+        /*.imageLoupe {
             top: 56.8%;
             left: 52%;
             display: none;
-        }
+        }*/
         .affiche {
             margin: auto !important;
             padding-left: 17px;
@@ -242,11 +242,11 @@
             display: none;
         }
 
-        .imageLoupe {
+        /*.imageLoupe {
             top: 56.8%;
             left: 52%;
             display: none;
-        }
+        }*/
 
         .affiche {
             margin: 0 13%;

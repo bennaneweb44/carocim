@@ -18,14 +18,16 @@
 
 {# Zoom valable que pour les vues de type 'a-lire-aussi' #}
 {% if 'image-style-large' in classes %}
-  <div class="col-md-5 col-sm-6 borderRight">
+  <div class="col-md-5 col-sm-6 borderRight zoomedImage">
     <img {{attributes}} style="border: 2px solid black;" class="img-responsive imgPageCarreau" />
   </div>  
 {% elseif 'image-style-medium' in classes %}
-  <img {{attributes}} style="border: 2px solid black" class="aRemplacer" />
+  <div class="zoomedImage">
+    <img {{attributes}} style="border: 2px solid black" class="aRemplacer" />
+  </div>  
 {% else %}
   {# Page de contenu statique : /presentation, /histoire ... #}
-  {#<img{{ attributes.addClass(classes) }} class="img-responsive imgPageStatique" /> #}
+  {# <img{{ attributes.addClass(classes) }} class="img-responsive imgPageStatique" /> #}
 {% endif %}
 
 <style>
