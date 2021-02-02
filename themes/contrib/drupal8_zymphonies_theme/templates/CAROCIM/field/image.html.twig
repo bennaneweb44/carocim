@@ -22,7 +22,7 @@
     <img {{attributes}} style="border: 2px solid black;" class="img-responsive imgPageCarreau" />
   </div>  
 {% elseif 'image-style-medium' in classes %}
-  <div class="zoomedImage">
+  <div>
     <img {{attributes}} style="border: 2px solid black" class="aRemplacer" />
   </div>  
 {% else %}
@@ -47,22 +47,46 @@
     text-align: center;
   }
 
-  .zoomedImage {
-    max-width: 100%;
-    -webkit-transition: all 1s ease; /* Safari and Chrome */
-    -moz-transition: all 1s ease; /* Firefox */
-    -ms-transition: all 1s ease; /* IE 9 */
-    -o-transition: all 1s ease; /* Opera */
-    transition: all 1s ease;
+  /* Desktops */
+  @media (min-width: 1281px) {
+    .zoomedImage {
+      max-width: 100%;
+      -webkit-transition: all 1.5s ease; /* Safari and Chrome */
+      -moz-transition: all 1.5s ease; /* Firefox */
+      -ms-transition: all 1.5s ease; /* IE 9 */
+      -o-transition: all 1.5s ease; /* Opera */
+      transition: all 1.5s ease;
+    }
+
+    .zoomedImage:hover {
+      -webkit-transform: scale(1.10); /* Safari and Chrome */
+      -moz-transform: scale(1.10); /* Firefox */
+      -ms-transform: scale(1.10); /* IE 9 */
+      -o-transform: scale(1.10); /* Opera */
+      transform: scale(1.10);
+    }
   }
 
-  .zoomedImage:hover {
-    -webkit-transform: scale(1.25); /* Safari and Chrome */
-    -moz-transform: scale(1.25); /* Firefox */
-    -ms-transform: scale(1.25); /* IE 9 */
-    -o-transform: scale(1.25); /* Opera */
-    transform: scale(1.25);
+  /* Laptops, Desktops */
+  @media (min-width: 1025px) and (max-width: 1280px) {
+    .zoomedImage {
+      max-width: 100%;
+      -webkit-transition: all 1.5s ease; /* Safari and Chrome */
+      -moz-transition: all 1.5s ease; /* Firefox */
+      -ms-transition: all 1.5s ease; /* IE 9 */
+      -o-transition: all 1.5s ease; /* Opera */
+      transition: all 1.5s ease;
+    }
+
+    .zoomedImage:hover {
+      -webkit-transform: scale(1.10); /* Safari and Chrome */
+      -moz-transform: scale(1.10); /* Firefox */
+      -ms-transform: scale(1.10); /* IE 9 */
+      -o-transform: scale(1.10); /* Opera */
+      transform: scale(1.10);
+    }
   }
+  
 
   .imgPageCarreau {
     border: 3px solid #000;

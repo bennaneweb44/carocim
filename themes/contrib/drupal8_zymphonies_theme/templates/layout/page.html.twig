@@ -250,11 +250,23 @@
 <div class="container">
   <div class="row">
     {% set site_url = url("<current>") %}
-    {% if 'les-unis' in site_url|render|render %}
+
       <div class="col-md-12 text-center">
-        <h1>Les unis</h1>
+        {% if 'les-unis' in site_url|render|render %}
+          <h1>Les unis</h1>
+        {% elseif 'formes-geometriques' in site_url|render|render %}
+          <h1>Formes géométriques</h1>
+        {% elseif 'les-unis' in site_url|render|render %}
+          <h1>Les unis</h1>
+        {% elseif 'motifs-florales' in site_url|render|render %}
+          <h1>Motifs florales</h1>
+        {% elseif 'motifs-anciens' in site_url|render|render %}
+          <h1>Motifs anciens</h1>
+        {% elseif 'les-frises' in site_url|render|render %}
+          <h1>Les frises</h1>
+        {% endif %}    
       </div>
-    {% endif %}    
+
   </div>
   <div class="row">
     <div class="col-md-12" style="padding: -3em 0 6em 0">
