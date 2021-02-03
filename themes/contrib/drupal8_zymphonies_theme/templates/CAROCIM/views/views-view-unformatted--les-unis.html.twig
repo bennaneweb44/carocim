@@ -18,11 +18,10 @@
  */
 #}
 
-<div style="margin-bottom: -2em">  
-    {% for row in rows %}  
-        {{ row.content }}  
-    {% endfor %}
-</div>
+{% for row in rows %}  
+    {{ row.content }}  
+{% endfor %}
+
 
 <style>    
 
@@ -39,9 +38,10 @@
     
 
     .loupe {        
-        margin-top: 1.8em;
+        margin-top: -1em;
         padding-bottom: 1em;        
-        margin-bottom: 1em;
+        margin-bottom: 2em;
+        height: 17em;
     }
 
     .fa.fa-search {
@@ -77,10 +77,19 @@
     
     .affiche {
         display: block;
-        padding-left: auto;
-        padding-right: auto;
-        padding: 15px;
-        z-index: 5;        
+        position: relative;     
+        height: 17em;
+    }
+
+    .zoomedImage {
+        position: absolute;
+        bottom: 0.7em;
+    }
+
+    .titreCarreau {
+        position: absolute;
+        bottom: -1.5em;
+        width: -webkit-fill-available;
     }
 
     /************************ MODAL **********************/
@@ -122,7 +131,6 @@
 
         .affiche > a:hover + .loupe:last-child {    
             display: inline-block;   
-            z-index: 6;                             
         }
 
         .zoomedImage {
@@ -155,7 +163,6 @@
 
         .affiche > a:hover + .loupe:last-child {    
             display: inline-block;   
-            z-index: 6;                             
         }
 
         .zoomedImage {
@@ -187,15 +194,18 @@
         .hidden-md-up {
             display: none;
         }  
-        /*.imageLoupe {
-            display: none;
-        }*/
+        .loupe {
+            margin-top: 3.5em;
+        }
         .affiche {
             padding: 35px !important;
         }
         img.hidden-md-up, img.hidden-sm-down {
             height: 100%;
             width: 100%;
+        }
+        .titreCarreau {
+            width: 70% !important;
         }
     }
 
@@ -208,9 +218,9 @@
         .hidden-md-up {
             display: none;
         }
-        /*.imageLoupe {
-            display: none;
-        }*/         
+        .loupe {
+            margin-top: -5em;
+        }    
         .affiche {
             padding: 12px !important;
         }
@@ -218,6 +228,9 @@
             height: 100%;
             width: 100%;
         }    
+        .titreCarreau {
+            width: 90% !important;
+        }
     }
 
     /* Low Resolution Tablets, Mobiles (Landscape) */
@@ -229,15 +242,11 @@
         .hidden-md-up {
             display: none;
         }
-
-        /*.imageLoupe {
-            top: 56.8%;
-            left: 52%;
-            display: none;
-        }*/
+        
         .loupe {
             width: 48.5%;
             float: left;
+            margin-top: 4em;
         }
         .slider-caption {
             display: block;
@@ -249,6 +258,9 @@
         img.hidden-md-up, img.hidden-sm-down {
             height: 100%;
             width: 100%;
+        }
+        .titreCarreau {
+            width: 80% !important;
         }
     }
 
@@ -263,14 +275,13 @@
             display: none;
         }
 
-        /*.imageLoupe {
-            top: 56.8%;
-            left: 52%;
-            display: none;
-        }*/
+        .titreCarreau {
+            width: 80% !important;
+        }
 
         .affiche {
-            padding: 35px !important;
+            margin-top: 5em;
+            padding: 58px !important;
         }
 
         img.hidden-md-up, img.hidden-sm-down {
@@ -280,6 +291,10 @@
 
         .modal {
             margin-top: 20%;
+        }
+
+        .titreCarreau {
+            width: 70% !important;
         }
     }
     

@@ -150,101 +150,12 @@
 
 <!-- Nos coups de cœur -->
 {% if is_front %}
-  <h2 class="text-center mt-2 mb-2" id="titreNosCoupsDeCoeur"><i class="fa fa-heart"></i> Nos coups de cœur</h2>
+  <h2 class="text-center" id="titreNosCoupsDeCoeur" style="margin: 1.3em 0" ><i class="fa fa-heart"></i> Nos coups de cœur</h2>
   <br>
   {{ render_view('nos_coups_de_coeur', 'block_1') }}
   <br>
 {% endif %}
 <!-- End : Nos coups de cœur -->
-
-<!-- layout -->
-<div id="wrapper">
-  <!-- start: Container -->
-  <div class="container">
-
-    <!--Content top-->
-      {% if page.content_top %}
-        <div class="row">
-          {{ page.content_top }}
-        </div>
-      {% endif %}
-    <!--End Content top-->
-
-    <!--start:content -->
-    <!--<div class="row">
-      <div class="col-md-12">{{ page.breadcrumb }}</div>
-    </div>-->
-
-    <!-- Page Title -->
-    {% if page.page_title and not is_front %}
-      <div id="page-title">
-        <div id="page-title-inner">
-          <!-- start: Container -->
-          <div class="container">
-            {{ page.page_title }}
-          </div>
-        </div>
-      </div>
-    {% else %}
-      {% set current = path('<current>') %}
-      {% if '/contact' in current %}
-        <div id="page-title">
-          <div id="page-title-inner">
-            <!-- start: Container -->
-            <div class="container">
-              <h2 class="text-center" id="titreNosCoupsDeCoeur"><i class="fa fa-envelope"></i> Nous contacter</h2>
-            </div>
-          </div>
-        </div>
-      {% elseif '/presentation' not in current and '/histoire' not in current %}
-        {# Pages statiques : /presentation, /histoire .... #}
-        <div class="row">
-          <h1 class="text-center hidden" id="titreNosCoupsDeCoeur">{{ node.label }}</h1>
-        </div>
-      {% endif %}
-    {% endif %}
-    <!-- End Page Title -->
-
-    <div class="row layout">
-      <!--- Start Left SideBar -->
-      {% if page.sidebar_first %}
-        <div class="sidebar" >
-          <div class = {{sidebarfirst}} >
-            {{ page.sidebar_first }}
-          </div>
-        </div>
-      {% endif %}
-      <!---End Right SideBar -->
-
-
-
-
-
-      <!--- Start Right SideBar -->
-      {% if page.sidebar_second %}
-        <div class="sidebar">
-          <div class={{sidebarsecond}}>
-            {{ page.sidebar_second }}
-          </div>
-        </div>
-      {% endif %}
-      <!---End Right SideBar -->
-
-    </div>
-    <!--End Content -->
-
-    <!--Start Content Bottom-->
-    {% if page.content_bottom %}
-      <div class="row">
-        {{ page.content_bottom }}
-      </div>
-    {% endif %}
-    <!--End Content Bottom-->
-  </div>
-</div>
-<!-- End layout -->
-
-
 
 
 <div class="container">
@@ -265,11 +176,12 @@
         {% elseif 'les-frises' in site_url|render|render %}
           <h1>Les frises</h1>
         {% endif %}    
+        <span class="spann"></span>
       </div>
 
   </div>
   <div class="row">
-    <div class="col-md-12" style="padding: -3em 0 6em 0">
+    <div class="col-md-12">
       {###### Bloc des filtres défini ? donc page liste en cours (les unis, les frises .....) ######}
       {% if page.highlighted is defined and page.highlighted.formattermedetaxonomiename is defined %}
           <!--Highlighted-->

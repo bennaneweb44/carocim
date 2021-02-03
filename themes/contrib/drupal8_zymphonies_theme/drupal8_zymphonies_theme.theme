@@ -351,6 +351,8 @@ function drupal8_zymphonies_theme_preprocess_views_view_unformatted__nos_coups_d
       $nids = \Drupal::entityQuery('node')
       ->condition('type', 'carreau')
       ->condition('status', '1')
+      ->pager(8, false)
+      ->sort('changed', 'DESC')
       ->execute();
 
       $nodes = \Drupal::entityTypeManager()

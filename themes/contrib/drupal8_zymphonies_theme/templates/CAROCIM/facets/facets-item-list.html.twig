@@ -43,7 +43,7 @@
       </div>
       
       <div class="hidden-md-up text-center divFilter">
-        <span style="color: #000; font-weight: bold; margin-top: 1em; margin-bottom: 1em">Choisir par format</span>
+        <span style="color: #000; font-weight: bold; margin-top: 1em; margin-bottom: 1em">Choix par format</span>
         <ul>  
           <li class="btn elemFilter"><a href="{{ url('<front>') }}nos-produits/collections/les-unis">Tous les formats</a></li>
           {% for item in items %}
@@ -65,26 +65,34 @@
 
 <style>
   .elemFilter {
-    background-color: #ddd !important; 
-    border: 1px solid darkgray; 
+    background-color: transparent !important;
     display: block; 
     margin: 0.5em 0; 
     margin-left: -3em;
+    text-align: left;
   }
-  .elemFilter:hover {
+  /*.elemFilter:hover {
     background-color: #ccc !important; 
     color: #000 !important;
-  }
+  }*/
   .divFilter {
-    background-color: #eee; 
     border-radius: 4px; 
-    border: 1px solid darkgray; 
     padding: 0 1em;
   }
 </style>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script>
+<script>  
+  
+  // Valorisation du filtre en cours
+  let currentFilterText = $('.facet-item__status.js-facet-deactivate').next().html();  
+  if (currentFilterText !== undefined) {
+    $('.spann').append(' (' + currentFilterText + ') ');
+  } else {
+    $('.spann').append(' (Tous les formats) ');
+  } 
+
   $('.facet-item__status.js-facet-deactivate').empty();
   $('.facet-item__status.js-facet-deactivate').append('<i class="fa fa-times" style="color: darkred; margin-right: 5px"></i>');
+    
 </script>

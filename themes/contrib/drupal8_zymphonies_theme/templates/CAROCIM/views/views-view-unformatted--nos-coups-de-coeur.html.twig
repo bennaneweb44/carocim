@@ -75,9 +75,10 @@
 <style>    
 
     .loupe {
-        margin-top: 1.8em;
+        margin-top: -2em;
         padding-bottom: 1em;        
         margin-bottom: 1em;
+        padding: 2em;
     }
 
     .fa.fa-search {
@@ -110,10 +111,17 @@
         font-size: 16px !important;
         border-radius: 5px 5px 5px 5px;
     }*/
-    
+
     .affiche {
         display: block;
-        z-index: 5;        
+        position: relative;     
+        height: 17em;
+        padding: 0;
+    }
+
+    .zoomedImage {
+        position: absolute;
+        bottom: 0.7em;
     }
 
     /************************ MODAL **********************/
@@ -207,6 +215,10 @@
             -o-transform: scale(1.10); /* Opera */
             transform: scale(1.10);
         }
+
+        .loupe {
+            margin-top: 3em;
+        }
     }
 
     /***************************************************************/
@@ -220,9 +232,9 @@
         .hidden-md-up {
             display: none;
         }  
-        /*.imageLoupe {
-            display: none;
-        }*/
+        .loupe {
+            margin-top: 1em;
+        }
     }
 
     /* Tablets, Ipads (landscape) */
@@ -234,9 +246,13 @@
         .hidden-md-up {
             display: none;
         }
-        /*.imageLoupe {
-            display: none;
-        }*/                
+        .affiche {
+            padding: 0;
+        }           
+        .loupe {
+            margin-top: -1.5em;
+            padding: 1em;
+        }   
     }
 
     /* Low Resolution Tablets, Mobiles (Landscape) */
@@ -248,19 +264,16 @@
         .hidden-md-up {
             display: none;
         }
-
-        /*.imageLoupe {
-            top: 56.8%;
-            left: 52%;
-            display: none;
-        }*/
+        
         .affiche {
             margin: auto !important;
             padding-left: 17px;
+            height: 20em;
         }
         .loupe {
             width: 48.5%;
             float: left;
+            margin-top: 2em;
         }
         .slider-caption {
             display: block;
@@ -278,14 +291,9 @@
             display: none;
         }
 
-        /*.imageLoupe {
-            top: 56.8%;
-            left: 52%;
-            display: none;
-        }*/
-
         .affiche {
             margin: 0 13%;
+            height: 20em;
         }
 
         .modal {

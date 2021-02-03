@@ -651,4 +651,12 @@ ul.links.inline li{
   }
 }
 
+.container {
+  padding-bottom: 3em !important; 
+}
+
+#search-block-form {
+  margin-bottom: -3em;
+}
+
 
