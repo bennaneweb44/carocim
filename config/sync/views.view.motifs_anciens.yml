@@ -10,7 +10,7 @@ dependencies:
     - search_api.index.carreau_index
     - taxonomy.vocabulary.type
   content:
-    - 'taxonomy_term:type:20bdeefc-d2e6-4e86-8969-ae2789a217c7'
+    - 'taxonomy_term:type:98253eed-6489-4fab-8a6c-8d7df967f743'
   module:
     - image
     - search_api
@@ -478,7 +478,7 @@ display:
           admin_label: ''
           operator: and
           value:
-            10: 10
+            11: 11
           group: 1
           exposed: false
           expose:
@@ -530,7 +530,7 @@ display:
           empty: true
           tokenize: false
           content:
-            value: "<div class=\"row col-md-12\" style=\"margin-bottom: 37em\">\r\n  <div class=\"col-md-12 text-center\">\r\n     <b>Vous ne trouvez pas votre produit. Nous pouvons vous le créer <a href=\"[site:url]sur-mesure\" target=\"_blank\">sur mesure.</a></b>\r\n  </div> \r\n</div>"
+            value: "<div class=\"row col-md-12\" style=\"margin-bottom: 37em\">\r\n  <div class=\"col-md-12 text-center\">\r\n     <b>Vous ne trouvez pas votre produit. Nous pouvons vous le créer <a href=\"[site:url]sur-mesure\" >sur mesure.</a></b>\r\n  </div> \r\n</div>"
             format: full_html
           plugin_id: text
       relationships: {  }

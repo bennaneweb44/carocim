@@ -530,7 +530,7 @@ display:
           empty: true
           tokenize: false
           content:
-            value: "<div class=\"row col-md-12\" style=\"margin-bottom: 37em\">\r\n  <div class=\"col-md-12 text-center\">\r\n     <b>Vous ne trouvez pas votre produit. Nous pouvons vous le créer <a href=\"[site:url]sur-mesure\" target=\"_blank\">sur mesure.</a></b>\r\n  </div> \r\n</div>"
+            value: "<div class=\"row col-md-12\" style=\"margin-bottom: 37em\">\r\n  <div class=\"col-md-12 text-center\">\r\n     <b>Vous ne trouvez pas votre produit. Nous pouvons vous le créer <a href=\"[site:url]sur-mesure\" >sur mesure.</a></b>\r\n  </div> \r\n</div>"
             format: full_html
           plugin_id: text
       relationships: {  }

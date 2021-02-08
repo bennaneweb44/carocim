@@ -1,4 +1,4 @@
-uuid: 52eee780-93a9-4006-907a-0c4ac754d86e
+uuid: a8b0731f-60cc-40ab-837f-c9530e1fbc6e
 langcode: fr
 status: true
 dependencies:
@@ -7,19 +7,19 @@ dependencies:
     - field.storage.node.field_rendu_final
     - image.style.large
     - image.style.medium
-    - search_api.index.carreau_index
-    - taxonomy.vocabulary.type
+    - search_api.index.gammes_index
+    - taxonomy.vocabulary.format
   content:
-    - 'taxonomy_term:type:4feb3d5d-3418-4f7d-a9b1-04b8b20addfe'
+    - 'taxonomy_term:format:9dee0dab-e7d7-4bc0-8a47-19bcc9fc67f3'
   module:
     - image
     - search_api
-id: motifs_florales
-label: 'Motifs florales'
+id: 20_x_20_cm
+label: '20 x 20 cm'
 module: views
-description: 'Vue d''indexation sur le type de carreau "Motifs florales"'
+description: 'Liste tous les carreaux dont le format est 20 x 20 cm (quelque soit la collection : unis, frises...) '
 tag: ''
-base_table: search_api_index_carreau_index
+base_table: search_api_index_gammes_index
 base_field: search_api_id
 display:
   default:
@@ -32,7 +32,7 @@ display:
         type: none
         options: {  }
       cache:
-        type: tag
+        type: none
         options: {  }
       query:
         type: views_query
@@ -82,9 +82,9 @@ display:
           separator: ''
           hide_empty: false
       fields:
-        nid_1:
-          id: nid_1
-          table: search_api_datasource_carreau_index_entity_node
+        nid:
+          id: nid
+          table: search_api_datasource_gammes_index_entity_node
           field: nid
           relationship: none
           group_type: group
@@ -167,7 +167,7 @@ display:
           plugin_id: search_api_field
         title:
           id: title
-          table: search_api_datasource_carreau_index_entity_node
+          table: search_api_index_gammes_index
           field: title
           relationship: none
           group_type: group
@@ -234,11 +234,10 @@ display:
             use_highlighting: false
             multi_type: separator
             multi_separator: ', '
-          entity_type: node
           plugin_id: search_api_field
         field_miniature_carreau:
           id: field_miniature_carreau
-          table: search_api_datasource_carreau_index_entity_node
+          table: search_api_datasource_gammes_index_entity_node
           field: field_miniature_carreau
           relationship: none
           group_type: group
@@ -309,7 +308,7 @@ display:
           plugin_id: search_api_field
         field_rendu_final:
           id: field_rendu_final
-          table: search_api_datasource_carreau_index_entity_node
+          table: search_api_datasource_gammes_index_entity_node
           field: field_rendu_final
           relationship: none
           group_type: group
@@ -389,7 +388,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "<div class=\"col-md-3 col-sm-6 col-12 loupe\" >            \r\n            <div class=\"affiche\" id=\"affiche{{ nid_1 }}\" >              \r\n\r\n                <div class=\"zoomedImage\">\r\n                  <img class=\"hidden-md-up\" src=\"{{ field_miniature_carreau }}\" data-toggle=\"modal\" data-target=\"#modal_desktop_{{ nid_1 }}\" />           \r\n                  <img class=\"hidden-sm-down\" src=\"{{ field_miniature_carreau }}\"  data-toggle=\"modal\" data-target=\"#modal_desktop_{{ nid_1 }}\"/>\r\n                </div>\r\n\r\n                <div class=\"modal \" id=\"modal_desktop_{{ nid_1 }}\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"labelModal\" aria-hidden=\"true\">\r\n                    <div class=\"modal-dialog\" role=\"document\">\r\n                        <div class=\"modal-content\">\r\n                \r\n                            <div class=\"modal-body\">\r\n                                <h2 class=\"pull-left\"><i class=\"fa fa-th\"></i> Rendu final</h2>\r\n                                <a  class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">\r\n                                    <span aria-hidden=\"true\">&times;</span>\r\n                                </a>\r\n                                <img src=\"{{ field_rendu_final }}\" style=\"height: 100%; width: 100%; border: 2px solid #000\" />                            \r\n                            </div>\r\n                            <div class=\"modal-footer\">\r\n                                <a class=\"btn btn-primary\" href=\"{{ url('<front>') }}/node/{{ nid_1 }}\">\r\n                                    <i class=\"fa fa-list\"></i> Fiche produit\r\n                                </a>                            \r\n                                <a  class=\"btn\" data-dismiss=\"modal\" ><i class=\"fa fa-times\"></i> Fermer</a>\r\n                            </div>\r\n                        </div>\r\n                    </div>\r\n                </div>                \r\n\r\n            </div>\r\n\r\n            <div class=\"text-center\" style=\"height: 45px\">\r\n                <a href=\"{{ url('<front>') }}/node/{{ nid_1  }}\" title=\"Fiche produit\" style=\"position: relative; top: 15px; font-size: 18px; font-style: italic\">\r\n                    {{ title }}\r\n                </a>\r\n            </div>\r\n </div>"
+            text: "<div class=\"col-md-3 col-sm-6 col-12 loupe\" >            \r\n            <div class=\"affiche\" id=\"affiche{{ nid }}\" >              \r\n\r\n                <div class=\"zoomedImage\">\r\n                  <img class=\"hidden-md-up\" src=\"{{ field_miniature_carreau }}\" data-toggle=\"modal\" data-target=\"#modal_desktop_{{ nid }}\" />           \r\n                  <img class=\"hidden-sm-down\" src=\"{{ field_miniature_carreau }}\"  data-toggle=\"modal\" data-target=\"#modal_desktop_{{ nid }}\"/>\r\n                </div>\r\n\r\n                <div class=\"text-center titreCarreau\" style=\"height: 45px; position: absolute; bottom: 0\">\r\n                   <a href=\"{{ url('<front>') }}/node/{{ nid  }}\" title=\"Fiche produit\" style=\"font-size: 18px; font-style: italic\">\r\n                       {{ title }}\r\n                   </a>\r\n                </div>\r\n\r\n                <div class=\"modal \" id=\"modal_desktop_{{ nid }}\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"labelModal\" aria-hidden=\"true\">\r\n                    <div class=\"modal-dialog\" role=\"document\">\r\n                        <div class=\"modal-content\">\r\n                \r\n                            <div class=\"modal-body\">\r\n                                <h2 class=\"pull-left\"><i class=\"fa fa-th\"></i> Rendu final</h2>\r\n                                <a  class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">\r\n                                    <span aria-hidden=\"true\">&times;</span>\r\n                                </a>\r\n                                <img src=\"{{ field_rendu_final }}\" style=\"height: 100%; width: 100%; border: 2px solid #000\" />         \r\n                            </div>\r\n                            <div class=\"modal-footer\">\r\n                                <a class=\"btn btn-primary\" href=\"{{ url('<front>') }}/node/{{ nid }}\">\r\n                                    <i class=\"fa fa-list\"></i> Fiche produit\r\n                                </a>                            \r\n                                <a  class=\"btn\" data-dismiss=\"modal\" ><i class=\"fa fa-times\"></i> Fermer</a>\r\n                            </div>\r\n                        </div>\r\n                    </div>\r\n                </div>                                \r\n\r\n            </div>\r\n            \r\n </div>"
             make_link: false
             path: ''
             absolute: false
@@ -430,7 +429,7 @@ display:
       filters:
         type:
           id: type
-          table: search_api_index_carreau_index
+          table: search_api_index_gammes_index
           field: type
           relationship: none
           group_type: group
@@ -469,16 +468,16 @@ display:
             group_items: {  }
           reduce_duplicates: false
           plugin_id: search_api_options
-        field_type:
-          id: field_type
-          table: search_api_index_carreau_index
-          field: field_type
+        field_format_carreau:
+          id: field_format_carreau
+          table: search_api_index_gammes_index
+          field: field_format_carreau
           relationship: none
           group_type: group
           admin_label: ''
           operator: and
           value:
-            10: 10
+            3: 3
           group: 1
           exposed: false
           expose:
@@ -511,12 +510,12 @@ display:
           reduce_duplicates: false
           type: select
           limit: true
-          vid: type
+          vid: format
           hierarchy: false
           error_message: true
           plugin_id: search_api_term
       sorts: {  }
-      title: 'Motifs florales'
+      title: '20 x 20 cm'
       header: {  }
       footer: {  }
       empty:
@@ -531,12 +530,11 @@ display:
           tokenize: false
           content:
             value: "<div class=\"row col-md-12\" style=\"margin-bottom: 37em\">\r\n  <div class=\"col-md-12 text-center\">\r\n     <b>Vous ne trouvez pas votre produit. Nous pouvons vous le créer <a href=\"[site:url]sur-mesure\" >sur mesure.</a></b>\r\n  </div> \r\n</div>"
-            format: full_html
+            format: basic_html
           plugin_id: text
       relationships: {  }
       arguments: {  }
       display_extenders: {  }
-      css_class: ''
     cache_metadata:
       max-age: -1
       contexts:
@@ -548,7 +546,7 @@ display:
       tags:
         - 'config:field.storage.node.field_miniature_carreau'
         - 'config:field.storage.node.field_rendu_final'
-        - 'config:search_api.index.carreau_index'
+        - 'config:search_api.index.gammes_index'
   page_1:
     display_plugin: page
     id: page_1
@@ -556,7 +554,7 @@ display:
     position: 1
     display_options:
       display_extenders: {  }
-      path: nos-produits/collections/motifs-florales
+      path: nos-produits/gammes/20-x-20-cm
       cache:
         type: none
       defaults:
@@ -572,4 +570,4 @@ display:
       tags:
         - 'config:field.storage.node.field_miniature_carreau'
         - 'config:field.storage.node.field_rendu_final'
-        - 'config:search_api.index.carreau_index'
+        - 'config:search_api.index.gammes_index'

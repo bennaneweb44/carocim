@@ -1,0 +1,29 @@
+uuid: 74894cb9-bfb2-4bb3-ac18-7c8860d0ef52
+langcode: fr
+status: true
+dependencies:
+  config:
+    - facets.facet.type_decor
+  module:
+    - facets
+    - system
+  theme:
+    - drupal8_zymphonies_theme
+id: typedecor
+theme: drupal8_zymphonies_theme
+region: highlighted
+weight: 0
+provider: null
+plugin: 'facet_block:type_decor'
+settings:
+  id: 'facet_block:type_decor'
+  label: 'Type - décor'
+  provider: facets
+  label_display: '0'
+  block_id: typedecor
+visibility:
+  request_path:
+    id: request_path
+    pages: /nos-produits/gammes/10-x-20-cm
+    negate: false
+    context_mapping: {  }
