@@ -24,6 +24,6 @@ settings:
 visibility:
   request_path:
     id: request_path
-    pages: /nos-produits/collections/les-unis
+    pages: "/nos-produits/collections/les-unis\r\n/nos-produits/collections/formes-geometriques\r\n/nos-produits/collections/motifs-florales\r\n/nos-produits/collections/motifs-anciens\r\n/nos-produits/collections/les-frises"
     negate: false
     context_mapping: {  }
