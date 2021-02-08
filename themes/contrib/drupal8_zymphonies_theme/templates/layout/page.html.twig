@@ -163,6 +163,7 @@
     {% set site_url = url("<current>") %}
 
       <div class="col-md-12 text-center">
+        {################### Collections ####################}
         {% if 'les-unis' in site_url|render|render %}
           <h1>Les unis</h1>
         {% elseif 'formes-geometriques' in site_url|render|render %}
@@ -175,6 +176,17 @@
           <h1>Motifs anciens</h1>
         {% elseif 'les-frises' in site_url|render|render %}
           <h1>Les frises</h1>
+        {##################### Gammes ######################}
+        {% elseif '10-x-20-cm' in site_url|render|render %}
+          <h1>10 x 20 cm</h1>
+        {% elseif '20-x-20-cm' in site_url|render|render %}
+          <h1>20 x 20 cm</h1>
+        {% elseif '15-x-15-cm' in site_url|render|render %}
+          <h1>15 x 15 cm</h1>
+        {% elseif 'hexagonal' in site_url|render|render %}
+          <h1>Hexagonal</h1>
+        {% elseif 'plinthes' in site_url|render|render %}
+          <h1>Plinthes</h1>
         {% endif %}    
         <span class="spann"></span>
       </div>
@@ -184,6 +196,22 @@
     <div class="col-md-12">
       {###### Bloc des filtres défini ? donc page liste en cours (les unis, les frises .....) ######}
       {% if page.highlighted is defined and page.highlighted.formattermedetaxonomiename is defined %}
+          <!--Highlighted-->
+          {% if page.highlighted %}
+            <div class="col-md-2">
+              {{ page.highlighted }}
+            </div>
+          {% endif %}
+          <!--End Highlighted-->
+
+          <!--- Start content -->
+          {% if page.content %}
+            <div class="col-md-10">
+              {{ page.content }}
+            </div>
+          {% endif %}
+          <!---End content -->
+      {% elseif page.highlighted is defined and page.highlighted.typedecor is defined %}
           <!--Highlighted-->
           {% if page.highlighted %}
             <div class="col-md-2">

@@ -461,6 +461,65 @@ function drupal8_zymphonies_theme_preprocess_views_view_unformatted__les_unis(&$
 }
 
 /**
+ * Implements hook_preprocess_views_view_unformatted().
+ */
+function drupal8_zymphonies_theme_preprocess_views_view_unformatted__10_x_20_cm(&$variables) {
+  
+  if (isset($variables['view'])) {
+    $view = $variables['view'];
+    
+    if ($view->current_display == "page_1") {
+      
+      $nids = \Drupal::entityQuery('node')
+      ->condition('type', 'carreau')
+      ->condition('status', '1')
+      ->execute();
+
+      $nodes = \Drupal::entityTypeManager()
+      ->getStorage('node')
+      ->loadMultiple($nids);
+      
+      $variables['carreaux'] = [];      
+      foreach($nodes as $node) {
+        if ($node instanceof Drupal\node\Entity\Node) {
+          $std = new \stdClass();
+
+          // Id
+          $std->id = $node->id();
+
+          // Nom carreau
+          $nomCarreau = $node->get('title')->getValue()[0]['value'];
+          $std->nomCarreau = $nomCarreau;
+
+          // Miniature
+          $std->imageCarreau = '';
+          if (is_array($node->get('field_miniature_carreau')->getValue()) && count($node->get('field_miniature_carreau')->getValue())) {
+            $id_image = $node->get('field_miniature_carreau')->getValue()[0]['target_id'];                    
+            $miniature = File::load($id_image);
+            $std->imageCarreau = $miniature->url();
+          }
+
+          // Rendu final
+          $std->renduFinalCarreau = '';
+          if (is_array($node->get('field_rendu_final')->getValue()) && count($node->get('field_rendu_final')->getValue())) {                        
+            $id_rendu_final = $node->get('field_rendu_final')->getValue()[0]['target_id'];                    
+            $rendu_final = File::load($id_rendu_final);
+            $std->renduFinalCarreau = $rendu_final->url();
+          }
+
+          // Miniature existante mais pas de rendu
+          if ($std->imageCarreau != '' && $std->renduFinalCarreau == '') {
+            $std->renduFinalCarreau = $std->imageCarreau;
+          }
+
+          $variables['carreaux'][] = $std;          
+        }
+      } 
+    }
+  }
+}
+
+/**
  * Implements template_preprocess_paragraph().
  *
  * @param array $variables

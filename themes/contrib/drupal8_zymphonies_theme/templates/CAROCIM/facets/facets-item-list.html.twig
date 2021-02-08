@@ -24,6 +24,7 @@
  * @ingroup themeable
  */
 #}
+
 <div class="facets-widget- {{- facet.widget.type -}}" style="text-align: center; margin-top: 2.5em">
   {% if facet.widget.type %}
     {%- set attributes = attributes.addClass('item-list__' ~ facet.widget.type) %}
@@ -43,12 +44,19 @@
       </div>
       
       <div class="hidden-md-up text-center divFilter">
-        <span style="color: #000; font-weight: bold; margin-top: 1em; margin-bottom: 1em">Choix par format</span>
-        <ul>  
-          <li class="btn elemFilter"><a href="{{ url('<front>') }}nos-produits/collections/les-unis">Tous les formats</a></li>
-          {% for item in items %}
-            <li class="btn elemFilter">{{ item.value }}</li>
-          {% endfor %}
+        {% if facet.id == 'format_terme_de_taxonomie_name' %}
+          <span style="color: #000; font-weight: bold; margin-top: 1em; margin-bottom: 1em">Choix par format</span>
+          <ul>  
+            <li class="btn elemFilter"><a href="{{ url('<front>') }}nos-produits/collections/les-unis">Tous les formats</a></li>
+        {% elseif facet.id == 'type_decor' %}
+          <span style="color: #000; font-weight: bold; margin-top: 1em; margin-bottom: 1em">Choix par type</span>
+          <ul>  
+            <li class="btn elemFilter"><a href="{{ url('<front>') }}nos-produits/gammes/10-x-20-cm">Tous les types</a></li>
+        {% endif %}
+        
+        {% for item in items %}
+          <li class="btn elemFilter">{{ item.value }}</li>
+        {% endfor %}
         </ul>
       </div>
     {%- else -%}
@@ -89,7 +97,7 @@
   if (currentFilterText !== undefined) {
     $('.spann').append(' (' + currentFilterText + ') ');
   } else {
-    $('.spann').append(' (Tous les formats) ');
+    $('.spann').append(' (Tous) ');
   } 
 
   $('.facet-item__status.js-facet-deactivate').empty();
