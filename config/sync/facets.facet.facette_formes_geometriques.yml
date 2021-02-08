@@ -1,20 +1,20 @@
-uuid: 9727e076-cb6d-45dd-9903-a7f2f05435cd
+uuid: 574b533d-cbe9-4a77-9f41-fcec9d32e5a0
 langcode: fr
 status: true
 dependencies:
   config:
     - search_api.index.carreau_index
-    - views.view.les_unis
+    - views.view.formes_geometriques
   module:
     - search_api
-id: format_terme_de_taxonomie_name
-name: 'facette1 les unis'
+id: facette_formes_geometriques
+name: 'facette1 formes geometriques'
 url_alias: decor
 weight: 0
 min_count: 0
 show_only_one_result: true
 field_identifier: name
-facet_source_id: 'search_api:views_page__les_unis__page_1'
+facet_source_id: 'search_api:views_page__formes_geometriques__page_1'
 widget:
   type: dropdown
   config:

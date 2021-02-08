@@ -1,0 +1,29 @@
+uuid: 62e8de51-299d-49ab-88b1-75d6044c5c9c
+langcode: fr
+status: true
+dependencies:
+  config:
+    - facets.facet.facette_20_20_
+  module:
+    - facets
+    - system
+  theme:
+    - drupal8_zymphonies_theme
+id: facette22020
+theme: drupal8_zymphonies_theme
+region: highlighted
+weight: 0
+provider: null
+plugin: 'facet_block:facette_20_20_'
+settings:
+  id: 'facet_block:facette_20_20_'
+  label: 'facette2 20 20 '
+  provider: facets
+  label_display: '0'
+  block_id: facette22020
+visibility:
+  request_path:
+    id: request_path
+    pages: /nos-produits/gammes/20-x-20-cm
+    negate: false
+    context_mapping: {  }

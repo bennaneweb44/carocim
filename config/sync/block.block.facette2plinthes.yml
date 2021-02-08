@@ -1,0 +1,29 @@
+uuid: 2703fd6f-a67a-44ef-aa91-98e25d7eef50
+langcode: fr
+status: true
+dependencies:
+  config:
+    - facets.facet.facette_plinthes
+  module:
+    - facets
+    - system
+  theme:
+    - drupal8_zymphonies_theme
+id: facette2plinthes
+theme: drupal8_zymphonies_theme
+region: highlighted
+weight: 0
+provider: null
+plugin: 'facet_block:facette_plinthes'
+settings:
+  id: 'facet_block:facette_plinthes'
+  label: 'facette2 plinthes'
+  provider: facets
+  label_display: '0'
+  block_id: facette2plinthes
+visibility:
+  request_path:
+    id: request_path
+    pages: /nos-produits/gammes/plinthes
+    negate: false
+    context_mapping: {  }

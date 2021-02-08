@@ -1,25 +1,25 @@
-uuid: 9727e076-cb6d-45dd-9903-a7f2f05435cd
+uuid: 6a03bbc8-ab45-4f61-94cc-ada66d1d0729
 langcode: fr
 status: true
 dependencies:
   config:
-    - search_api.index.carreau_index
-    - views.view.les_unis
+    - search_api.index.gammes_index
+    - views.view.hexagonal
   module:
     - search_api
-id: format_terme_de_taxonomie_name
-name: 'facette1 les unis'
-url_alias: decor
+id: facette_hexagonal
+name: 'facette2 hexagonal'
+url_alias: type_decor
 weight: 0
 min_count: 0
 show_only_one_result: true
-field_identifier: name
-facet_source_id: 'search_api:views_page__les_unis__page_1'
+field_identifier: name_1
+facet_source_id: 'search_api:views_page__hexagonal__page_1'
 widget:
   type: dropdown
   config:
     show_numbers: false
-    default_option_label: 'Tous les formats'
+    default_option_label: 'Toutes les collections'
 query_operator: or
 use_hierarchy: true
 expand_hierarchy: true
@@ -28,6 +28,12 @@ hard_limit: 0
 exclude: false
 only_visible_when_facet_source_is_visible: false
 processor_configs:
+  active_widget_order:
+    processor_id: active_widget_order
+    weights:
+      sort: 20
+    settings:
+      sort: DESC
   count_widget_order:
     processor_id: count_widget_order
     weights:

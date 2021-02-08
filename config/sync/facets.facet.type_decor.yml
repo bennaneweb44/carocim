@@ -8,7 +8,7 @@ dependencies:
   module:
     - search_api
 id: type_decor
-name: 'Type » Terme de taxonomie » Name'
+name: 'facette2 10 20'
 url_alias: type_decor
 weight: 0
 min_count: 0

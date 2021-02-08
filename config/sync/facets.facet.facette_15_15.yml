@@ -1,25 +1,25 @@
-uuid: 9727e076-cb6d-45dd-9903-a7f2f05435cd
+uuid: 3818dc2d-58fe-488b-96c5-ba725dc1b0b0
 langcode: fr
 status: true
 dependencies:
   config:
-    - search_api.index.carreau_index
-    - views.view.les_unis
+    - search_api.index.gammes_index
+    - views.view.15_x_15_cm
   module:
     - search_api
-id: format_terme_de_taxonomie_name
-name: 'facette1 les unis'
-url_alias: decor
+id: facette_15_15
+name: 'facette2 15 15'
+url_alias: type_decor
 weight: 0
 min_count: 0
 show_only_one_result: true
-field_identifier: name
-facet_source_id: 'search_api:views_page__les_unis__page_1'
+field_identifier: name_1
+facet_source_id: 'search_api:views_page__15_x_15_cm__page_1'
 widget:
   type: dropdown
   config:
     show_numbers: false
-    default_option_label: 'Tous les formats'
+    default_option_label: 'Toutes les collections'
 query_operator: or
 use_hierarchy: true
 expand_hierarchy: true
@@ -28,6 +28,12 @@ hard_limit: 0
 exclude: false
 only_visible_when_facet_source_is_visible: false
 processor_configs:
+  active_widget_order:
+    processor_id: active_widget_order
+    weights:
+      sort: 20
+    settings:
+      sort: DESC
   count_widget_order:
     processor_id: count_widget_order
     weights:

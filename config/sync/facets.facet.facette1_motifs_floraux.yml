@@ -1,20 +1,20 @@
-uuid: 9727e076-cb6d-45dd-9903-a7f2f05435cd
+uuid: 006c8ffc-8bc0-4bc4-80d0-2dc086a0197d
 langcode: fr
 status: true
 dependencies:
   config:
     - search_api.index.carreau_index
-    - views.view.les_unis
+    - views.view.motifs_florales
   module:
     - search_api
-id: format_terme_de_taxonomie_name
-name: 'facette1 les unis'
+id: facette1_motifs_floraux
+name: 'facette1 motifs floraux'
 url_alias: decor
 weight: 0
 min_count: 0
 show_only_one_result: true
 field_identifier: name
-facet_source_id: 'search_api:views_page__les_unis__page_1'
+facet_source_id: 'search_api:views_page__motifs_florales__page_1'
 widget:
   type: dropdown
   config:

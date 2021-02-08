@@ -1,4 +1,4 @@
-uuid: 74894cb9-bfb2-4bb3-ac18-7c8860d0ef52
+uuid: 342ca11e-0cc5-45b2-9494-fca87b8553a3
 langcode: fr
 status: true
 dependencies:
@@ -9,7 +9,7 @@ dependencies:
     - system
   theme:
     - drupal8_zymphonies_theme
-id: typedecor
+id: facette21020
 theme: drupal8_zymphonies_theme
 region: highlighted
 weight: 0
@@ -17,13 +17,13 @@ provider: null
 plugin: 'facet_block:type_decor'
 settings:
   id: 'facet_block:type_decor'
-  label: 'Type - décor'
+  label: 'facette2 10 20'
   provider: facets
   label_display: '0'
-  block_id: typedecor
+  block_id: facette21020
 visibility:
   request_path:
     id: request_path
-    pages: "/nos-produits/gammes/10-x-20-cm\r\n/nos-produits/gammes/20-x-20-cm\r\n/nos-produits/gammes/15-x-15-cm\r\n/nos-produits/gammes/hexagonal\r\n/nos-produits/gammes/plinthes"
+    pages: /nos-produits/gammes/10-x-20-cm
     negate: false
     context_mapping: {  }

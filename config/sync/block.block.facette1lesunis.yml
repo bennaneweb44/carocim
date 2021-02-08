@@ -1,4 +1,4 @@
-uuid: 8f46d54e-fb60-4524-87cb-734595933423
+uuid: cc03fe78-b434-44aa-b412-dd36aefe0dc3
 langcode: fr
 status: true
 dependencies:
@@ -9,21 +9,21 @@ dependencies:
     - system
   theme:
     - drupal8_zymphonies_theme
-id: formattermedetaxonomiename
+id: facette1lesunis
 theme: drupal8_zymphonies_theme
 region: highlighted
-weight: -4
+weight: 0
 provider: null
 plugin: 'facet_block:format_terme_de_taxonomie_name'
 settings:
   id: 'facet_block:format_terme_de_taxonomie_name'
-  label: 'Format » Terme de taxonomie » Name'
+  label: 'facette1 les unis'
   provider: facets
   label_display: '0'
-  block_id: formattermedetaxonomiename
+  block_id: facette1lesunis
 visibility:
   request_path:
     id: request_path
-    pages: "/nos-produits/collections/les-unis\r\n/nos-produits/collections/formes-geometriques\r\n/nos-produits/collections/motifs-florales\r\n/nos-produits/collections/motifs-anciens\r\n/nos-produits/collections/les-frises"
+    pages: /nos-produits/collections/les-unis
     negate: false
     context_mapping: {  }
