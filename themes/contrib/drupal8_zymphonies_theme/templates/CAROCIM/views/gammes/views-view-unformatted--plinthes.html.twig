@@ -1,0 +1,323 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display a view of unformatted rows.
+ *
+ * Available variables:
+ * - title: The title of this group of rows. May be empty.
+ * - rows: A list of the view's row items.
+ *   - attributes: The row's HTML attributes.
+ *   - content: The row's content.
+ * - view: The view object.
+ * - default_row_class: A flag indicating whether default classes should be
+ *   used on rows.
+ *
+ * @see template_preprocess_views_view_unformatted()
+ *
+ * @ingroup themeable
+ */
+#}
+
+{% for row in rows %}  
+    {{ row.content }}  
+{% endfor %}
+
+
+<style>    
+
+    img.hidden-md-up, img.hidden-sm-down {
+        border: 2px solid #000;
+        cursor: pointer;
+    }
+
+    .modal-body > img {
+        height: 100%; 
+        width: 100%; 
+        border: 2px solid #000;
+    }
+    
+
+    .loupe {        
+        margin-top: -1em;
+        padding-bottom: 1em;        
+        margin-bottom: 2em;
+        height: 17em;
+    }
+
+    .fa.fa-search {
+        display: block;
+        position: relative;
+        top: 3px;
+        color: #eee;
+        font-size: 16px;
+    }
+    
+    .affiche {
+        display: block;
+        position: relative;     
+        height: 17em;
+    }
+
+    .zoomedImage {
+        position: absolute;
+        bottom: 0.7em;
+    }
+
+    .titreCarreau {
+        position: absolute;
+        bottom: -1.5em;
+        width: -webkit-fill-available;
+    }
+
+    /************************ MODAL **********************/
+    .close {
+        font-size: 3em;
+        color: #000;
+    }
+
+    .modal-footer {
+        margin-top: -25px;
+        margin-bottom: -7px;
+    }
+    .modal {
+        margin-top: -25px;
+    }
+
+    .modal-open {
+        overflow: auto;
+    }
+
+    .btn {
+        background-color: #333;
+        color: #fff;
+    }
+    .btn:hover {
+        color: #fff;
+        background-color: #666; 
+    }
+
+    /* Desktops */
+    @media (min-width: 1281px) {
+
+        .hidden-sm-down {
+            display: none;
+        }
+        .hidden-md-up {
+            display: block;
+        }   
+
+        .affiche > a:hover + .loupe:last-child {    
+            display: inline-block;   
+        }
+
+        .zoomedImage {
+            max-width: 100%;
+            -webkit-transition: all 1.5s ease; /* Safari and Chrome */
+            -moz-transition: all 1.5s ease; /* Firefox */
+            -ms-transition: all 1.5s ease; /* IE 9 */
+            -o-transition: all 1.5s ease; /* Opera */
+            transition: all 1.5s ease;
+        }
+
+        .zoomedImage:hover {
+            -webkit-transform: scale(1.10); /* Safari and Chrome */
+            -moz-transform: scale(1.10); /* Firefox */
+            -ms-transform: scale(1.10); /* IE 9 */
+            -o-transform: scale(1.10); /* Opera */
+            transform: scale(1.10);
+        }
+    }
+
+    /* Laptops, Desktops */
+    @media (min-width: 1025px) and (max-width: 1280px) {
+    
+        .hidden-sm-down {
+            display: none;   
+        }
+        .hidden-md-up {
+            display: block ;
+        }  
+
+        .affiche > a:hover + .loupe:last-child {    
+            display: inline-block;   
+        }
+
+        .zoomedImage {
+            max-width: 100%;
+            -webkit-transition: all 1.5s ease; /* Safari and Chrome */
+            -moz-transition: all 1.5s ease; /* Firefox */
+            -ms-transition: all 1.5s ease; /* IE 9 */
+            -o-transition: all 1.5s ease; /* Opera */
+            transition: all 1.5s ease;
+        }
+
+        .zoomedImage:hover {
+            -webkit-transform: scale(1.10); /* Safari and Chrome */
+            -moz-transform: scale(1.10); /* Firefox */
+            -ms-transform: scale(1.10); /* IE 9 */
+            -o-transform: scale(1.10); /* Opera */
+            transform: scale(1.10);
+        }
+    }
+
+    /***************************************************************/
+
+    /* Tablets, Ipads (portrait) */
+    @media (min-width: 768px) and (max-width: 1024px) {
+    
+        .hidden-sm-down {
+            display: block;   
+        }
+        .hidden-md-up {
+            display: none;
+        }  
+        .loupe {
+            margin-top: 3.5em;
+        }
+        .affiche {
+            padding: 35px !important;
+        }
+        img.hidden-md-up, img.hidden-sm-down {
+            height: 100%;
+            width: 100%;
+        }
+        .titreCarreau {
+            width: 70% !important;
+        }
+    }
+
+    /* Tablets, Ipads (landscape) */
+    @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+    
+        .hidden-sm-down {
+            display: block;   
+        }
+        .hidden-md-up {
+            display: none;
+        }
+        .loupe {
+            margin-top: -5em;
+        }    
+        .affiche {
+            padding: 12px !important;
+        }
+        img.hidden-md-up, img.hidden-sm-down {
+            height: 100%;
+            width: 100%;
+        }    
+        .titreCarreau {
+            width: 90% !important;
+        }
+    }
+
+    /* Low Resolution Tablets, Mobiles (Landscape) */
+    @media (min-width: 481px) and (max-width: 767px) {
+    
+        .hidden-sm-down {
+            display: inline-block;   
+        }
+        .hidden-md-up {
+            display: none;
+        }
+        
+        .loupe {
+            width: 48.5%;
+            float: left;
+            margin-top: 4em;
+        }
+        .slider-caption {
+            display: block;
+        }
+
+        .affiche {
+            padding: 35px !important;
+        }
+        img.hidden-md-up, img.hidden-sm-down {
+            height: 100%;
+            width: 100%;
+        }
+        .titreCarreau {
+            width: 80% !important;
+        }
+    }
+
+    /* Mobiles (Portrait) */
+    @media (min-width: 320px) and (max-width: 480px) {
+        
+        .hidden-sm-down {
+            display: inline-block;   
+        }
+
+        .hidden-md-up {
+            display: none;
+        }
+
+        .titreCarreau {
+            width: 80% !important;
+        }
+
+        .affiche {
+            margin-top: 5em;
+            padding: 58px !important;
+        }
+
+        img.hidden-md-up, img.hidden-sm-down {
+            height: 100%;
+            width: 100%;
+        }
+
+        .modal {
+            margin-top: 20%;
+        }
+
+        .titreCarreau {
+            width: 70% !important;
+        }
+    }
+    
+</style>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+
+    $(".affiche").on('mouseover', function(event){
+        event.preventDefault();
+
+        let id = $(this).attr('id').replace('affiche', '');        
+        $('#loupe_'+id).css('display', 'inline-block');
+    });
+
+    $(".affiche").on('mouseleave', function(event){
+        event.preventDefault();
+
+        let id = $(this).attr('id').replace('affiche', '');        
+        $('#loupe_'+id).css('display', 'none');
+    });
+
+    // N'afficher pas la loupe pour les "mobile" et "tablette"    
+    let screen = 'desktop';
+    if (navigator.userAgent.match(/(android|iphone|ipad|blackberry|symbian|symbianos|symbos|netfront|model-orange|javaplatform|iemobile|windows phone|samsung|htc|opera mobile|opera mobi|opera mini|presto|huawei|blazer|bolt|doris|fennec|gobrowser|iris|maemo browser|mib|cldc|minimo|semc-browser|skyfire|teashark|teleca|uzard|uzardweb|meego|nokia|bb10|playbook)/gi)) {
+        if ( ((screen.width  >= 480) && (screen.height >= 800)) || ((screen.width  >= 800) && (screen.height >= 480)) || navigator.userAgent.match(/ipad/gi) ) {
+            screen = 'tablet';
+        } else {
+            screen = 'mobile';
+        }
+    }
+
+    function showLoop(id) 
+    {
+        if (screen == 'desktop') {
+            let element = document.getElementById('loupe_'+id);    
+            element.style.display = '';
+        }            
+    }
+
+    function hideLoop(id) 
+    {
+        if (screen == 'desktop') {
+            let element = document.getElementById('loupe_'+id);    
+            element.style.display = 'none';
+        }            
+    }
+ 
+</script>
