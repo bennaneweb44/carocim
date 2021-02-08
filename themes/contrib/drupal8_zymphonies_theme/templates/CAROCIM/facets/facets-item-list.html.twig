@@ -44,14 +44,35 @@
       </div>
       
       <div class="hidden-md-up text-center divFilter">
+        {% set url = url('<current>') %}
         {% if facet.id == 'format_terme_de_taxonomie_name' %}
           <span style="color: #000; font-weight: bold; margin-top: 1em; margin-bottom: 1em">Choix par format</span>
-          <ul>  
-            <li class="btn elemFilter"><a href="{{ url('<front>') }}nos-produits/collections/les-unis">Tous les formats</a></li>
+          <ul>              
+            {% if 'les-unis' in site_url|render|render %}
+              <li class="btn elemFilter"><a href="{{ url('<front>') }}nos-produits/collections/les-unis">Tous les formats</a></li>
+            {% elseif 'formes-geometriques' in site_url|render|render %}
+              <li class="btn elemFilter"><a href="{{ url('<front>') }}nos-produits/collections/formes-geometriques">Tous les formats</a></li>
+            {% elseif 'motifs-florales' in site_url|render|render %}
+              <li class="btn elemFilter"><a href="{{ url('<front>') }}nos-produits/collections/motifs-florales">Tous les formats</a></li>
+            {% elseif 'motifs-anciens' in site_url|render|render %}
+              <li class="btn elemFilter"><a href="{{ url('<front>') }}nos-produits/collections/motifs-anciens">Tous les formats</a></li>
+            {% elseif 'les-frises' in site_url|render|render %}
+              <li class="btn elemFilter"><a href="{{ url('<front>') }}nos-produits/collections/les-frises">Tous les formats</a></li>
+            {% endif %}
         {% elseif facet.id == 'type_decor' %}
           <span style="color: #000; font-weight: bold; margin-top: 1em; margin-bottom: 1em">Choix par type</span>
           <ul>  
-            <li class="btn elemFilter"><a href="{{ url('<front>') }}nos-produits/gammes/10-x-20-cm">Tous les types</a></li>
+            {% if '10-x-20-cm' in site_url|render|render %}
+              <li class="btn elemFilter"><a href="{{ url('<front>') }}nos-produits/gammes/10-x-20-cm">Tous les types</a></li>
+            {% elseif '20-x-20-cm' in site_url|render|render %}
+              <li class="btn elemFilter"><a href="{{ url('<front>') }}nos-produits/gammes/20-x-20-cm">Tous les types</a></li>
+            {% elseif '15-x-15-cm' in site_url|render|render %}
+              <li class="btn elemFilter"><a href="{{ url('<front>') }}nos-produits/gammes/15-x-15-cm">Tous les types</a></li>
+            {% elseif 'hexagonal' in site_url|render|render %}
+              <li class="btn elemFilter"><a href="{{ url('<front>') }}nos-produits/gammes/hexagonal">Tous les types</a></li>
+            {% elseif 'plinthes' in site_url|render|render %}
+              <li class="btn elemFilter"><a href="{{ url('<front>') }}nos-produits/gammes/plinthes">Tous les types</a></li>
+            {% endif %}
         {% endif %}
         
         {% for item in items %}

@@ -412,8 +412,7 @@ function drupal8_zymphonies_theme_preprocess_views_view_unformatted(&$variables)
   if (isset($variables['view'])) {
     $view = $variables['view'];    
     
-    if (in_array($view->id(), $vuesCollections) &&
-        in_array($view->id(), $vuesGammes) && 
+    if ( (in_array($view->id(), $vuesCollections) || in_array($view->id(), $vuesGammes)) && 
         $view->current_display == "page_1") {
       
       $nids = \Drupal::entityQuery('node')
