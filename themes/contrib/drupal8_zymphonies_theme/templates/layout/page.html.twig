@@ -195,23 +195,18 @@
   <div class="row">
     <div class="col-md-12">
       {###### Bloc des filtres défini ? donc page liste en cours (les unis, les frises .....) ######}
-      {% if page.highlighted is defined and page.highlighted.formattermedetaxonomiename is defined %}
-          <!--Highlighted-->
-          {% if page.highlighted %}
-            <div class="col-md-2">
-              {{ page.highlighted }}
-            </div>
-          {% endif %}
-          <!--End Highlighted-->
-
-          <!--- Start content -->
-          {% if page.content %}
-            <div class="col-md-10">
-              {{ page.content }}
-            </div>
-          {% endif %}
-          <!---End content -->
-      {% elseif page.highlighted is defined and page.highlighted.typedecor is defined %}
+      {% if page.highlighted is defined and 
+        ( page.highlighted.facette1formesgeometriques is defined or 
+        page.highlighted.facette1lesfrises is defined or 
+        page.highlighted.facette1lesunis is defined or 
+        page.highlighted.facette1motifsanciens is defined or 
+        page.highlighted.facette1motifsfloraux is defined or 
+        page.highlighted.facette21020 is defined or 
+        page.highlighted.facette21515 is defined or 
+        page.highlighted.facette22020 is defined or 
+        page.highlighted.facette2hexagonal is defined or 
+        page.highlighted.facette2plinthes is defined )
+        %}
           <!--Highlighted-->
           {% if page.highlighted %}
             <div class="col-md-2">

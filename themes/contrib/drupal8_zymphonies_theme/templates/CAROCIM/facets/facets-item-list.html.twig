@@ -45,7 +45,7 @@
       
       <div class="hidden-md-up text-center divFilter">
         {% set site_url = url('<current>') %}
-        {% if facet.id == 'format_terme_de_taxonomie_name' %}
+        {#{% if facet.id == 'format_terme_de_taxonomie_name' %}
           <span style="color: #000; font-weight: bold; margin-top: 1em; margin-bottom: 1em">Choix par format</span>
           <ul>              
             {% if 'les-unis' in site_url|render|render %}
@@ -73,7 +73,7 @@
             {% elseif 'plinthes' in site_url|render|render %}
               <li class="btn elemFilter"><a href="{{ url('<front>') }}nos-produits/gammes/plinthes">Tous les types</a></li>
             {% endif %}
-        {% endif %}
+        {% endif %}#}
         
         {% for item in items %}
           <li class="btn elemFilter">{{ item.value }}</li>
@@ -100,10 +100,7 @@
     margin-left: -3em;
     text-align: left;
   }
-  /*.elemFilter:hover {
-    background-color: #ccc !important; 
-    color: #000 !important;
-  }*/
+  
   .divFilter {
     border-radius: 4px; 
     padding: 0 1em;
