@@ -19,14 +19,15 @@
   {{ q }}
 {% endif %}
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
 <div class="hidden-sm hidden-md hidden-lg hidden-xl col-md-2 text-center">
     {{ form }}        
 </div>
 
 <div class="hidden-xs col-md-2">
     <ul>
-    {% if options is defined %}
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    {% if options is defined %}        
         <input type="hidden" id="current_filter" value="{{ current_filter }}" />
 
         {% set site_url = url('<current>') %}               

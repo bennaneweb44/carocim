@@ -502,7 +502,7 @@ function drupal8_zymphonies_theme_form_views_exposed_form_alter(&$form, FormStat
 
 
 function drupal8_zymphonies_theme_preprocess_views_exposed_form(&$variables) {
-  $form =& $variables['form'];
+  $form = &$variables['form'];
 
   if (!empty($form['q'])) {
     $variables['q'] = $form['q'];
@@ -517,26 +517,51 @@ function drupal8_zymphonies_theme_preprocess_views_exposed_form(&$variables) {
     }
   }
 
-  $formats = $variables['form']['format']['#options'];  
   $currentPath = \Drupal::request()->getRequestUri();
-
-  $options = [];
   $variables['current_filter'] = 'Tous';
-  foreach($formats as $key => $value) {
-    if ($value instanceof TranslatableMarkup) {
-      $std = new \stdClass();
-      $std->lien = '?format='.$key;
-      $std->texte = $value->render();
-      
-      if (strpos($currentPath, $std->lien) !== false) {
-        $variables['current_filter'] = $std->texte;
+  $options = [];  
+
+  if (isset($form['format'])) {
+    $formats = $form['format']['#options'];
+    foreach($formats as $key => $value) {
+      if ($value instanceof TranslatableMarkup) {
+        $std = new \stdClass();
+        $std->lien = '?format='.$key;
+        $std->texte = $value->render();
+        
+        if (strpos($currentPath, $std->lien) !== false) {
+          $variables['current_filter'] = $std->texte;
+        }
+  
+        $options[] = $std;
       }
-
-      $options[] = $std;
     }
+  
+    if (count($options)) {
+      $variables['options'] = $options;        
+    }
+
+  } elseif (isset($form['type'])) {
+
+    $formats = $form['type']['#options'];  
+    foreach($formats as $key => $value) {
+      if ($value instanceof TranslatableMarkup) {
+        $std = new \stdClass();
+        $std->lien = '?type='.$key;
+        $std->texte = $value->render();
+        
+        if (strpos($currentPath, $std->lien) !== false) {
+          $variables['current_filter'] = $std->texte;
+        }
+  
+        $options[] = $std;
+      }
+    }
+  
+    if (count($options)) {
+      $variables['options'] = $options;        
+    }
+
   }
 
-  if (count($options)) {
-    $variables['options'] = $options;        
-  }
 }
