@@ -1,4 +1,4 @@
-uuid: bc434726-141b-489a-a984-efecde97f1a9
+uuid: c49c88d9-2319-4a2f-b651-6169a44f32f2
 langcode: fr
 status: true
 dependencies:
@@ -17,7 +17,7 @@ dependencies:
 id: les_unis
 label: 'Les unis'
 module: views
-description: 'Vue d''indexation sur le type de carreau "Les unis"'
+description: 'Vue d''indexation sur le type de carreau "Formes géométriques"'
 tag: ''
 base_table: search_api_index_carreau_index
 base_field: search_api_id
@@ -389,7 +389,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "<div class=\"col-md-3 col-sm-6 col-12 loupe\" >            \r\n            <div class=\"affiche\" id=\"affiche{{ nid_1 }}\" >              \r\n\r\n                <div class=\"zoomedImage\">\r\n                  <img class=\"hidden-md-up\" src=\"{{ field_miniature_carreau }}\" data-toggle=\"modal\" data-target=\"#modal_desktop_{{ nid_1 }}\" />           \r\n                  <img class=\"hidden-sm-down\" src=\"{{ field_miniature_carreau }}\"  data-toggle=\"modal\" data-target=\"#modal_desktop_{{ nid_1 }}\"/>\r\n                </div>\r\n\r\n                <div class=\"text-center titreCarreau\" style=\"height: 45px; position: absolute; bottom: 0\">\r\n                   <a href=\"{{ url('<front>') }}/node/{{ nid_1  }}\" title=\"Fiche produit\" style=\"font-size: 18px; font-style: italic\">\r\n                       {{ title }}\r\n                   </a>\r\n                </div>\r\n\r\n                <div class=\"modal \" id=\"modal_desktop_{{ nid_1 }}\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"labelModal\" aria-hidden=\"true\">\r\n                    <div class=\"modal-dialog\" role=\"document\">\r\n                        <div class=\"modal-content\">\r\n                \r\n                            <div class=\"modal-body\">\r\n                                <h2 class=\"pull-left\"><i class=\"fa fa-th\"></i> Rendu final</h2>\r\n                                <a  class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">\r\n                                    <span aria-hidden=\"true\">&times;</span>\r\n                                </a>\r\n                                <img src=\"{{ field_rendu_final }}\" style=\"height: 100%; width: 100%; border: 2px solid #000\" />                            \r\n                            </div>\r\n                            <div class=\"modal-footer\">\r\n                                <a class=\"btn btn-primary\" href=\"{{ url('<front>') }}/node/{{ nid_1 }}\">\r\n                                    <i class=\"fa fa-list\"></i> Fiche produit\r\n                                </a>                            \r\n                                <a  class=\"btn\" data-dismiss=\"modal\" ><i class=\"fa fa-times\"></i> Fermer</a>\r\n                            </div>\r\n                        </div>\r\n                    </div>\r\n                </div>                                \r\n\r\n            </div>\r\n            \r\n </div>"
+            text: "<div class=\"col-md-3 col-sm-6 col-12 loupe\" >            \r\n            <div class=\"affiche\" id=\"affiche{{ nid_1 }}\" >              \r\n\r\n                <div class=\"zoomedImage\">\r\n                  <img class=\"hidden-md-up\" src=\"{{ field_miniature_carreau }}\" data-toggle=\"modal\" data-target=\"#modal_desktop_{{ nid_1 }}\" />           \r\n                  <img class=\"hidden-sm-down\" src=\"{{ field_miniature_carreau }}\"  data-toggle=\"modal\" data-target=\"#modal_desktop_{{ nid_1 }}\"/>\r\n                </div>\r\n\r\n                <div class=\"modal \" id=\"modal_desktop_{{ nid_1 }}\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"labelModal\" aria-hidden=\"true\">\r\n                    <div class=\"modal-dialog\" role=\"document\">\r\n                        <div class=\"modal-content\">\r\n                \r\n                            <div class=\"modal-body\">\r\n                                <h2 class=\"pull-left\"><i class=\"fa fa-th\"></i> Rendu final</h2>\r\n                                <a  class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">\r\n                                    <span aria-hidden=\"true\">&times;</span>\r\n                                </a>\r\n                                <img src=\"{{ field_rendu_final }}\" style=\"height: 100%; width: 100%; border: 2px solid #000\" />                            \r\n                            </div>\r\n                            <div class=\"modal-footer\">\r\n                                <a class=\"btn btn-primary\" href=\"{{ url('<front>') }}/node/{{ nid_1 }}\">\r\n                                    <i class=\"fa fa-list\"></i> Fiche produit\r\n                                </a>                            \r\n                                <a  class=\"btn\" data-dismiss=\"modal\" ><i class=\"fa fa-times\"></i> Fermer</a>\r\n                            </div>\r\n                        </div>\r\n                    </div>\r\n                </div>                \r\n\r\n            </div>\r\n\r\n            <div class=\"text-center\" style=\"height: 45px\">\r\n                <a href=\"{{ url('<front>') }}/node/{{ nid_1  }}\" title=\"Fiche produit\" style=\"position: relative; top: 15px; font-size: 18px; font-style: italic\">\r\n                    {{ title }}\r\n                </a>\r\n            </div>\r\n </div>"
             make_link: false
             path: ''
             absolute: false
@@ -515,6 +515,87 @@ display:
           hierarchy: false
           error_message: true
           plugin_id: search_api_term
+        name:
+          id: name
+          table: search_api_index_carreau_index
+          field: name
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value:
+            min: ''
+            max: ''
+            value: Hexagonal
+          group: 1
+          exposed: true
+          expose:
+            operator_id: name_op
+            label: 'Format » Terme de taxonomie » Name'
+            description: ''
+            use_operator: false
+            operator: name_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: format
+            required: false
+            remember: true
+            multiple: true
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+            placeholder: ''
+            min_placeholder: ''
+            max_placeholder: ''
+          is_grouped: true
+          group_info:
+            label: 'Choix par format '
+            description: ''
+            identifier: format
+            optional: true
+            widget: select
+            multiple: false
+            remember: true
+            default_group: All
+            default_group_multiple: {  }
+            group_items:
+              1:
+                title: '10 x 20 cm'
+                operator: '='
+                value:
+                  value: '10 x 20 cm'
+                  min: ''
+                  max: ''
+              2:
+                title: '15 x 15 cm'
+                operator: '='
+                value:
+                  value: '15 x 15 cm'
+                  min: ''
+                  max: ''
+              3:
+                title: '20 x 20 cm'
+                operator: '='
+                value:
+                  value: '20 x 20 cm'
+                  min: ''
+                  max: ''
+              4:
+                title: Hexagonal
+                operator: '='
+                value:
+                  value: Hexagonal
+                  min: ''
+                  max: ''
+              5:
+                title: Plinthes
+                operator: '='
+                value:
+                  value: Plinthes
+                  min: ''
+                  max: ''
+          plugin_id: search_api_string
       sorts: {  }
       title: 'Les unis'
       header: {  }
@@ -530,7 +611,7 @@ display:
           empty: true
           tokenize: false
           content:
-            value: "<div class=\"row col-md-12\" style=\"margin-bottom: 37em\">\r\n  <div class=\"col-md-12 text-center\">\r\n     <b>Vous ne trouvez pas votre produit. Nous pouvons vous le créer <a href=\"[site:url]sur-mesure\" >sur mesure.</a></b>\r\n  </div> \r\n</div>"
+            value: "<div class=\"col-md-10\" style=\"margin-bottom: 37em\">\r\n  <div class=\"col-md-12 text-center\">\r\n     <b>Vous ne trouvez pas votre produit. Nous pouvons vous le créer <a href=\"[site:url]sur-mesure\" >sur mesure.</a></b>\r\n  </div> \r\n</div>"
             format: full_html
           plugin_id: text
       relationships: {  }
@@ -542,6 +623,7 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
+        - url
         - url.query_args
         - user
         - 'user.node_grants:view'
@@ -566,6 +648,7 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
+        - url
         - url.query_args
         - user
         - 'user.node_grants:view'

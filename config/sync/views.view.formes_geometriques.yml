@@ -515,6 +515,87 @@ display:
           hierarchy: false
           error_message: true
           plugin_id: search_api_term
+        name:
+          id: name
+          table: search_api_index_carreau_index
+          field: name
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value:
+            min: ''
+            max: ''
+            value: Hexagonal
+          group: 1
+          exposed: true
+          expose:
+            operator_id: name_op
+            label: 'Format » Terme de taxonomie » Name'
+            description: ''
+            use_operator: false
+            operator: name_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: format
+            required: false
+            remember: true
+            multiple: true
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+            placeholder: ''
+            min_placeholder: ''
+            max_placeholder: ''
+          is_grouped: true
+          group_info:
+            label: 'Choix par format '
+            description: ''
+            identifier: format
+            optional: true
+            widget: select
+            multiple: false
+            remember: true
+            default_group: All
+            default_group_multiple: {  }
+            group_items:
+              1:
+                title: '10 x 20 cm'
+                operator: '='
+                value:
+                  value: '10 x 20 cm'
+                  min: ''
+                  max: ''
+              2:
+                title: '15 x 15 cm'
+                operator: '='
+                value:
+                  value: '15 x 15 cm'
+                  min: ''
+                  max: ''
+              3:
+                title: '20 x 20 cm'
+                operator: '='
+                value:
+                  value: '20 x 20 cm'
+                  min: ''
+                  max: ''
+              4:
+                title: Hexagonal
+                operator: '='
+                value:
+                  value: Hexagonal
+                  min: ''
+                  max: ''
+              5:
+                title: Plinthes
+                operator: '='
+                value:
+                  value: Plinthes
+                  min: ''
+                  max: ''
+          plugin_id: search_api_string
       sorts: {  }
       title: 'Formes géométriques'
       header: {  }
@@ -530,7 +611,7 @@ display:
           empty: true
           tokenize: false
           content:
-            value: "<div class=\"row col-md-12\" style=\"margin-bottom: 37em\">\r\n  <div class=\"col-md-12 text-center\">\r\n     <b>Vous ne trouvez pas votre produit. Nous pouvons vous le créer <a href=\"[site:url]sur-mesure\" >sur mesure.</a></b>\r\n  </div> \r\n</div>"
+            value: "<div class=\"col-md-10\" style=\"margin-bottom: 37em\">\r\n  <div class=\"col-md-12 text-center\">\r\n     <b>Vous ne trouvez pas votre produit. Nous pouvons vous le créer <a href=\"[site:url]sur-mesure\" >sur mesure.</a></b>\r\n  </div> \r\n</div>"
             format: full_html
           plugin_id: text
       relationships: {  }
@@ -542,6 +623,7 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
+        - url
         - url.query_args
         - user
         - 'user.node_grants:view'
@@ -566,6 +648,7 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
+        - url
         - url.query_args
         - user
         - 'user.node_grants:view'

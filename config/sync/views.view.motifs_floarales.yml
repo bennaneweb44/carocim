@@ -1,4 +1,4 @@
-uuid: 52eee780-93a9-4006-907a-0c4ac754d86e
+uuid: c8e8a658-6797-4746-9fb9-8651b3588767
 langcode: fr
 status: true
 dependencies:
@@ -10,14 +10,14 @@ dependencies:
     - search_api.index.carreau_index
     - taxonomy.vocabulary.type
   content:
-    - 'taxonomy_term:type:06543f63-4a53-4681-bd1b-234d1814647f'
+    - 'taxonomy_term:type:4feb3d5d-3418-4f7d-a9b1-04b8b20addfe'
   module:
     - image
     - search_api
-id: motifs_florales
-label: 'Motifs florales'
+id: motifs_floarales
+label: 'Motifs floarales'
 module: views
-description: 'Vue d''indexation sur le type de carreau "Motifs florales"'
+description: 'Vue d''indexation sur le type de carreau "Formes géométriques"'
 tag: ''
 base_table: search_api_index_carreau_index
 base_field: search_api_id
@@ -478,7 +478,7 @@ display:
           admin_label: ''
           operator: and
           value:
-            11: 11
+            10: 10
           group: 1
           exposed: false
           expose:
@@ -515,6 +515,87 @@ display:
           hierarchy: false
           error_message: true
           plugin_id: search_api_term
+        name:
+          id: name
+          table: search_api_index_carreau_index
+          field: name
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value:
+            min: ''
+            max: ''
+            value: Hexagonal
+          group: 1
+          exposed: true
+          expose:
+            operator_id: name_op
+            label: 'Format » Terme de taxonomie » Name'
+            description: ''
+            use_operator: false
+            operator: name_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: format
+            required: false
+            remember: true
+            multiple: true
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+            placeholder: ''
+            min_placeholder: ''
+            max_placeholder: ''
+          is_grouped: true
+          group_info:
+            label: 'Choix par format '
+            description: ''
+            identifier: format
+            optional: true
+            widget: select
+            multiple: false
+            remember: true
+            default_group: All
+            default_group_multiple: {  }
+            group_items:
+              1:
+                title: '10 x 20 cm'
+                operator: '='
+                value:
+                  value: '10 x 20 cm'
+                  min: ''
+                  max: ''
+              2:
+                title: '15 x 15 cm'
+                operator: '='
+                value:
+                  value: '15 x 15 cm'
+                  min: ''
+                  max: ''
+              3:
+                title: '20 x 20 cm'
+                operator: '='
+                value:
+                  value: '20 x 20 cm'
+                  min: ''
+                  max: ''
+              4:
+                title: Hexagonal
+                operator: '='
+                value:
+                  value: Hexagonal
+                  min: ''
+                  max: ''
+              5:
+                title: Plinthes
+                operator: '='
+                value:
+                  value: Plinthes
+                  min: ''
+                  max: ''
+          plugin_id: search_api_string
       sorts: {  }
       title: 'Motifs florales'
       header: {  }
@@ -530,7 +611,7 @@ display:
           empty: true
           tokenize: false
           content:
-            value: "<div class=\"row col-md-12\" style=\"margin-bottom: 37em\">\r\n  <div class=\"col-md-12 text-center\">\r\n     <b>Vous ne trouvez pas votre produit. Nous pouvons vous le créer <a href=\"[site:url]sur-mesure\" >sur mesure.</a></b>\r\n  </div> \r\n</div>"
+            value: "<div class=\"col-md-10\" style=\"margin-bottom: 37em\">\r\n  <div class=\"col-md-12 text-center\">\r\n     <b>Vous ne trouvez pas votre produit. Nous pouvons vous le créer <a href=\"[site:url]sur-mesure\" >sur mesure.</a></b>\r\n  </div> \r\n</div>"
             format: full_html
           plugin_id: text
       relationships: {  }
@@ -542,6 +623,7 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
+        - url
         - url.query_args
         - user
         - 'user.node_grants:view'
@@ -566,6 +648,7 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
+        - url
         - url.query_args
         - user
         - 'user.node_grants:view'

@@ -1,4 +1,4 @@
-uuid: fcc144ff-7d91-44e3-9fbc-1a3835751697
+uuid: 1d0337a4-4af6-4186-984c-a80b55f8e64e
 langcode: fr
 status: true
 dependencies:
@@ -17,7 +17,7 @@ dependencies:
 id: 15_x_15_cm
 label: '15 x 15 cm'
 module: views
-description: 'Liste tous les carreaux dont le format est 15 x 15 cm (quelque soit la collection : unis, frises...) '
+description: 'Liste tous les carreaux dont le format est 10 x 20 cm (quelque soit la collection : unis, frises...) '
 tag: ''
 base_table: search_api_index_gammes_index
 base_field: search_api_id
@@ -514,6 +514,85 @@ display:
           hierarchy: false
           error_message: true
           plugin_id: search_api_term
+        name_1:
+          id: name_1
+          table: search_api_index_gammes_index
+          field: name_1
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value:
+            min: ''
+            max: ''
+            value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: name_1_op
+            label: 'Type » Terme de taxonomie » Name'
+            description: null
+            use_operator: false
+            operator: name_1_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: name_1
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            placeholder: null
+            min_placeholder: null
+            max_placeholder: null
+          is_grouped: true
+          group_info:
+            label: 'Choix par type'
+            description: ''
+            identifier: type
+            optional: true
+            widget: select
+            multiple: false
+            remember: true
+            default_group: All
+            default_group_multiple: {  }
+            group_items:
+              1:
+                title: Géométries
+                operator: '='
+                value:
+                  value: 'Formes géométriques'
+                  min: ''
+                  max: ''
+              2:
+                title: Frises
+                operator: '='
+                value:
+                  value: 'Les frises'
+                  min: ''
+                  max: ''
+              3:
+                title: Unis
+                operator: '='
+                value:
+                  value: 'Les unis'
+                  min: ''
+                  max: ''
+              4:
+                title: 'Motifs anciens'
+                operator: '='
+                value:
+                  value: 'Motifs anciens'
+                  min: ''
+                  max: ''
+              5:
+                title: 'Motifs floraux'
+                operator: '='
+                value:
+                  value: 'Motifs florales'
+                  min: ''
+                  max: ''
+          plugin_id: search_api_string
       sorts: {  }
       title: '15 x 15 cm'
       header: {  }
@@ -540,6 +619,7 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
+        - url
         - url.query_args
         - user
         - 'user.node_grants:view'
@@ -564,6 +644,7 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
+        - url
         - url.query_args
         - user
         - 'user.node_grants:view'

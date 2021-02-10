@@ -1,4 +1,4 @@
-uuid: c6aff69c-d6e6-4e75-89ac-95b5d4f5dbe3
+uuid: 28b144eb-9e2d-4cd1-9d86-076c59c6455a
 langcode: fr
 status: true
 dependencies:
@@ -10,14 +10,14 @@ dependencies:
     - search_api.index.gammes_index
     - taxonomy.vocabulary.format
   content:
-    - 'taxonomy_term:type:a42f43f8-df84-40ad-92b4-b4fae671144c'
+    - 'taxonomy_term:format:eee3e78a-ce2a-4b30-8792-b1b473b477a5'
   module:
     - image
     - search_api
 id: plinthes
 label: Plinthes
 module: views
-description: 'Liste tous les carreaux dont le format est plinthes (quelque soit la collection : unis, frises...) '
+description: 'Liste tous les carreaux dont le format est 10 x 20 cm (quelque soit la collection : unis, frises...) '
 tag: ''
 base_table: search_api_index_gammes_index
 base_field: search_api_id
@@ -477,7 +477,7 @@ display:
           admin_label: ''
           operator: and
           value:
-            12: 12
+            7: 7
           group: 1
           exposed: false
           expose:
@@ -514,6 +514,85 @@ display:
           hierarchy: false
           error_message: true
           plugin_id: search_api_term
+        name_1:
+          id: name_1
+          table: search_api_index_gammes_index
+          field: name_1
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value:
+            min: ''
+            max: ''
+            value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: name_1_op
+            label: 'Type » Terme de taxonomie » Name'
+            description: null
+            use_operator: false
+            operator: name_1_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: name_1
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            placeholder: null
+            min_placeholder: null
+            max_placeholder: null
+          is_grouped: true
+          group_info:
+            label: 'Choix par type'
+            description: ''
+            identifier: type
+            optional: true
+            widget: select
+            multiple: false
+            remember: true
+            default_group: All
+            default_group_multiple: {  }
+            group_items:
+              1:
+                title: Géométries
+                operator: '='
+                value:
+                  value: 'Formes géométriques'
+                  min: ''
+                  max: ''
+              2:
+                title: Frises
+                operator: '='
+                value:
+                  value: 'Les frises'
+                  min: ''
+                  max: ''
+              3:
+                title: Unis
+                operator: '='
+                value:
+                  value: 'Les unis'
+                  min: ''
+                  max: ''
+              4:
+                title: 'Motifs anciens'
+                operator: '='
+                value:
+                  value: 'Motifs anciens'
+                  min: ''
+                  max: ''
+              5:
+                title: 'Motifs floraux'
+                operator: '='
+                value:
+                  value: 'Motifs florales'
+                  min: ''
+                  max: ''
+          plugin_id: search_api_string
       sorts: {  }
       title: Plinthes
       header: {  }
@@ -540,6 +619,7 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
+        - url
         - url.query_args
         - user
         - 'user.node_grants:view'
@@ -564,6 +644,7 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
+        - url
         - url.query_args
         - user
         - 'user.node_grants:view'
