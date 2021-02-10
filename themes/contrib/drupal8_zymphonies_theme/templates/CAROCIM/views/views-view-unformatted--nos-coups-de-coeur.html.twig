@@ -25,7 +25,7 @@
 <div style="margin-bottom: -2em">
     {% for row in carreaux %}            
         <div class="col-md-3 col-sm-6 col-12 loupe" >            
-            <div class="affiche" onmouseover="showLoop({{ row.id }});" onmouseleave="hideLoop({{ row.id }});">              
+            <div class="affiche">              
 
                 <div class="zoomedImage">
                     <!-- Image Mobile-->
@@ -55,7 +55,7 @@
                                 <a class="btn btn-primary" href="{{ 'node/' ~ row.id  }}">
                                     <i class="fa fa-list"></i> Fiche produit
                                 </a>                            
-                                <button type="button" class="btn" data-dismiss="modal" onmouseleave="hideLoop({{ row.id }});"><i class="fa fa-times"></i> Fermer</button>
+                                <button type="button" class="btn" data-dismiss="modal" ><i class="fa fa-times"></i> Fermer</button>
                             </div>
                         </div>
                     </div>
@@ -313,22 +313,6 @@
         } else {
             screen = 'mobile';
         }
-    }
-
-    function showLoop(id) 
-    {
-        if (screen == 'desktop') {
-            let element = document.getElementById('loupe_'+id);    
-            element.style.display = 'inline-block';
-        }            
-    }
-
-    function hideLoop(id) 
-    {
-        if (screen == 'desktop') {
-            let element = document.getElementById('loupe_'+id);    
-            element.style.display = 'none';
-        }            
     }
  
 </script>

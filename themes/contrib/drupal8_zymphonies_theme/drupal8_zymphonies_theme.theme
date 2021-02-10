@@ -6,6 +6,7 @@
  */
 
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\StringTranslation\TranslatableMarkup;
 use Drupal\file\Entity\File;
 
 /**
@@ -487,5 +488,55 @@ function drupal8_zymphonies_theme_preprocess_paragraph(&$variables) {
     $idImage = $paragraph->get('field_image')->target_id;
     $miniature = File::load($idImage);
     $variables['image'] = $miniature->url();
+  }
+}
+  
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function drupal8_zymphonies_theme_form_views_exposed_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  if ($form_id == 'views_exposed_form') {
+    $form['actions']['submit']['#value'] = 'Filtrer';    
+  }
+}
+
+
+function drupal8_zymphonies_theme_preprocess_views_exposed_form(&$variables) {
+  $form =& $variables['form'];
+
+  if (!empty($form['q'])) {
+    $variables['q'] = $form['q'];
+  }
+
+  foreach ($form['#info'] as $info) {
+    if (!empty($info['label'])) {
+      $form[$info['value']]['#title'] = $info['label'];
+    }
+    if (!empty($info['description'])) {
+      $form[$info['value']]['#description'] = $info['description'];
+    }
+  }
+
+  $formats = $variables['form']['format']['#options'];  
+  $currentPath = \Drupal::request()->getRequestUri();
+
+  $options = [];
+  $variables['current_filter'] = 'Tous';
+  foreach($formats as $key => $value) {
+    if ($value instanceof TranslatableMarkup) {
+      $std = new \stdClass();
+      $std->lien = '?format='.$key;
+      $std->texte = $value->render();
+      
+      if (strpos($currentPath, $std->lien) !== false) {
+        $variables['current_filter'] = $std->texte;
+      }
+
+      $options[] = $std;
+    }
+  }
+
+  if (count($options)) {
+    $variables['options'] = $options;        
   }
 }
