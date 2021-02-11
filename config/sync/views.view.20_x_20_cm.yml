@@ -558,35 +558,35 @@ display:
             default_group_multiple: {  }
             group_items:
               1:
-                title: Géométries
+                title: 'Les géométriques'
                 operator: '='
                 value:
                   value: 'Formes géométriques'
                   min: ''
                   max: ''
               2:
-                title: Frises
+                title: 'Les frises'
                 operator: '='
                 value:
                   value: 'Les frises'
                   min: ''
                   max: ''
               3:
-                title: Unis
+                title: 'Les unis'
                 operator: '='
                 value:
                   value: 'Les unis'
                   min: ''
                   max: ''
               4:
-                title: 'Motifs anciens'
+                title: 'Les anciens'
                 operator: '='
                 value:
                   value: 'Motifs anciens'
                   min: ''
                   max: ''
               5:
-                title: 'Motifs floraux'
+                title: 'Les floraux'
                 operator: '='
                 value:
                   value: 'Motifs florales'

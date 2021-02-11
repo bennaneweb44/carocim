@@ -10,7 +10,7 @@ dependencies:
     - search_api.index.gammes_index
     - taxonomy.vocabulary.format
   content:
-    - 'taxonomy_term:format:eee3e78a-ce2a-4b30-8792-b1b473b477a5'
+    - 'taxonomy_term:type:3f7fa325-dc1f-49b7-87f7-4747acdec020'
   module:
     - image
     - search_api
@@ -558,35 +558,35 @@ display:
             default_group_multiple: {  }
             group_items:
               1:
-                title: Géométries
+                title: 'Les géométriques'
                 operator: '='
                 value:
                   value: 'Formes géométriques'
                   min: ''
                   max: ''
               2:
-                title: Frises
+                title: 'Les frises'
                 operator: '='
                 value:
                   value: 'Les frises'
                   min: ''
                   max: ''
               3:
-                title: Unis
+                title: 'Les unis'
                 operator: '='
                 value:
                   value: 'Les unis'
                   min: ''
                   max: ''
               4:
-                title: 'Motifs anciens'
+                title: 'Les anciens'
                 operator: '='
                 value:
                   value: 'Motifs anciens'
                   min: ''
                   max: ''
               5:
-                title: 'Motifs floraux'
+                title: 'Les floraux'
                 operator: '='
                 value:
                   value: 'Motifs florales'
