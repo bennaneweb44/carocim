@@ -10,7 +10,7 @@ dependencies:
     - search_api.index.carreau_index
     - taxonomy.vocabulary.type
   content:
-    - 'taxonomy_term:type:9a2de18e-2322-4338-aada-c8a99d12ad09'
+    - 'taxonomy_term:type:1a3081ad-2ba4-4eae-be44-57f8e733cbb7'
   module:
     - image
     - search_api
@@ -478,7 +478,7 @@ display:
           admin_label: ''
           operator: and
           value:
-            9: 9
+            8: 8
           group: 1
           exposed: false
           expose:

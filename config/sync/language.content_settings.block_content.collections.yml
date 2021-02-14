@@ -1,0 +1,11 @@
+uuid: a0011640-bc48-44d7-908d-6e756ef7cad4
+langcode: fr
+status: true
+dependencies:
+  config:
+    - block_content.type.collections
+id: block_content.collections
+target_entity_type_id: block_content
+target_bundle: collections
+default_langcode: site_default
+language_alterable: false

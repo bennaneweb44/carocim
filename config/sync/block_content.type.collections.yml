@@ -1,0 +1,8 @@
+uuid: ea284e81-8c8b-4246-945c-a9d64450b3a0
+langcode: fr
+status: true
+dependencies: {  }
+id: collections
+label: Collections
+revision: 0
+description: 'Affiche 5 photos paramétrables pour les formats des collections'

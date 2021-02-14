@@ -1,0 +1,33 @@
+uuid: ea51e5b6-a3ac-4985-ae05-55a0a522d932
+langcode: fr
+status: true
+dependencies:
+  config:
+    - block_content.type.collections
+    - field.field.block_content.collections.field_miniature
+    - image.style.medium
+  module:
+    - image
+id: block_content.collections.default
+targetEntityType: block_content
+bundle: collections
+mode: default
+content:
+  field_miniature:
+    weight: 1
+    settings:
+      preview_image_style: medium
+      progress_indicator: throbber
+    third_party_settings: {  }
+    type: image_image
+    region: content
+  info:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  langcode: true
