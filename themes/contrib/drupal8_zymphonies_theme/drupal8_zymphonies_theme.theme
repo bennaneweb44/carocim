@@ -524,7 +524,7 @@ function drupal8_zymphonies_theme_preprocess_views_exposed_form(&$variables) {
   if (isset($form['format'])) {
     $formats = $form['format']['#options'];
     foreach($formats as $key => $value) {
-      if ($value instanceof TranslatableMarkup) {
+      if ($value instanceof TranslatableMarkup && $key != 'All') {
         $std = new \stdClass();
         $std->lien = '?format='.$key;
         $std->texte = $value->render();
@@ -545,7 +545,7 @@ function drupal8_zymphonies_theme_preprocess_views_exposed_form(&$variables) {
 
     $formats = $form['type']['#options'];  
     foreach($formats as $key => $value) {
-      if ($value instanceof TranslatableMarkup) {
+      if ($value instanceof TranslatableMarkup && $key != 'All') {
         $std = new \stdClass();
         $std->lien = '?type='.$key;
         $std->texte = $value->render();
@@ -564,4 +564,57 @@ function drupal8_zymphonies_theme_preprocess_views_exposed_form(&$variables) {
 
   }
 
+}
+
+
+function drupal8_zymphonies_theme_preprocess_views_view_unformatted__les_unis_choix_format(&$variables) {
+
+  // Filters
+  $view = \Drupal\views\Views::getView('les_unis');  
+  $filters = [];
+  if ($view instanceof Drupal\views\ViewExecutable) {
+    $all_filters = $view->getDisplay()->getOption('filters');     
+    $filters = $all_filters['name']['group_info']['group_items'];
+  }
+
+  // Url parameters
+  $parameters = [];
+  foreach($filters as $key => $value) {
+    $parameters[$value['title']] = $key;
+  }
+
+  // Vue
+  $fields = $variables['view']->result;
+  $formats = [];
+
+  foreach ($fields as $data) {
+    $entity = $data->_entity;
+
+    $info = $entity->getFields()['info'];        
+    $field_miniature = $entity->getFields()['field_miniature'];
+
+    if ($info instanceof Drupal\Core\Field\FieldItemList && $field_miniature instanceof Drupal\Core\Field\FieldItemList) {
+      $std = new \stdClass();
+
+      // Label du format en dessous de l'image
+      $std->info = $info->value;
+      
+      // Image du format en cours
+      $id_image = $field_miniature->target_id;
+      $miniature = File::load($id_image);
+      $std->imageFormat = $miniature->url();    
+
+      // Lien
+      $std->lien = '';
+      if ($parameters[$std->info]) {
+        $std->lien = '?format=' . $parameters[$std->info];
+      }
+      
+      $formats[] = $std;
+    }
+  }
+
+  if (count($formats)) {
+    $variables['formats'] = $formats;
+  }
 }
