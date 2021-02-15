@@ -10,7 +10,7 @@ dependencies:
     - search_api.index.gammes_index
     - taxonomy.vocabulary.format
   content:
-    - 'taxonomy_term:format:eee3e78a-ce2a-4b30-8792-b1b473b477a5'
+    - 'taxonomy_term:format:9fe972ba-dfa3-417f-be8d-d272e8d9de5e'
   module:
     - image
     - search_api
@@ -477,7 +477,7 @@ display:
           admin_label: ''
           operator: and
           value:
-            7: 7
+            12: 12
           group: 1
           exposed: false
           expose:
