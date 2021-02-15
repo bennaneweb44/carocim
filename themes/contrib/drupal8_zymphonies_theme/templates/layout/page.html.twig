@@ -162,30 +162,100 @@
   <div class="row">
     {% set site_url = url("<current>") %}
 
+      
+
       <div class="col-md-12 text-center">
         {################### Collections ####################}
-        {% if 'les-unis' in site_url|render|render %}
+        {% if 'les-unis' in site_url|render|render %}          
+          
+          {% if 'choix-format' not in site_url|render|render %}
+            <div class="col-md-12" style="padding-left: 3.5em; padding-bottom: 2em">
+              <a href="{{ url('<front>') }}/nos-produits/collections/les-unis/choix-format" class="btn btn-primary pull-left">Retour</a>
+            </div>        
+          {% endif %}
+
           <h1>Les unis</h1>
         {% elseif 'formes-geometriques' in site_url|render|render %}
-          <h1>Formes géométriques</h1>
-        {% elseif 'les-unis' in site_url|render|render %}
-          <h1>Les unis</h1>
+
+          {% if 'choix-format' not in site_url|render|render %}
+            <div class="col-md-12" style="padding-left: 3.5em; padding-bottom: 2em">
+              <a href="{{ url('<front>') }}/nos-produits/collections/formes-geometriques/choix-format" class="btn btn-primary pull-left">Retour</a>
+            </div>        
+          {% endif %}
+
+          <h1>Les géométriques</h1>
         {% elseif 'motifs-florales' in site_url|render|render %}
-          <h1>Motifs florales</h1>
+
+          {% if 'choix-format' not in site_url|render|render %}
+            <div class="col-md-12" style="padding-left: 3.5em; padding-bottom: 2em">
+              <a href="{{ url('<front>') }}/nos-produits/collections/motifs-florales/choix-format" class="btn btn-primary pull-left">Retour</a>
+            </div>        
+          {% endif %}
+
+          <h1>Les florales</h1>
         {% elseif 'motifs-anciens' in site_url|render|render %}
-          <h1>Motifs anciens</h1>
+
+          {% if 'choix-format' not in site_url|render|render %}
+            <div class="col-md-12" style="padding-left: 3.5em; padding-bottom: 2em">
+              <a href="{{ url('<front>') }}/nos-produits/collections/motifs-anciens/choix-format" class="btn btn-primary pull-left">Retour</a>
+            </div>        
+          {% endif %}
+
+          <h1>Les anciens</h1>
         {% elseif 'les-frises' in site_url|render|render %}
+
+          {% if 'choix-format' not in site_url|render|render %}
+            <div class="col-md-12" style="padding-left: 3.5em; padding-bottom: 2em">
+              <a href="{{ url('<front>') }}/nos-produits/collections/les-frises/choix-format" class="btn btn-primary pull-left">Retour</a>
+            </div>        
+          {% endif %}
+
           <h1>Les frises</h1>
         {##################### Gammes ######################}
         {% elseif '10-x-20-cm' in site_url|render|render %}
+
+          {% if 'choix-format' not in site_url|render|render %}
+            <div class="col-md-12" style="padding-left: 3.5em; padding-bottom: 2em">
+              <a href="{{ url('<front>') }}/nos-produits/gammes/10-x-20-cm/choix-format" class="btn btn-primary pull-left">Retour</a>
+            </div>        
+          {% endif %}
+
           <h1>10 x 20 cm</h1>
         {% elseif '20-x-20-cm' in site_url|render|render %}
+
+          {% if 'choix-format' not in site_url|render|render %}
+            <div class="col-md-12" style="padding-left: 3.5em; padding-bottom: 2em">
+              <a href="{{ url('<front>') }}/nos-produits/gammes/20-x-20-cm/choix-format" class="btn btn-primary pull-left">Retour</a>
+            </div>        
+          {% endif %}
+
           <h1>20 x 20 cm</h1>
         {% elseif '15-x-15-cm' in site_url|render|render %}
+
+          {% if 'choix-format' not in site_url|render|render %}
+            <div class="col-md-12" style="padding-left: 3.5em; padding-bottom: 2em">
+              <a href="{{ url('<front>') }}/nos-produits/gammes/15-x-15-cm/choix-format" class="btn btn-primary pull-left">Retour</a>
+            </div>        
+          {% endif %}
+
           <h1>15 x 15 cm</h1>
         {% elseif 'hexagonal' in site_url|render|render %}
+
+          {% if 'choix-format' not in site_url|render|render %}
+            <div class="col-md-12" style="padding-left: 3.5em; padding-bottom: 2em">
+              <a href="{{ url('<front>') }}/nos-produits/gammes/hexagonal/choix-format" class="btn btn-primary pull-left">Retour</a>
+            </div>        
+          {% endif %}
+
           <h1>Hexagonal</h1>
         {% elseif 'plinthes' in site_url|render|render %}
+
+          {% if 'choix-format' not in site_url|render|render %}
+            <div class="col-md-12" style="padding-left: 3.5em; padding-bottom: 2em">
+              <a href="{{ url('<front>') }}/nos-produits/gammes/plinthes/choix-format" class="btn btn-primary pull-left">Retour</a>
+            </div>        
+          {% endif %}
+
           <h1>Plinthes</h1>
         {% endif %}    
         <span class="spann"></span>
