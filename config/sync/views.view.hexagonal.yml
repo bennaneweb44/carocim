@@ -582,14 +582,14 @@ display:
                 title: 'Les anciens'
                 operator: '='
                 value:
-                  value: 'Motifs anciens'
+                  value: 'Les anciens'
                   min: ''
                   max: ''
               5:
                 title: 'Les floraux'
                 operator: '='
                 value:
-                  value: 'Motifs florales'
+                  value: 'Les floraux'
                   min: ''
                   max: ''
           plugin_id: search_api_string
