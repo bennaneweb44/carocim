@@ -567,6 +567,8 @@ function drupal8_zymphonies_theme_preprocess_views_exposed_form(&$variables) {
 }
 
 
+//######################################## CHOIX FORMAT : COLLECTIONS ##########################################
+
 function drupal8_zymphonies_theme_preprocess_views_view_unformatted__les_unis_choix_format(&$variables) {
 
   // Filters
@@ -668,5 +670,423 @@ function drupal8_zymphonies_theme_preprocess_views_view_unformatted__formes_geom
 
   if (count($formats)) {
     $variables['formats'] = $formats;
+  }
+}
+
+function drupal8_zymphonies_theme_preprocess_views_view_unformatted__les_florales_choix_du_format(&$variables) {
+
+  // Filters
+  $view = \Drupal\views\Views::getView('motifs_florales');  
+  $filters = [];
+  if ($view instanceof Drupal\views\ViewExecutable) {
+    $all_filters = $view->getDisplay()->getOption('filters');     
+    $filters = $all_filters['name']['group_info']['group_items'];
+  }
+
+  // Url parameters
+  $parameters = [];
+  foreach($filters as $key => $value) {
+    $parameters[$value['title']] = $key;
+  }
+
+  // Vue
+  $fields = $variables['view']->result;
+  $formats = [];
+
+  foreach ($fields as $data) {
+    $entity = $data->_entity;
+
+    $info = $entity->getFields()['info'];        
+    $field_miniature = $entity->getFields()['field_miniature'];
+
+    if ($info instanceof Drupal\Core\Field\FieldItemList && $field_miniature instanceof Drupal\Core\Field\FieldItemList) {
+      $std = new \stdClass();
+
+      // Label du format en dessous de l'image
+      $std->info = $info->value;
+      
+      // Image du format en cours
+      $id_image = $field_miniature->target_id;
+      $miniature = File::load($id_image);
+      $std->imageFormat = $miniature->url();    
+
+      // Lien
+      $std->lien = '';
+      if ($parameters[$std->info]) {
+        $std->lien = '?format=' . $parameters[$std->info];
+      }
+      
+      $formats[] = $std;
+    }
+  }
+
+  if (count($formats)) {
+    $variables['formats'] = $formats;
+  }
+}
+
+function drupal8_zymphonies_theme_preprocess_views_view_unformatted__les_anciens_choix_du_format(&$variables) {
+
+  // Filters
+  $view = \Drupal\views\Views::getView('motifs_anciens');  
+  $filters = [];
+  if ($view instanceof Drupal\views\ViewExecutable) {
+    $all_filters = $view->getDisplay()->getOption('filters');     
+    $filters = $all_filters['name']['group_info']['group_items'];
+  }
+
+  // Url parameters
+  $parameters = [];
+  foreach($filters as $key => $value) {
+    $parameters[$value['title']] = $key;
+  }
+
+  // Vue
+  $fields = $variables['view']->result;
+  $formats = [];
+
+  foreach ($fields as $data) {
+    $entity = $data->_entity;
+
+    $info = $entity->getFields()['info'];        
+    $field_miniature = $entity->getFields()['field_miniature'];
+
+    if ($info instanceof Drupal\Core\Field\FieldItemList && $field_miniature instanceof Drupal\Core\Field\FieldItemList) {
+      $std = new \stdClass();
+
+      // Label du format en dessous de l'image
+      $std->info = $info->value;
+      
+      // Image du format en cours
+      $id_image = $field_miniature->target_id;
+      $miniature = File::load($id_image);
+      $std->imageFormat = $miniature->url();    
+
+      // Lien
+      $std->lien = '';
+      if ($parameters[$std->info]) {
+        $std->lien = '?format=' . $parameters[$std->info];
+      }
+      
+      $formats[] = $std;
+    }
+  }
+
+  if (count($formats)) {
+    $variables['formats'] = $formats;
+  }
+}
+
+function drupal8_zymphonies_theme_preprocess_views_view_unformatted__les_frises_choix_du_format(&$variables) {
+
+  // Filters
+  $view = \Drupal\views\Views::getView('les_frises');  
+  $filters = [];
+  if ($view instanceof Drupal\views\ViewExecutable) {
+    $all_filters = $view->getDisplay()->getOption('filters');     
+    $filters = $all_filters['name']['group_info']['group_items'];
+  }
+
+  // Url parameters
+  $parameters = [];
+  foreach($filters as $key => $value) {
+    $parameters[$value['title']] = $key;
+  }
+
+  // Vue
+  $fields = $variables['view']->result;
+  $formats = [];
+
+  foreach ($fields as $data) {
+    $entity = $data->_entity;
+
+    $info = $entity->getFields()['info'];        
+    $field_miniature = $entity->getFields()['field_miniature'];
+
+    if ($info instanceof Drupal\Core\Field\FieldItemList && $field_miniature instanceof Drupal\Core\Field\FieldItemList) {
+      $std = new \stdClass();
+
+      // Label du format en dessous de l'image
+      $std->info = $info->value;
+      
+      // Image du format en cours
+      $id_image = $field_miniature->target_id;
+      $miniature = File::load($id_image);
+      $std->imageFormat = $miniature->url();    
+
+      // Lien
+      $std->lien = '';
+      if ($parameters[$std->info]) {
+        $std->lien = '?format=' . $parameters[$std->info];
+      }
+      
+      $formats[] = $std;
+    }
+  }
+
+  if (count($formats)) {
+    $variables['formats'] = $formats;
+  }
+}
+
+//########################################### CHOIX FORMAT : GAMMES #############################################
+
+function drupal8_zymphonies_theme_preprocess_views_view_unformatted__10_cm_x_20_cm_choix_du_format(&$variables) {
+
+  // Filters
+  $view = \Drupal\views\Views::getView('10_x_20_cm');  
+  $filters = [];
+  if ($view instanceof Drupal\views\ViewExecutable) {
+    $all_filters = $view->getDisplay()->getOption('filters');        
+    $filters = $all_filters['name_1']['group_info']['group_items'];
+  }
+
+  // Url parameters
+  $parameters = [];
+  foreach($filters as $key => $value) {
+    $parameters[$value['title']] = $key;
+  }
+
+  // Vue
+  $fields = $variables['view']->result;
+  $types = [];
+
+  foreach ($fields as $data) {
+    $entity = $data->_entity;
+
+    $info = $entity->getFields()['info'];        
+    $field_miniature = $entity->getFields()['field_miniature_gamme'];
+
+    if ($info instanceof Drupal\Core\Field\FieldItemList && $field_miniature instanceof Drupal\Core\Field\FieldItemList) {
+      $std = new \stdClass();
+
+      // Label du format en dessous de l'image
+      $std->info = $info->value;
+      
+      // Image du format en cours
+      $id_image = $field_miniature->target_id;
+      $miniature = File::load($id_image);
+      $std->imageFormat = $miniature->url();    
+
+      // Lien
+      $std->lien = '';
+      if ($parameters[$std->info]) {
+        $std->lien = '?type=' . $parameters[$std->info];
+      }
+      
+      $types[] = $std;
+    }
+  }
+
+  if (count($types)) {
+    $variables['types'] = $types;
+  }
+}
+
+function drupal8_zymphonies_theme_preprocess_views_view_unformatted__15_cm_x_15_cm_choix_du_format(&$variables) {
+
+  // Filters
+  $view = \Drupal\views\Views::getView('15_x_15_cm');  
+  $filters = [];
+  if ($view instanceof Drupal\views\ViewExecutable) {
+    $all_filters = $view->getDisplay()->getOption('filters');     
+    $filters = $all_filters['name_1']['group_info']['group_items'];
+  }
+
+  // Url parameters
+  $parameters = [];
+  foreach($filters as $key => $value) {
+    $parameters[$value['title']] = $key;
+  }
+
+  // Vue
+  $fields = $variables['view']->result;
+  $types = [];
+
+  foreach ($fields as $data) {
+    $entity = $data->_entity;
+
+    $info = $entity->getFields()['info'];        
+    $field_miniature = $entity->getFields()['field_miniature_gamme'];
+
+    if ($info instanceof Drupal\Core\Field\FieldItemList && $field_miniature instanceof Drupal\Core\Field\FieldItemList) {
+      $std = new \stdClass();
+
+      // Label du format en dessous de l'image
+      $std->info = $info->value;
+      
+      // Image du format en cours
+      $id_image = $field_miniature->target_id;
+      $miniature = File::load($id_image);
+      $std->imageFormat = $miniature->url();    
+
+      // Lien
+      $std->lien = '';
+      if ($parameters[$std->info]) {
+        $std->lien = '?type=' . $parameters[$std->info];
+      }
+      
+      $types[] = $std;
+    }
+  }
+
+  if (count($types)) {
+    $variables['types'] = $types;
+  }
+}
+
+function drupal8_zymphonies_theme_preprocess_views_view_unformatted__20_cm_x_205_cm_choix_du_format(&$variables) {
+
+  // Filters
+  $view = \Drupal\views\Views::getView('20_x_20_cm');  
+  $filters = [];
+  if ($view instanceof Drupal\views\ViewExecutable) {
+    $all_filters = $view->getDisplay()->getOption('filters');     
+    $filters = $all_filters['name_1']['group_info']['group_items'];
+  }
+
+  // Url parameters
+  $parameters = [];
+  foreach($filters as $key => $value) {
+    $parameters[$value['title']] = $key;
+  }
+
+  // Vue
+  $fields = $variables['view']->result;
+  $types = [];
+
+  foreach ($fields as $data) {
+    $entity = $data->_entity;
+
+    $info = $entity->getFields()['info'];        
+    $field_miniature = $entity->getFields()['field_miniature_gamme'];
+
+    if ($info instanceof Drupal\Core\Field\FieldItemList && $field_miniature instanceof Drupal\Core\Field\FieldItemList) {
+      $std = new \stdClass();
+
+      // Label du format en dessous de l'image
+      $std->info = $info->value;
+      
+      // Image du format en cours
+      $id_image = $field_miniature->target_id;
+      $miniature = File::load($id_image);
+      $std->imageFormat = $miniature->url();    
+
+      // Lien
+      $std->lien = '';
+      if ($parameters[$std->info]) {
+        $std->lien = '?type=' . $parameters[$std->info];
+      }
+      
+      $types[] = $std;
+    }
+  }
+
+  if (count($types)) {
+    $variables['types'] = $types;
+  }
+}
+
+function drupal8_zymphonies_theme_preprocess_views_view_unformatted__hexagonal_choix_du_format(&$variables) {
+
+  // Filters
+  $view = \Drupal\views\Views::getView('hexagonal');  
+  $filters = [];
+  if ($view instanceof Drupal\views\ViewExecutable) {
+    $all_filters = $view->getDisplay()->getOption('filters');     
+    $filters = $all_filters['name_1']['group_info']['group_items'];
+  }
+
+  // Url parameters
+  $parameters = [];
+  foreach($filters as $key => $value) {
+    $parameters[$value['title']] = $key;
+  }
+
+  // Vue
+  $fields = $variables['view']->result;
+  $types = [];
+
+  foreach ($fields as $data) {
+    $entity = $data->_entity;
+
+    $info = $entity->getFields()['info'];        
+    $field_miniature = $entity->getFields()['field_miniature_gamme'];
+
+    if ($info instanceof Drupal\Core\Field\FieldItemList && $field_miniature instanceof Drupal\Core\Field\FieldItemList) {
+      $std = new \stdClass();
+
+      // Label du format en dessous de l'image
+      $std->info = $info->value;
+      
+      // Image du format en cours
+      $id_image = $field_miniature->target_id;
+      $miniature = File::load($id_image);
+      $std->imageFormat = $miniature->url();    
+
+      // Lien
+      $std->lien = '';
+      if ($parameters[$std->info]) {
+        $std->lien = '?type=' . $parameters[$std->info];
+      }
+      
+      $types[] = $std;
+    }
+  }
+
+  if (count($types)) {
+    $variables['types'] = $types;
+  }
+}
+
+function drupal8_zymphonies_theme_preprocess_views_view_unformatted__plinthes_choix_du_format(&$variables) {
+
+  // Filters
+  $view = \Drupal\views\Views::getView('plinthes');  
+  $filters = [];
+  if ($view instanceof Drupal\views\ViewExecutable) {
+    $all_filters = $view->getDisplay()->getOption('filters');     
+    $filters = $all_filters['name_1']['group_info']['group_items'];
+  }
+
+  // Url parameters
+  $parameters = [];
+  foreach($filters as $key => $value) {
+    $parameters[$value['title']] = $key;
+  }
+
+  // Vue
+  $fields = $variables['view']->result;
+  $formats = [];
+
+  foreach ($fields as $data) {
+    $entity = $data->_entity;
+
+    $info = $entity->getFields()['info'];        
+    $field_miniature = $entity->getFields()['field_miniature_gamme'];
+
+    if ($info instanceof Drupal\Core\Field\FieldItemList && $field_miniature instanceof Drupal\Core\Field\FieldItemList) {
+      $std = new \stdClass();
+
+      // Label du format en dessous de l'image
+      $std->info = $info->value;
+      
+      // Image du format en cours
+      $id_image = $field_miniature->target_id;
+      $miniature = File::load($id_image);
+      $std->imageFormat = $miniature->url();    
+
+      // Lien
+      $std->lien = '';
+      if ($parameters[$std->info]) {
+        $std->lien = '?type=' . $parameters[$std->info];
+      }
+      
+      $types[] = $std;
+    }
+  }
+
+  if (count($types)) {
+    $variables['types'] = $types;
   }
 }

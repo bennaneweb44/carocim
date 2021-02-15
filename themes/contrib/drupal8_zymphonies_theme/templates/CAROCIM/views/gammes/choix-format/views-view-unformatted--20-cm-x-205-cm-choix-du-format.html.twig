@@ -1,0 +1,156 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display a view of unformatted rows.
+ *
+ * Available variables:
+ * - title: The title of this group of rows. May be empty.
+ * - rows: A list of the view's row items.
+ *   - attributes: The row's HTML attributes.
+ *   - content: The row's content.
+ * - view: The view object.
+ * - default_row_class: A flag indicating whether default classes should be
+ *   used on rows.
+ *
+ * @see template_preprocess_views_view_unformatted()
+ *
+ * @ingroup themeable
+ */
+#}
+
+<div class="row">    
+    {% for type in types %}  
+        <div class="col-md-3 col-sm-6 col-12 loupe" style="margin-top: 3em">            
+            <div class="affiche">
+                <div class="zoomedImage">
+                    <a href="{{ url('<front>') }}/nos-produits/gammes/20-x-20-cm{{type.lien}}" title="Fiche produit">
+                        <img src="{{ type.imageFormat }}" width="100%" height="100%" style="border: 1px solid #000" />           
+                    </a>
+                </div>
+            </div>
+            <div class="text-center" style="height: 45px">
+                <a href="{{ url('<front>') }}/nos-produits/gammes/20-x-20-cm{{type.lien}}" title="Fiche produit" style="font-size: 18px; font-style: italic">
+                    {{ type.info }}
+                </a>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+
+
+<style>    
+    
+    .affiche {
+        display: block;
+        position: relative;     
+        height: 18em;
+    }
+
+    .zoomedImage {
+        position: absolute;
+        padding: 2em;
+        bottom: 0.7em;
+    }
+
+    .titreCarreau {
+        position: absolute;
+        bottom: -1.5em;
+        width: -webkit-fill-available;
+    }
+
+    /* Desktops */
+    @media (min-width: 1281px) {
+
+        .zoomedImage {
+            max-width: 100%;
+            -webkit-transition: all 1.5s ease; /* Safari and Chrome */
+            -moz-transition: all 1.5s ease; /* Firefox */
+            -ms-transition: all 1.5s ease; /* IE 9 */
+            -o-transition: all 1.5s ease; /* Opera */
+            transition: all 1.5s ease;
+        }
+
+        .zoomedImage:hover {
+            -webkit-transform: scale(1.10); /* Safari and Chrome */
+            -moz-transform: scale(1.10); /* Firefox */
+            -ms-transform: scale(1.10); /* IE 9 */
+            -o-transform: scale(1.10); /* Opera */
+            transform: scale(1.10);
+        }
+    }
+
+    /* Laptops, Desktops */
+    @media (min-width: 1025px) and (max-width: 1280px) {    
+
+        .zoomedImage {
+            max-width: 100%;
+            -webkit-transition: all 1.5s ease; /* Safari and Chrome */
+            -moz-transition: all 1.5s ease; /* Firefox */
+            -ms-transition: all 1.5s ease; /* IE 9 */
+            -o-transition: all 1.5s ease; /* Opera */
+            transition: all 1.5s ease;
+        }
+
+        .zoomedImage:hover {
+            -webkit-transform: scale(1.10); /* Safari and Chrome */
+            -moz-transform: scale(1.10); /* Firefox */
+            -ms-transform: scale(1.10); /* IE 9 */
+            -o-transform: scale(1.10); /* Opera */
+            transform: scale(1.10);
+        }
+    }
+
+    /***************************************************************/
+
+    /* Tablets, Ipads (portrait) */
+    @media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+        .titreCarreau {
+            width: 70% !important;
+        }
+        .zoomedImage {
+            position: absolute;
+            padding: 4em;
+            bottom: -2.7em;
+        }
+    }
+
+    /* Tablets, Ipads (landscape) */
+    @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {         
+        .zoomedImage {
+            padding: 1em;
+        }
+    }
+
+    /* Low Resolution Tablets, Mobiles (Landscape) */
+    @media (min-width: 481px) and (max-width: 767px) {
+            
+        .loupe {
+            width: 48.5%;
+            float: left;
+            padding-top: 3em;
+        }
+        .titreCarreau {
+            width: 80% !important;
+        }
+        .zoomedImage {
+            padding: 1.5em 3em;
+        }
+    }
+
+    /* Mobiles (Portrait) */
+    @media (min-width: 320px) and (max-width: 480px) {
+
+        .loupe {
+            padding-top: 6em;
+            padding-right: 3em;
+            padding-left: 3em;
+        }
+        .titreCarreau {
+            width: 80% !important;
+        }
+        .zoomedImage {
+            padding: 1em;            
+        }
+    }
+    
+</style>
