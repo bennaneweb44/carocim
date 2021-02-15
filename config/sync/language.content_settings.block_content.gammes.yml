@@ -1,0 +1,11 @@
+uuid: 49b7cc3d-2a50-4f2e-acee-3e6d78b47392
+langcode: fr
+status: true
+dependencies:
+  config:
+    - block_content.type.gammes
+id: block_content.gammes
+target_entity_type_id: block_content
+target_bundle: gammes
+default_langcode: site_default
+language_alterable: false

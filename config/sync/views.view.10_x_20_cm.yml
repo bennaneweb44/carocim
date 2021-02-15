@@ -558,10 +558,10 @@ display:
             default_group_multiple: {  }
             group_items:
               1:
-                title: 'Les géométrieques'
+                title: 'Les géométriques'
                 operator: '='
                 value:
-                  value: 'Formes géométriques'
+                  value: 'Les géométriques'
                   min: ''
                   max: ''
               2:

@@ -10,7 +10,7 @@ dependencies:
     - search_api.index.gammes_index
     - taxonomy.vocabulary.format
   content:
-    - 'taxonomy_term:type:3f7fa325-dc1f-49b7-87f7-4747acdec020'
+    - 'taxonomy_term:format:eee3e78a-ce2a-4b30-8792-b1b473b477a5'
   module:
     - image
     - search_api
@@ -561,7 +561,7 @@ display:
                 title: 'Les géométriques'
                 operator: '='
                 value:
-                  value: 'Formes géométriques'
+                  value: 'Les géométriques'
                   min: ''
                   max: ''
               2:

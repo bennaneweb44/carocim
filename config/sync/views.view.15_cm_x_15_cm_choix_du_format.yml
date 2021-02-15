@@ -1,16 +1,16 @@
-uuid: 4823b24f-447a-41f2-831e-fa01742938da
+uuid: c9ff2e3d-03db-4355-9ef3-c2330a313d2e
 langcode: fr
 status: true
 dependencies:
   config:
-    - block_content.type.collections
+    - block_content.type.gammes
     - field.storage.block_content.field_miniature
     - image.style.medium
   module:
     - block_content
     - image
-id: formes_geometriques_choix_du_format
-label: 'Les géométriques : choix du format'
+id: 15_cm_x_15_cm_choix_du_format
+label: '15 cm x 15 cm : choix du format'
 module: views
 description: 'Vue intermédiaire affichant les formats avant de lister les unis'
 tag: ''
@@ -269,16 +269,46 @@ display:
           id: type
           table: block_content_field_data
           field: type
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: in
           value:
-            collections: collections
+            gammes: gammes
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
           entity_type: block_content
           entity_field: type
           plugin_id: bundle
-          expose:
-            operator_limit_selection: false
-            operator_list: {  }
       sorts: {  }
-      title: 'Les géométriques : choix du format'
+      title: '15 cm x 15 cm : choix du type'
       header: {  }
       footer: {  }
       empty: {  }
@@ -300,7 +330,7 @@ display:
     position: 1
     display_options:
       display_extenders: {  }
-      path: nos-produits/collections/formes-geometriques/choix-format
+      path: nos-produits/gammes/15-x-15-cm/choix-type
     cache_metadata:
       max-age: -1
       contexts:

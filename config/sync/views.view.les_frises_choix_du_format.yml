@@ -1,4 +1,4 @@
-uuid: 4823b24f-447a-41f2-831e-fa01742938da
+uuid: ce68496e-8e56-4c0d-82b4-ba4e9b5caa81
 langcode: fr
 status: true
 dependencies:
@@ -9,8 +9,8 @@ dependencies:
   module:
     - block_content
     - image
-id: formes_geometriques_choix_du_format
-label: 'Les géométriques : choix du format'
+id: les_frises_choix_du_format
+label: 'Les frises : choix du format'
 module: views
 description: 'Vue intermédiaire affichant les formats avant de lister les unis'
 tag: ''
@@ -278,7 +278,7 @@ display:
             operator_limit_selection: false
             operator_list: {  }
       sorts: {  }
-      title: 'Les géométriques : choix du format'
+      title: 'Les frises : choix du format'
       header: {  }
       footer: {  }
       empty: {  }
@@ -300,7 +300,7 @@ display:
     position: 1
     display_options:
       display_extenders: {  }
-      path: nos-produits/collections/formes-geometriques/choix-format
+      path: nos-produits/collections/les-frises/choix-format
     cache_metadata:
       max-age: -1
       contexts:

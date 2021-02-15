@@ -1,0 +1,8 @@
+uuid: 57dbb1bd-8886-40f1-95b8-5f9ae989fc31
+langcode: fr
+status: true
+dependencies: {  }
+id: gammes
+label: Gammes
+revision: 0
+description: 'Affiche 5 photos paramétrables pour les collections du format en cours'

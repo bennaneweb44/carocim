@@ -1,0 +1,33 @@
+uuid: 96c60b5d-2a68-40a5-a8e5-655c0088ed5b
+langcode: fr
+status: true
+dependencies:
+  config:
+    - block_content.type.gammes
+    - field.field.block_content.gammes.field_miniature_gamme
+    - image.style.medium
+  module:
+    - image
+id: block_content.gammes.default
+targetEntityType: block_content
+bundle: gammes
+mode: default
+content:
+  field_miniature_gamme:
+    weight: 1
+    settings:
+      preview_image_style: medium
+      progress_indicator: throbber
+    third_party_settings: {  }
+    type: image_image
+    region: content
+  info:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  langcode: true
