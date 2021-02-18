@@ -29,6 +29,10 @@
     img.hidden-md-up, img.hidden-sm-down {
         border: 2px solid #000;
         cursor: pointer;
+        min-height: 14em;
+        max-height: 14em;
+        min-width: 14em;
+        max-width: 14em;
     }
 
     .modal-body > img {
@@ -52,32 +56,11 @@
         color: #eee;
         font-size: 16px;
     }
-    /*.imageLoupe {
-        display: none;
-        cursor: pointer;
-
-        z-index: 5;
-        position: absolute;
-        left: 50%;
-        top: 57.6%;
-        transform: translate( -50%, -50% );
-        padding: 3px 15px 3px 25px;
-        color: #fff;
-        background-color: rgba(0, 0, 0, 0.4);
-        font-family: "Font Awesome 5 Free";
-        font-weight: 900;        
-        content: "\f002";
-        
-        height: 30px;
-        width: 60px;
-        
-        padding-left: 6px;
-        font-size: 16px !important;
-        border-radius: 5px 5px 5px 5px;
-    }*/
     
     .affiche {
-        display: block;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         position: relative;     
         height: 17em;
     }
@@ -208,6 +191,12 @@
         .titreCarreau {
             width: 70% !important;
         }
+        img.hidden-md-up, img.hidden-sm-down {
+            min-height: 18em;
+            max-height: 18em;
+            min-width: 18em;
+            max-width: 18em;
+        }
     }
 
     /* Tablets, Ipads (landscape) */
@@ -231,6 +220,12 @@
         }    
         .titreCarreau {
             width: 90% !important;
+        }
+        img.hidden-md-up, img.hidden-sm-down {
+            min-height: 11em;
+            max-height: 11em;
+            min-width: 11em;
+            max-width: 11em;
         }
     }
 
@@ -262,6 +257,12 @@
         }
         .titreCarreau {
             width: 80% !important;
+        }
+        img.hidden-md-up, img.hidden-sm-down {
+            min-height: 18em;
+            max-height: 18em;
+            min-width: 18em;
+            max-width: 18em;
         }
     }
 
@@ -296,6 +297,12 @@
 
         .titreCarreau {
             width: 70% !important;
+        }
+        img.hidden-md-up, img.hidden-sm-down {
+            min-height: 18em;
+            max-height: 18em;
+            min-width: 18em;
+            max-width: 18em;
         }
     }
     
