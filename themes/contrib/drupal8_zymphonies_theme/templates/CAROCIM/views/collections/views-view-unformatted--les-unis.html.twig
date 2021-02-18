@@ -18,7 +18,7 @@
  */
 #}
 
-<div class="col-md-10">    
+<div class="col-md-10" style="position: initial">    
     {% for row in rows %}  
         {{ row.content }}  
     {% endfor %}
@@ -174,10 +174,10 @@
     @media (min-width: 768px) and (max-width: 1024px) {
     
         .hidden-sm-down {
-            display: none;   
+            display: block;   
         }
         .hidden-md-up {
-            display: block;
+            display: none;
         }  
         .loupe {
             margin-top: 3.5em;
