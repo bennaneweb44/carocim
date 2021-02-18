@@ -517,6 +517,33 @@ function drupal8_zymphonies_theme_preprocess_views_exposed_form(&$variables) {
     }
   }
 
+  ///////////////////// FORMATS : LISTE DEROULANTE MOBILE ////////////////////
+  $filterType = '';
+  $filterCollection = '';
+  if (isset($form['format'])) {
+    $filterType = 'format';
+    $filterCollection = 'tous_formats';
+  } elseif (isset($form['type'])) {
+    $filterType = 'type';
+    $filterCollection = 'tous_types';
+  } 
+
+  foreach($form[$filterType]['#options'] as $key => $value) {    
+    if ($key != "All") {
+      $std = new \stdClass();
+      $std->id = $key;
+      if ($value instanceof Drupal\Core\StringTranslation\TranslatableMarkup) {
+        $std->label = $value->render();
+      }      
+
+      $variables[$filterCollection][] = $std;
+    }
+  } 
+  
+  // selected filter
+  $variables['selected_value'] = $form[$filterType]['#value'];
+  ////////////////////////////////////////////////////////////////////////////
+  
   $currentPath = \Drupal::request()->getRequestUri();
   $variables['current_filter'] = 'Tous';
   $options = [];  

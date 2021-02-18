@@ -22,7 +22,26 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 <div class="hidden-sm hidden-md hidden-lg hidden-xl col-md-2 text-center">
-    {{ form }}        
+    <div class="row" style="margin-top: 2em; margin-bottom: 2em">
+        {% set site_url = url('<current>') %}   
+        {% if tous_formats is defined %}
+            <div class="col-xs-offset-2 col-xs-8">            
+                <select class="form-control" id="selectFilterMobile">
+                    {% for format in tous_formats %}        
+                        <option {% if selected_value == format.id %} selected {% endif %} value="{{ site_url }}?format={{ format.id }}">{{ format.label }}</option>                
+                    {% endfor %}
+                </select>
+            </div>
+        {% elseif tous_types is defined %}
+            <div class="col-xs-offset-2 col-xs-8">                        
+                <select class="form-control" id="selectFilterMobile">
+                    {% for type in tous_types %}        
+                        <option {% if selected_value == type.id %} selected {% endif %} value="{{ site_url }}?type={{ type.id }}">{{ type.label }}</option>                
+                    {% endfor %}
+                </select>
+            </div>
+        {% endif %}  
+    </div>
 </div>
 
 <div class="hidden-xs col-md-2">
@@ -41,4 +60,10 @@
 <script>
     let currentFilterText = $('#current_filter').val();  
     $('.spann').append(' (' + currentFilterText + ') ');
+
+    $('#selectFilterMobile').on('change', function(e) {
+        e.preventDefault();
+        // redirect to filtered page
+        window.location = $('#selectFilterMobile option:selected').val();
+    });
 </script>
