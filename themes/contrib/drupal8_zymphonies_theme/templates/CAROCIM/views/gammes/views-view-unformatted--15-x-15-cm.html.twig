@@ -18,14 +18,17 @@
  */
 #}
 
-<div class="col-md-10">    
+<div class="col-md-10 col10">    
     {% for row in rows %}  
         {{ row.content }}  
     {% endfor %}
 </div>
 
-
 <style>    
+
+    .col10 {
+        display: flow-root;
+    }
 
     img.hidden-md-up, img.hidden-sm-down {
         border: 2px solid #000;
