@@ -28,7 +28,7 @@ class Outils
 
       // Ajoute "..." à la fin
       $chaine .= '...';
-    }
+    }  
 
     return $chaine;
   }
