@@ -1,0 +1,31 @@
+uuid: 466e3fd1-d80d-4516-b54a-9adfc9ec22ce
+langcode: fr
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:6dd7e935-e628-490d-9b00-0c56d4c3538c'
+  module:
+    - block_content
+    - system
+  theme:
+    - drupal8_zymphonies_theme
+id: informationscarocim
+theme: drupal8_zymphonies_theme
+region: sidebar_first
+weight: 0
+provider: null
+plugin: 'block_content:6dd7e935-e628-490d-9b00-0c56d4c3538c'
+settings:
+  id: 'block_content:6dd7e935-e628-490d-9b00-0c56d4c3538c'
+  label: 'Informations CAROCIM'
+  provider: block_content
+  label_display: visible
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    pages: /contact
+    negate: false
+    context_mapping: {  }

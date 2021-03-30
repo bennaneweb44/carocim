@@ -1,0 +1,31 @@
+uuid: e5971320-afa1-4b39-96b3-a7cf465c5f16
+langcode: fr
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:6dd7e935-e628-490d-9b00-0c56d4c3538c'
+  module:
+    - block_content
+    - system
+  theme:
+    - drupal8_zymphonies_theme
+id: informationscarocim_2
+theme: drupal8_zymphonies_theme
+region: content
+weight: 0
+provider: null
+plugin: 'block_content:6dd7e935-e628-490d-9b00-0c56d4c3538c'
+settings:
+  id: 'block_content:6dd7e935-e628-490d-9b00-0c56d4c3538c'
+  label: 'Nous contacter'
+  provider: block_content
+  label_display: visible
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    pages: /contact
+    negate: false
+    context_mapping: {  }
