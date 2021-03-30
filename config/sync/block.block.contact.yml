@@ -1,23 +1,23 @@
-uuid: 650251a6-a4af-4b3a-89a1-350a297c5679
+uuid: e8c38a1a-333e-4124-824f-b363b648941e
 langcode: fr
-status: false
+status: true
 dependencies:
   content:
-    - 'block_content:basic:a76ae179-226f-4269-9659-a69180259682'
+    - 'block_content:basic:e0875004-198d-4a71-9951-a191080afadd'
   module:
     - block_content
     - system
   theme:
     - drupal8_zymphonies_theme
-id: nouscontacter
+id: contact
 theme: drupal8_zymphonies_theme
 region: content
-weight: -6
+weight: -7
 provider: null
-plugin: 'block_content:a76ae179-226f-4269-9659-a69180259682'
+plugin: 'block_content:e0875004-198d-4a71-9951-a191080afadd'
 settings:
-  id: 'block_content:a76ae179-226f-4269-9659-a69180259682'
-  label: 'Nous contacter'
+  id: 'block_content:e0875004-198d-4a71-9951-a191080afadd'
+  label: Contact
   provider: block_content
   label_display: visible
   status: true
