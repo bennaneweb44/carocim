@@ -1,9 +1,9 @@
-uuid: edb685ab-048f-48e1-a645-104253c7a7ed
+uuid: 650251a6-a4af-4b3a-89a1-350a297c5679
 langcode: fr
 status: true
 dependencies:
   content:
-    - 'block_content:basic:3fd5e1c9-5b1e-4d34-a093-ee515e8570ed'
+    - 'block_content:basic:a76ae179-226f-4269-9659-a69180259682'
   module:
     - block_content
     - system
@@ -12,11 +12,11 @@ dependencies:
 id: nouscontacter
 theme: drupal8_zymphonies_theme
 region: content
-weight: -7
+weight: -6
 provider: null
-plugin: 'block_content:3fd5e1c9-5b1e-4d34-a093-ee515e8570ed'
+plugin: 'block_content:a76ae179-226f-4269-9659-a69180259682'
 settings:
-  id: 'block_content:3fd5e1c9-5b1e-4d34-a093-ee515e8570ed'
+  id: 'block_content:a76ae179-226f-4269-9659-a69180259682'
   label: 'Nous contacter'
   provider: block_content
   label_display: visible
