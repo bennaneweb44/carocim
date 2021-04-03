@@ -37,7 +37,14 @@
         <a  data-toggle="dropdown">{{ item.title }}</a>
       {% else %}
         <li{{ item.attributes }}>
-        {{ link(item.title, item.url) }}
+        {% if item.title == 'Collections' or item.title == 'Gammes' %}
+          <a class="has-submenu">
+            {{ item.title }}
+          </a>          
+        {% else %}
+          {{ link(item.title, item.url) }}
+        {% endif %}
+        
       {% endif %}
       {% if item.below %}
         {{ menus.menu_links(item.below, attributes.removeClass('nav', 'navbar-nav'), menu_level + 1) }}
